@@ -1,0 +1,636 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>TCP:IP Networking.md</title><link href='http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='http://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:  #ffffff; --text-color:  #333333; --code-block-bg-color: inherit; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { background-color: rgb(181, 214, 252); text-shadow: none; background-position: initial initial; background-repeat: initial initial; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+.typora-export #write { margin: 0px auto; }
+#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
+#write li > table:first-child { margin-top: -20px; }
+img { max-width: 100%; vertical-align: middle; }
+input, button, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+::before, ::after, * { box-sizing: border-box; }
+#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
+#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
+.typora-export p { white-space: normal; }
+.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 80px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+pre { white-space: pre-wrap; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
+.md-fences.mock-cm { white-space: pre-wrap; }
+.show-fences-line-number .md-fences { padding-left: 0px; }
+.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
+.footnotes + .footnotes { margin-top: -1em; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background-color: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; background-position: initial initial; background-repeat: initial initial; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li p, li .mathjax-block { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
+@media print { 
+  html, body { border: 1px solid transparent; height: 99%; break-after: avoid-page; break-before: avoid-page; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
+  p { orphans: 4; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid-page; }
+  .typora-export #write::after { height: 0px; }
+  @page { margin: 20mm 0mm; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
+p + .mathjax-block { margin-top: -1.143rem; }
+.mathjax-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
+.task-list { list-style-type: none; }
+.task-list-item { position: relative; padding-left: 1em; }
+.task-list-item input { position: absolute; top: 0px; left: 0px; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc::after, .md-toc-content::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+.md-tag { opacity: 0.5; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: monospace; }
+code { text-align: left; }
+h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
+a.md-print-anchor { border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background-color: transparent !important; text-shadow: initial !important; background-position: initial initial !important; background-repeat: initial initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: monospace; }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+
+
+@include-when-export url(http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+@include-when-export url(http://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext);
+
+:root {
+	--control-text-color: #777;
+}
+
+/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+@charset "UTF-8";
+@font-face {
+	font-family: 'Merriweather';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Merriweather Light'), local('Merriweather-Light'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-Light.ttf);
+}
+@font-face {
+	font-family: 'Merriweather';
+	font-style: normal;
+	font-weight: 900;
+	src: local('Merriweather Heavy'), local('Merriweather-Heavy'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-Bold.ttf);
+}
+@font-face {
+	font-family: 'Merriweather';
+	font-style: italic;
+	font-weight: 300;
+	src: local('Merriweather Light Italic'), local('Merriweather-LightItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-LightItalic.ttf);
+}
+@font-face {
+	font-family: 'Merriweather';
+	font-style: italic;
+	font-weight: 900;
+	src: local('Merriweather Heavy Italic'), local('Merriweather-HeavyItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-BoldItalic.ttf);
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Lato Light'), local('Lato-Light'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Light.ttf);
+}
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 900;
+	src: local('Lato Black'), local('Lato-Blcak'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Black.ttf);
+}
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: bold;
+	src: local('Lato Black'), local('Lato-Blcak'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Black.ttf);
+}
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 900;
+	src: local('Lato BlackItalic'), local('Lato-BlackItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-BlackItalic.ttf);
+}
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: bold;
+	src: local('Lato BlackItalic'), local('Lato-BlackItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-BlackItalic.ttf);
+}
+
+h1,
+.h1,
+.f1 {
+	font-size: 2rem;
+	line-height: 2.5rem;
+}
+h2,
+.h2,
+.f2 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+h3,
+.h3,
+.f3 {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+p,
+.p,
+.f4,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul,
+pre[cid],
+div[cid],
+#typora-source {
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+}
+
+h4 {
+	font-size: 1.13rem;
+}
+/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+body {
+	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", Serif;
+	line-height: 1.5rem;
+	font-weight: 400;
+}
+
+#write {
+	max-width: 914px;
+	color: #333;
+}
+
+img {
+	width: auto;
+	max-width: 100%;
+}
+body {
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.md-table-edit {
+	background: #ededed;
+    padding-top: 4px;
+}
+
+table {
+	width: 100%;
+	font-size: 1.125rem;
+}
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td,
+table > tfoot > tr > th,
+table > tfoot > tr > td {
+	padding: 12px;
+	line-height: 1.2;
+	vertical-align: top;
+	border-top: 1px solid #333;
+}
+table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #333;
+}
+table > caption + thead > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > th,
+table > thead:first-child > tr:first-child > td {
+	border-top: 0;
+}
+table > tbody + tbody {
+	border-top: 2px solid #333;
+}
+p {
+	font-weight: 300;
+	line-height: 1.5;
+}
+abbr {
+	border-bottom: 1px black dotted;
+	cursor: help;
+}
+pre,
+code {
+	font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+code,
+.md-fences  {
+	color: #7a7a7a;
+}
+
+.md-fences .CodeMirror.CodeMirror-wrap {
+	top: -1.5em;
+    margin-bottom: -1.5em;
+}
+
+.md-fences {
+	padding: 1.125em;
+	margin-bottom: 0.88em;
+	font-size: 1rem;
+	border: 1px solid #7a7a7a;
+}
+
+blockquote {
+	padding: 1.33em;
+	font-style: italic;
+	border-left: 5px solid #7a7a7a;
+	color: #555;
+}
+blockquote em {
+	color: #000;
+}
+blockquote footer {
+	font-size: .85rem;
+	font-style: normal;
+	background-color: #fff;
+	color: #7a7a7a;
+	border-color: transparent;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 900;
+	line-height: 1.2;
+	margin: 1em 0 0.5em;
+}
+@media screen and (min-width: 48em) {
+	.h1,
+	h1 {
+		font-size: 3.250rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.298rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.625rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+	#write>h4.md-focus:before,
+	#write>h5.md-focus:before,
+	#write>h6.md-focus:before{
+		top: 1px;
+	}
+	.p,
+	p,
+	li {
+		font-size: 1.25rem;
+		line-height: 1.8;
+	}
+	table {
+		font-size: 1.25rem;
+	}
+}
+@media (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+}
+@media screen and (min-width: 64em) {
+	.h1,
+	h1 {
+		font-size: 4.498rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.29rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.9rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.591rem;
+	}
+	#write>h4.md-focus:before{
+		top:4px;
+	}
+}
+a {
+	color: #463F5C;
+	text-decoration: underline;
+}
+
+#write {
+	padding-top: 2rem;
+}
+
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+	white-space: pre;
+	border: 0px;
+
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+	width: 100vw;
+	max-width: calc(100% + 60px);
+
+	margin-left: -30px;
+	margin-bottom: 2em;
+	margin-top: -2010px;
+	padding-top: 2000px;
+	padding-bottom: 10px;
+	line-height: 1.5em;
+	color: #7a7a7a;
+	background-color: #fafafa;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 300;
+	clear: both;
+	padding-left: 0;
+	font-size:1.125rem;
+}
+.md-image>.md-meta {
+	color: #463F5C
+}
+.footnotes {
+	font-size:1.1rem;
+}
+.md-tag {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+.code-tooltip {
+	background: white;
+}
+.code-tooltip-content {
+	font-size: 1.1rem;
+}
+
+.task-list{
+	padding-left: 0;
+}
+
+.task-list-item {
+	padding-left:34px;
+}
+
+.task-list-item input{
+	width: 1.25rem;
+	height: 1.25rem;
+	display: block;
+	-webkit-appearance: initial;
+	top: -2px;
+}
+
+.task-list-item input:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.task-list-item input:before{
+	border: 1px solid #555;
+	border-radius: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: #fff;
+	content: ' ';
+	transition: background-color 200ms ease-in-out;
+	display: block;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before{
+	background: #333;
+	border-width: 2px;
+	display:inline-block;
+	transition: background-color 200ms ease-in-out;
+}
+
+.task-list-item input:checked:after,
+.task-list-item input[checked]:after {
+	opacity: 1;
+}
+
+.task-list-item input:after {
+	opacity: 1;
+	-webkit-transition: opacity 0.05s ease-in-out;
+	-moz-transition: opacity 0.05s ease-in-out;
+	transition: opacity 0.05s ease-in-out;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 0.4375rem;
+	left: 0.28125rem;
+	width: 0.9375rem;
+	height: 0.5rem;
+	border: 3px solid #fff;
+	border-top: 0;
+	border-right: 0;
+	content: ' ';
+	opacity: 0;
+}
+
+.md-tag {
+	color:inherit;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+#typora-sidebar {
+	font-size:1rem !important;
+}
+
+.html-for-mac #typora-sidebar {
+	background-color:white;
+}
+
+.outline-content li, .outline-content ul {
+	font-size:1rem !important;
+}
+
+.outline-title {
+	line-height: inherit;
+	margin-top: 10px;
+}
+
+.outline-expander {
+	width: 18px;
+}
+
+.outline-expander:before {
+ 	content: "+";
+	font-family: inherit;
+	color: rgb(108, 108, 108); 
+  	font-size: 1.5rem;
+ 	top: 0.1rem;
+}
+
+.outline-expander:hover:before {
+	content: "+";
+}
+
+.outline-item-open>.outline-item>.outline-expander:before{
+	content: "-";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.os-windows #typora-source {
+	font-family: inherit;
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.preference-item-hint {
+	margin-top: 16px;
+}
+
+.md-diagram-panel {
+	margin-top: 24px;
+	margin-left: -1.2em;
+}
+
+
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-mac show-fences-line-number'><h1><a name='header-n0' class='md-header-anchor '></a>TCP/IP Networking</h1><blockquote><p><a href='https://www.youtube.com/watch?v=Hgmaot-jjuI'>Week 1</a></p></blockquote><h2><a name='header-n256' class='md-header-anchor '></a>Architecture</h2><ul><li>Textbook : <em>Chapter 2</em></li><li>slides : <code>archi.pdf</code></li></ul><h3><a name='header-n119' class='md-header-anchor '></a>Intro</h3><p>TCP/IP is a <strong>layered architecture</strong>, with each layer communicating with the one above and below it.</p><p><img src='img/1.png' alt='1' /></p><p><u><em>Figure 1</em> : The network stack</u> </p><p>The <strong>application layer</strong> is a communication layer (e.g. HTTP). </p><p>The <strong>transport layer</strong> helps the application layer by providing a programming interface :</p><ul><li><p>TCP (Transmission Control Protocol)</p><ul><li>reliable</li><li>stream service (sequence guarantee)</li><li>unit of information = byte</li></ul></li><li><p>UDP (User Datagram Protocol)</p><ul><li>unreliable</li><li>no sequence guarantee</li><li>unit of information = message</li></ul></li></ul><p>The <strong>network layer</strong> provides full connectivity.</p><p>The <strong>link layer</strong> (Medium Access Control (<strong>MAC</strong>) layer) interconnects a small number of devices without any configuration into a local network. </p><p>The <strong>physical layer</strong> transforms bits and bytes into EM waves.</p><p>data is broken into chunks called <strong>IP packets</strong> (<span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-4-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.808ex" height="2.113ex" viewBox="0 -692 778.5 909.7" role="img" focusable="false" style="vertical-align: -0.505ex;"><defs><path stroke-width="1" id="E4-MJMAIN-2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E4-MJMAIN-2264" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-4">\le</script> 1500 bytes) because it reduces the buffer required in routers, and reduces the delay (<em>note</em> it does not reduce bit error rates or increase capacity).</p><h3><a name='header-n118' class='md-header-anchor '></a>Addresses vs Names</h3><ul><li><strong>IPv4</strong> =&gt; 32 bit adresses (<span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-7-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.039ex" height="2.413ex" viewBox="0 -950.8 1308.3 1039.1" role="img" focusable="false" style="vertical-align: -0.205ex;"><defs><path stroke-width="1" id="E8-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="1" id="E8-MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E8-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,393)"><use transform="scale(0.707)" xlink:href="#E8-MJMAIN-33"></use><use transform="scale(0.707)" xlink:href="#E8-MJMAIN-32" x="500" y="0"></use></g></g></svg></span><script type="math/tex" id="MathJax-Element-7">2^{32}</script> ~ <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-9-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="1.912ex" viewBox="0 -735.2 500.5 823.4" role="img" focusable="false" style="vertical-align: -0.205ex;"><defs><path stroke-width="1" id="E10-MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E10-MJMAIN-34" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-9">4</script> billion devices). Not enough now !</li><li>​<strong>IPv6</strong> =&gt; 128 bit addresses, with blocks of <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-9-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="1.912ex" viewBox="0 -735.2 500.5 823.4" role="img" focusable="false" style="vertical-align: -0.205ex;"><defs><path stroke-width="1" id="E10-MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E10-MJMAIN-34" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-9">4</script> hex digits </li></ul><p>These adresses are incompatible : the packets are different.</p><p><em>Names</em> are human-readable substitute for addresses, mapped by DNS servers but <strong>not</strong> in IP headers. </p><h3><a name='header-n203' class='md-header-anchor '></a>MAC Addresses</h3><p>48 bits set by manufacturer (first half of the packet), unique. It is sent in a frame (in the clear !). To find a device by MAC address, you broadcast the packet on the LAN with that destination address and the desired device will see that it is called.</p><h3><a name='header-n228' class='md-header-anchor '></a>LAN</h3><p>Local area networks are connected by the MAC layer. LANs can be interconnected by routers. To know if devices are on the same subnet devices check the network mask. All devices on the same subnet have the first <code>x</code> bits in common in their address (<code>128.178.71.34/24</code> <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-32-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.808ex" height="1.311ex" viewBox="0 -519.5 778.5 564.7" role="img" focusable="false" style="vertical-align: 0.081ex; margin-bottom: -0.186ex;"><defs><path stroke-width="1" id="E44-MJMAIN-2261" d="M56 444Q56 457 70 464H707Q722 456 722 444Q722 430 706 424H72Q56 429 56 444ZM56 237T56 250T70 270H707Q722 262 722 250T707 230H70Q56 237 56 250ZM56 56Q56 71 72 76H706Q722 70 722 56Q722 44 707 36H70Q56 43 56 56Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E44-MJMAIN-2261" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-32">\equiv</script> <code>address=128.178.71.34, mask=255.255.255.0</code>). This must be configured <strong>manually</strong>.</p><h3><a name='header-n269' class='md-header-anchor '></a>Properties</h3><p>The <strong>bit rate</strong> is the number of bits transmitted per unit of time. The <strong>bandwidth</strong> is the width of the frequency range that can be used for transmission over the channel. It limits the max bitrate obtained on a given channel.</p><table><thead><tr><th>Medium</th><th style='text-align:center;' >bitrate</th></tr></thead><tbody><tr><td>modem</td><td style='text-align:center;' >2.4 kb/s to 56kb/s</td></tr><tr><td>ADSL line</td><td style='text-align:center;' >124 kb/s to 10 Mb/s</td></tr><tr><td>Ethernet </td><td style='text-align:center;' >10 Mb/s to 100Gb/s</td></tr><tr><td>Wireless LAN</td><td style='text-align:center;' >1 to 1.3 Gb/s</td></tr><tr><td>cellular</td><td style='text-align:center;' >8 kb/s to 1 Gb/s</td></tr><tr><td>Optical carriers</td><td style='text-align:center;' >155 Mb/s to 1 Tb/s</td></tr></tbody></table><p><strong>propagation</strong> is the time for the head of the signal to go from A to B (~5 µs/km)</p><p>Time to send 1kb</p><p><img src='img/2.png' alt='2' /></p><p><strong>throughput</strong> is the number of useful data bits / time unit. Different from bit rate because there is protocol overhead (the smaller the packet the higher the overhead), waiting times, …</p><blockquote><p><a href='https://www.youtube.com/watch?v=qKqr3h8VqsM'>Week 2 - 1</a></p></blockquote><p><em>note</em> application and transport layers are not present in a router. </p><p><img src='img/3.png' alt='3' /></p><p><u><em>Figure 2</em> : A typical route for an http request from Elaine</u></p><p>Terminology :</p><ul><li><em>service</em> is interlayer communication</li><li><em>protocol</em> is communication between same level layers</li></ul><h3><a name='header-n450' class='md-header-anchor '></a>Network elements</h3><ul><li>router = packet forwarding based on IP addresses.</li><li>bridge = packet forwarding based on MAC addresses</li><li>switch = a hardware bridge</li><li>layer-3 switch = router</li></ul><h3><a name='header-n488' class='md-header-anchor '></a>Onion view</h3><p><img src='img/4.png' alt='4' /></p><p><u><em>Figure 3 :</em> Information is layered in packets. Each layer unwraps what it needs</u></p><p></p><hr /><h2><a name='header-n112' class='md-header-anchor '></a>The network layer</h2><ul><li>Book : <em>Chapter 5</em></li><li>slides : <code>ip1.pdf</code>, <code>ip2.pdf</code></li></ul><h3><a name='header-n541' class='md-header-anchor '></a>1. The Two Principles of IP Unicast</h3><p>(unicast = transmission to a single recipient)</p><ol><li><p><u>Structured addresses + longest prefix match</u></p><p><em>This allows for hierarchical addressing.</em></p></li><li><p><u>Don&#39;t use routers inside a LAN</u></p><p><em>Doesn&#39;t mean there isn&#39;t an IP layer !</em></p></li></ol><p>Terminology :</p><ul><li><em>host</em> = system that does not forward</li><li><em>packet</em> = IP data unit</li><li><em>intermediate system</em> = forwarding system</li></ul><h3><a name='header-n544' class='md-header-anchor '></a>2. IPv4 addresses</h3><ul><li>32 bits</li><li>UID (in principle)</li></ul><p>e.g. <code>128.191.151.1</code> (each integer is 8 bits)</p><p>Special addresses </p><table><thead><tr><th>Address</th><th style='text-align:center;' >usage</th></tr></thead><tbody><tr><td><code>0.0.0.0</code></td><td style='text-align:center;' >absence of address</td></tr><tr><td><code>127.0.0/24</code> (e.g. <code>127.0.0.1</code>)</td><td style='text-align:center;' >this host = loopback address</td></tr><tr><td><code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code></td><td style='text-align:center;' >private networks (cannot be used on the public internet)</td></tr><tr><td><code>169.254.0.0/16</code></td><td style='text-align:center;' >link local address (only between systems on a LAN)</td></tr><tr><td><code>224/4</code></td><td style='text-align:center;' >multicast (one-to-many, like a group of hosts)</td></tr><tr><td><code>240/5</code></td><td style='text-align:center;' >reserved</td></tr><tr><td><code>255.255.255.255/32</code></td><td style='text-align:center;' >link local broadcast</td></tr></tbody></table><p><img src='img/5.png' alt='5' /></p><p><u><em>Figure 4 :</em> The IPv4 Packet Format</u></p><blockquote><p><a href='https://www.youtube.com/watch?v=5Iyk7kFEUyQ'>Week 2 - 2</a></p></blockquote><h3><a name='header-n742' class='md-header-anchor '></a>3. IPv6 addresses</h3><p>IPv6 redefines the packet format with a larger address space (128 bits <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-95-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.616ex" height="1.912ex" viewBox="0 -735.2 1556.8 823.4" role="img" focusable="false" style="vertical-align: -0.205ex;"><defs><path stroke-width="1" id="E157-MJMAIN-2248" d="M55 319Q55 360 72 393T114 444T163 472T205 482Q207 482 213 482T223 483Q262 483 296 468T393 413L443 381Q502 346 553 346Q609 346 649 375T694 454Q694 465 698 474T708 483Q722 483 722 452Q722 386 675 338T555 289Q514 289 468 310T388 357T308 404T224 426Q164 426 125 393T83 318Q81 289 69 289Q55 289 55 319ZM55 85Q55 126 72 159T114 210T163 238T205 248Q207 248 213 248T223 249Q262 249 296 234T393 179L443 147Q502 112 553 112Q609 112 649 141T694 220Q694 249 708 249T722 217Q722 153 675 104T555 55Q514 55 468 76T388 123T308 170T224 192Q164 192 125 159T83 84Q80 55 69 55Q55 55 55 85Z"></path><path stroke-width="1" id="E157-MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E157-MJMAIN-2248" x="0" y="0"></use><use xlink:href="#E157-MJMAIN-34" x="1056" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-95">\approx 4</script> Bn resses). It is incompatible with IPv4 : routers and hosts must handle both seperately. Its structure is hierarchical : often first half / prefix for host, with provider, the rest for a subnet and a client. i.e. we can aggregate addresses logically.</p><p>The TCP and MAC layers are not affected by the difference between IPv4/6 !</p><p>Compression rules :</p><table><thead><tr><th style='text-align:center;' >uncompressed</th><th style='text-align:center;' >compressed</th></tr></thead><tbody><tr><td style='text-align:center;' > <code>2002:0000:0000:0000:0000:ffff:80b2:0c26</code></td><td style='text-align:center;' > <code>2002::ffff:80b2:c26</code></td></tr><tr><td style='text-align:center;' > <code>2001:0620:0618:01a6:0000:20ff:fe78:30f9</code></td><td style='text-align:center;' ><code>2001:620:618:1a6:0:20ff:fe78:30f9</code></td></tr></tbody></table><p></p><p>Special addresses :</p><table><thead><tr><th>Address</th><th style='text-align:center;' >Purpose</th></tr></thead><tbody><tr><td><code>::/128</code></td><td style='text-align:center;' >Absence of address</td></tr><tr><td> <code>::1/128</code></td><td style='text-align:center;' >localhost</td></tr><tr><td> <code>fc00::/7</code> (i.e. <code>fcxx:</code> and <code>fdxx:</code>)</td><td style='text-align:center;' > Unique local addresses = private networks</td></tr><tr><td><code>fe80::/10</code></td><td style='text-align:center;' >link local address (on the same LAN)</td></tr><tr><td><code>ff00::/8</code></td><td style='text-align:center;' >multicast</td></tr><tr><td><code>ff02::1:ff00:0/104</code></td><td style='text-align:center;' >solicited node multicast</td></tr><tr><td><code>ff02::1/128</code> , <code>ff02::2/128</code></td><td style='text-align:center;' >link local broadcast</td></tr></tbody></table><p><img src='img/6.png' alt='6' /></p><p><u><em>Figure 5 :</em> IPv6 Packet Format</u></p><h3><a name='header-n548' class='md-header-anchor '></a>4. NATs</h3><p>NAT = Network Address Translation boxes</p><p>The goal is to reuse the same IP address for several devices, and use private addresses inside of a local network. This violates the TCP/IP architecture (since it mandates communication through a middleware even within a LAN). If there is a NAT the destination address of a packet is that of the NAT no ours (because it&#39;s a private address).</p><p>It creates a NAT table which matches the source and destination with ports and IP address. This means it looks at two layers at the same time !</p><h3><a name='header-n550' class='md-header-anchor '></a>5. Subnets and Masks</h3><p>All hosts need to know on which LAN they are to know if they need IP or they can use MAC directly.</p><blockquote><p><a href='https://www.youtube.com/watch?v=SK2vAw19mRM'>Week 3 - 1</a></p></blockquote><h3><a name='header-n993' class='md-header-anchor '></a>6. Host Configuration</h3><p>An IP host needs to be configured on each interface with :</p><ul><li>IP address of the interface</li><li>Mask of the interface</li><li>IP address of the default router</li><li>IP address of the DNS server</li></ul><p>It can be done manually or automatically with <strong>DCHP</strong> (Dynamic Host Configuration Protocol). In IPv6 we can also have <em>stateful</em> or <em>stateless</em> DHCP, or <strong>SLAAC</strong>. Routers also need to be configured, usually though <strong>PPP</strong> or for IPv6 also DHCP with Prefix Delegation.</p><h4><a name='header-n1136' class='md-header-anchor '></a>DHCP</h4><p>When a computer boots, it has no IP. It will broadcast a DHCP request on the network (<code>destination IP=255.255.255.255</code>), hoping there is a DHCP server or relay on the network, often a router *.</p><p>The address given has a ttl and can be renewed.</p><p>* On a small network, hosts connect directly to a DHCP server, but on larger ones we can have a relay which acts as an intermediary to the central DHCP server.</p><h4><a name='header-n1149' class='md-header-anchor '></a>PPP</h4><p>Same issue for a router (finding an IP). Very similar to DHCP.</p><h4><a name='header-n1175' class='md-header-anchor '></a>SLAAC</h4><p><em>StateLess Address Auto-Configuration</em></p><p>When you start on a network, likely that there is a router. So you can talk to this router that has been configured already. Since the IPv6 has a prefix + a host part, the router can already give you the prefix but not the host part. In IPv4 the host part is small so might be collisions, whereas in DHCP with 64 bits, we can just use (and pad) the MAC address as the host part.</p><ul><li>Step 1 : Determine a 64 bit host from manual assignement (e.g. <code>::1</code>), deriving it from the MAC address (most common), assign it randomly, assign it cryptographically</li><li>Step 2 : Duplicate test (sending a Neighbour Sollicitation message, sent to the Solicited Nope Multicast Address pbtained by adding the last 24 bits / last 6 hex digits of the target IP address to <code>ff02::1:ff00:0/104</code>)</li><li>Step 3 : Get the network prefix</li></ul><p></p><p> <img src='img/7.png' alt='7' /></p><p><u><em>Figure 6 :</em> Deriving IP address from MAC</u></p><p>To avoid MAC address pinning, Randomly Assigned Host Part is used, which is rotated every few hours. This means we can have several IPv6 addresses ! (it already has two with the link local and global address)</p><p>Problem : SLAAC doesn&#39;t give the DNS server address. Solution : get the router to return it, or use stateless DHCP.</p><h4><a name='header-n1346' class='md-header-anchor '></a>Stateless DHCP</h4><p>Stateless doesn&#39;t require a memory of state (for example a table of valid addresses, …). To do this, stateless auto-configuration (like SLAAC) is performed, then the host sends a query to the DHCP server to obtain the missing information such as the DNS server address (this is state, but does not depend on the host state).</p><h4><a name='header-n1357' class='md-header-anchor '></a>DHCP with Prefix Delegation</h4><p>Used if the router has IPv6 available and needs to configure the IPv6 prefix for the entire block of addresses it is responsible for (e.g. a home network). The ISP&#39;s DHCP server (called a <strong>delegating router</strong>) give the router the prefix it assigns it, which can then configure the hosts (e.g. with SLAAC).</p><h3><a name='header-n1300' class='md-header-anchor '></a>7. ARP</h3><p>Mac Address Resolution problem : a host needs to know the <em>next-hop</em>&#39;s MAC address (even though it already knows its IP address). To do this, A sends an address resolution packet (a neighbour solicitation (NS) with the Neighbour Discovery Protocol (NDP) protocol) on the LAN. The ones with the IP address of the desired machine (the next-hop) will respond with their MAC.</p><blockquote><p><a href='https://www.youtube.com/watch?v=0YB-1sPhfT8'>Week 3 - 2</a></p></blockquote><p>Same idea as the duplication test with a multicast address, from which the MAC address can then be algorithmically derived.</p><p>The MAC address is then stored in an ARP Table / neighbour cache, which is refreshed whenever A receives a packet from B. </p><p>In IPv4, the ARP packet is <em>broadcast</em> (whereas in IPv6 where we use multicast) as an Ethernet frame.</p><h3><a name='header-n1095' class='md-header-anchor '></a>8. IP packet format, HL and TTL</h3><p>HL / TTL avoid looping packets congesting the line. It is implemented as an 8 bit field (<span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-109-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.173ex" height="2.614ex" viewBox="0 -821.4 3949.4 1125.3" role="img" focusable="false" style="vertical-align: -0.706ex;"><defs><path stroke-width="1" id="E183-MJMAIN-2208" d="M84 250Q84 372 166 450T360 539Q361 539 377 539T419 540T469 540H568Q583 532 583 520Q583 511 570 501L466 500Q355 499 329 494Q280 482 242 458T183 409T147 354T129 306T124 272V270H568Q583 262 583 250T568 230H124V228Q124 207 134 177T167 112T231 48T328 7Q355 1 466 0H570Q583 -10 583 -20Q583 -32 568 -40H471Q464 -40 446 -40T417 -41Q262 -41 172 45Q84 127 84 250Z"></path><path stroke-width="1" id="E183-MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path><path stroke-width="1" id="E183-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="1" id="E183-MJMAIN-3B" d="M78 370Q78 394 95 412T138 430Q162 430 180 414T199 371Q199 346 182 328T139 310T96 327T78 370ZM78 60Q78 85 94 103T137 121Q202 121 202 8Q202 -44 183 -94T144 -169T118 -194Q115 -194 106 -186T95 -174Q94 -171 107 -155T137 -107T160 -38Q161 -32 162 -22T165 -4T165 4Q165 5 161 4T142 0Q110 0 94 18T78 60Z"></path><path stroke-width="1" id="E183-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="1" id="E183-MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="1" id="E183-MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E183-MJMAIN-2208" x="0" y="0"></use><use xlink:href="#E183-MJMAIN-5B" x="945" y="0"></use><use xlink:href="#E183-MJMAIN-30" x="1223" y="0"></use><use xlink:href="#E183-MJMAIN-3B" x="1724" y="0"></use><g transform="translate(2169,0)"><use xlink:href="#E183-MJMAIN-32"></use><use xlink:href="#E183-MJMAIN-35" x="500" y="0"></use><use xlink:href="#E183-MJMAIN-35" x="1001" y="0"></use></g><use xlink:href="#E183-MJMAIN-5D" x="3670" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-109"> \in [0;255]</script>) that is decremented at every hop. When it reaches 0, the packet is discarded so most router kill packets if it has TTL = 1 (and sends an error with ICMP). Default value : 64.</p><p>Other fields : </p><ul><li>Type of service / Traffic class (congestion control, priority levels)</li><li>Total length / Payload length (in bytes incl. header)</li><li>Protocol identification</li><li>Checksum (only IPv4)</li></ul><p></p><hr /><h2><a name='header-n1445' class='md-header-anchor '></a>The MAC Layer</h2><ul><li>Book : <em>Sections 2.6, 3.16, 4.12</em></li><li>slides : <code>mac.pdf</code></li></ul><h3><a name='header-n1490' class='md-header-anchor '></a>1. MAC as Shared Medium : The Ethernet Myth and the WiFi Reality</h3><p>MAC was invented because originally networks shared a cable so need to decode the messages when they are talking together.</p><p></p><h3><a name='header-n1515' class='md-header-anchor '></a>2. MAC on cabled systems: the world of switches</h3><p></p><p></p><h3><a name='header-n1522' class='md-header-anchor '></a>3. Format and addresses</h3><p></p><p></p><h3><a name='header-n1499' class='md-header-anchor '></a>4. Virtual LANs</h3><p></p><p></p><h3><a name='header-n1567' class='md-header-anchor '></a>5. Architecture Aspects</h3><p></p><p></p><h3><a name='header-n1583' class='md-header-anchor '></a>6. Security aspects</h3></div>
+</body>
+</html>

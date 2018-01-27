@@ -1,638 +1,1134 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>TCP:IP - Quiz_Answers_Q3.md</title><link href='http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='http://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:  #ffffff; --text-color:  #333333; --code-block-bg-color: inherit; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { background-color: rgb(181, 214, 252); text-shadow: none; background-position: initial initial; background-repeat: initial initial; }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-@media screen and (max-width: 500px) { 
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
-}
-.typora-export #write { margin: 0px auto; }
-#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
-#write li > table:first-child { margin-top: -20px; }
-img { max-width: 100%; vertical-align: middle; }
-input, button, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-::before, ::after, * { box-sizing: border-box; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
-.typora-export p { white-space: normal; }
-.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
-tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 80px; }
-.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-pre { white-space: pre-wrap; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
-.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
-.md-fences.mock-cm { white-space: pre-wrap; }
-.show-fences-line-number .md-fences { padding-left: 0px; }
-.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
-.footnotes + .footnotes { margin-top: -1em; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background-color: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; background-position: initial initial; background-repeat: initial initial; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li p, li .mathjax-block { margin: 0.5rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
-@media print { 
-  html, body { border: 1px solid transparent; height: 99%; break-after: avoid-page; break-before: avoid-page; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
-  p { orphans: 4; }
-  html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid-page; }
-  .typora-export #write::after { height: 0px; }
-  @page { margin: 20mm 0mm; }
-}
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
-p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
-p + .mathjax-block { margin-top: -1.143rem; }
-.mathjax-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
-.task-list { list-style-type: none; }
-.task-list-item { position: relative; padding-left: 1em; }
-.task-list-item input { position: absolute; top: 0px; left: 0px; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc::after, .md-toc-content::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) { 
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
-}
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-.md-tag { opacity: 0.5; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: monospace; }
-code { text-align: left; }
-h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
-a.md-print-anchor { border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background-color: transparent !important; text-shadow: initial !important; background-position: initial initial !important; background-repeat: initial initial !important; }
-.md-inline-math .MathJax_SVG .noError { display: none !important; }
-.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
-.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
-.MathJax_SVG .MJX-monospace { font-family: monospace; }
-.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
-
-
-@include-when-export url(http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
-@include-when-export url(http://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext);
-
-:root {
-	--control-text-color: #777;
-}
-
-/**
- * forked from pixyll.com
- * MIT license
- */
-
-@charset "UTF-8";
-@font-face {
-	font-family: 'Merriweather';
-	font-style: normal;
-	font-weight: 300;
-	src: local('Merriweather Light'), local('Merriweather-Light'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-Light.ttf);
-}
-@font-face {
-	font-family: 'Merriweather';
-	font-style: normal;
-	font-weight: 900;
-	src: local('Merriweather Heavy'), local('Merriweather-Heavy'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-Bold.ttf);
-}
-@font-face {
-	font-family: 'Merriweather';
-	font-style: italic;
-	font-weight: 300;
-	src: local('Merriweather Light Italic'), local('Merriweather-LightItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-LightItalic.ttf);
-}
-@font-face {
-	font-family: 'Merriweather';
-	font-style: italic;
-	font-weight: 900;
-	src: local('Merriweather Heavy Italic'), local('Merriweather-HeavyItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-BoldItalic.ttf);
-}
-
-@font-face {
-	font-family: 'Lato';
-	font-style: normal;
-	font-weight: 300;
-	src: local('Lato Light'), local('Lato-Light'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Light.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: normal;
-	font-weight: 900;
-	src: local('Lato Black'), local('Lato-Blcak'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Black.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: normal;
-	font-weight: bold;
-	src: local('Lato Black'), local('Lato-Blcak'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Black.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: italic;
-	font-weight: 900;
-	src: local('Lato BlackItalic'), local('Lato-BlackItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-BlackItalic.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: italic;
-	font-weight: bold;
-	src: local('Lato BlackItalic'), local('Lato-BlackItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-BlackItalic.ttf);
-}
-
-h1,
-.h1,
-.f1 {
-	font-size: 2rem;
-	line-height: 2.5rem;
-}
-h2,
-.h2,
-.f2 {
-	font-size: 1.5rem;
-	line-height: 2rem;
-}
-h3,
-.h3,
-.f3 {
-	font-size: 1.25rem;
-	line-height: 1.5rem;
-}
-p,
-.p,
-.f4,
-h4,
-h5,
-h6,
-dl,
-ol,
-ul,
-pre[cid],
-div[cid],
-#typora-source {
-	font-size: 1.125rem;
-	line-height: 1.5rem;
-}
-
-h4 {
-	font-size: 1.13rem;
-}
-/*
- Pixyll
- A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
- Best served with BASSCSS (http://jxnblk.github.io/basscss)
- Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
-
-*/
-
-body {
-	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", Serif;
-	line-height: 1.5rem;
-	font-weight: 400;
-}
-
-#write {
-	max-width: 914px;
-	color: #333;
-}
-
-img {
-	width: auto;
-	max-width: 100%;
-}
-body {
-	font-size: 1.5rem;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-}
-
-.md-table-edit {
-	background: #ededed;
-    padding-top: 4px;
-}
-
-table {
-	width: 100%;
-	font-size: 1.125rem;
-}
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td,
-table > tfoot > tr > th,
-table > tfoot > tr > td {
-	padding: 12px;
-	line-height: 1.2;
-	vertical-align: top;
-	border-top: 1px solid #333;
-}
-table > thead > tr > th {
-	vertical-align: bottom;
-	border-bottom: 2px solid #333;
-}
-table > caption + thead > tr:first-child > th,
-table > caption + thead > tr:first-child > td,
-table > colgroup + thead > tr:first-child > th,
-table > colgroup + thead > tr:first-child > td,
-table > thead:first-child > tr:first-child > th,
-table > thead:first-child > tr:first-child > td {
-	border-top: 0;
-}
-table > tbody + tbody {
-	border-top: 2px solid #333;
-}
-p {
-	font-weight: 300;
-	line-height: 1.5;
-}
-abbr {
-	border-bottom: 1px black dotted;
-	cursor: help;
-}
-pre,
-code {
-	font-family: Menlo, Monaco, "Courier New", monospace;
-}
-
-code,
-.md-fences  {
-	color: #7a7a7a;
-}
-
-.md-fences .CodeMirror.CodeMirror-wrap {
-	top: -1.5em;
-    margin-bottom: -1.5em;
-}
-
-.md-fences {
-	padding: 1.125em;
-	margin-bottom: 0.88em;
-	font-size: 1rem;
-	border: 1px solid #7a7a7a;
-}
-
-blockquote {
-	padding: 1.33em;
-	font-style: italic;
-	border-left: 5px solid #7a7a7a;
-	color: #555;
-}
-blockquote em {
-	color: #000;
-}
-blockquote footer {
-	font-size: .85rem;
-	font-style: normal;
-	background-color: #fff;
-	color: #7a7a7a;
-	border-color: transparent;
-}
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
-	font-weight: 900;
-	line-height: 1.2;
-	margin: 1em 0 0.5em;
-}
-@media screen and (min-width: 48em) {
-	.h1,
-	h1 {
-		font-size: 3.250rem;
-	}
-	.h2,
-	h2 {
-		font-size: 2.298rem;
-	}
-	.h3,
-	h3 {
-		font-size: 1.625rem;
-	}
-	.h4,
-	h4 {
-		font-size: 1.3rem;
-	}
-	#write>h4.md-focus:before,
-	#write>h5.md-focus:before,
-	#write>h6.md-focus:before{
-		top: 1px;
-	}
-	.p,
-	p,
-	li {
-		font-size: 1.25rem;
-		line-height: 1.8;
-	}
-	table {
-		font-size: 1.25rem;
-	}
-}
-@media (max-width: 48em) {
-	blockquote {
-		margin-left: 1rem;
-		margin-right: 0;
-		padding: 0.5em;
-	}
-	.h1,
-	h1 {
-		font-size: 2.827rem;
-	}
-	.h2,
-	h2 {
-		font-size: 1.999rem;
-	}
-	.h3,
-	h3 {
-		font-size: 1.413rem;
-	}
-	.h4,
-	h4 {
-		font-size: 1.3rem;
-	}
-}
-@media screen and (min-width: 64em) {
-	.h1,
-	h1 {
-		font-size: 4.498rem;
-	}
-	.h2,
-	h2 {
-		font-size: 2.29rem;
-	}
-	.h3,
-	h3 {
-		font-size: 1.9rem;
-	}
-	.h4,
-	h4 {
-		font-size: 1.591rem;
-	}
-	#write>h4.md-focus:before{
-		top:4px;
-	}
-}
-a {
-	color: #463F5C;
-	text-decoration: underline;
-}
-
-#write {
-	padding-top: 2rem;
-}
-
-#write pre.md-meta-block {
-	min-height: 35px;
-	padding: 0.5em 1em;
-	white-space: pre;
-	border: 0px;
-
-	border-left: 30px #f8f8f8 solid;
-	border-right: 30px #f8f8f8 solid;
-	width: 100vw;
-	max-width: calc(100% + 60px);
-
-	margin-left: -30px;
-	margin-bottom: 2em;
-	margin-top: -2010px;
-	padding-top: 2000px;
-	padding-bottom: 10px;
-	line-height: 1.5em;
-	color: #7a7a7a;
-	background-color: #fafafa;
-	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
-	font-weight: 300;
-	clear: both;
-	padding-left: 0;
-	font-size:1.125rem;
-}
-.md-image>.md-meta {
-	color: #463F5C
-}
-.footnotes {
-	font-size:1.1rem;
-}
-.md-tag {
-	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
-}
-.code-tooltip {
-	background: white;
-}
-.code-tooltip-content {
-	font-size: 1.1rem;
-}
-
-.task-list{
-	padding-left: 0;
-}
-
-.task-list-item {
-	padding-left:34px;
-}
-
-.task-list-item input{
-	width: 1.25rem;
-	height: 1.25rem;
-	display: block;
-	-webkit-appearance: initial;
-	top: -2px;
-}
-
-.task-list-item input:focus{
-	outline: none;
-	box-shadow: none;
-}
-
-.task-list-item input:before{
-	border: 1px solid #555;
-	border-radius: 1.5rem;
-	width: 1.5rem;
-	height: 1.5rem;
-	background: #fff;
-	content: ' ';
-	transition: background-color 200ms ease-in-out;
-	display: block;
-}
-
-.task-list-item input:checked:before,
-.task-list-item input[checked]:before{
-	background: #333;
-	border-width: 2px;
-	display:inline-block;
-	transition: background-color 200ms ease-in-out;
-}
-
-.task-list-item input:checked:after,
-.task-list-item input[checked]:after {
-	opacity: 1;
-}
-
-.task-list-item input:after {
-	opacity: 1;
-	-webkit-transition: opacity 0.05s ease-in-out;
-	-moz-transition: opacity 0.05s ease-in-out;
-	transition: opacity 0.05s ease-in-out;
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	position: absolute;
-	top: 0.4375rem;
-	left: 0.28125rem;
-	width: 0.9375rem;
-	height: 0.5rem;
-	border: 3px solid #fff;
-	border-top: 0;
-	border-right: 0;
-	content: ' ';
-	opacity: 0;
-}
-
-.md-tag {
-	color:inherit;
-}
-
-.md-toc:focus .md-toc-content{
-	margin-top: 19px;
-}
-
-#typora-sidebar {
-	font-size:1rem !important;
-}
-
-.html-for-mac #typora-sidebar {
-	background-color:white;
-}
-
-.outline-content li, .outline-content ul {
-	font-size:1rem !important;
-}
-
-.outline-title {
-	line-height: inherit;
-	margin-top: 10px;
-}
-
-.outline-expander {
-	width: 18px;
-}
-
-.outline-expander:before {
- 	content: "+";
-	font-family: inherit;
-	color: rgb(108, 108, 108); 
-  	font-size: 1.5rem;
- 	top: 0.1rem;
-}
-
-.outline-expander:hover:before {
-	content: "+";
-}
-
-.outline-item-open>.outline-item>.outline-expander:before{
-	content: "-";
-}
-
-/** source code mode */
-#typora-source {
-	font-family: Courier, monospace;
-    color: #6A6A6A;
-}
-
-.os-windows #typora-source {
-	font-family: inherit;
-}
-
-.cm-s-typora-default .cm-header, 
-.cm-s-typora-default .cm-property,
-.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
-	color: #428bca;
-}
-
-.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
-	color: #777777;
-}
-
-.preference-item-hint {
-	margin-top: 16px;
-}
-
-.md-diagram-panel {
-	margin-top: 24px;
-	margin-left: -1.2em;
-}
-
-
-</style>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>TCP_IP_Quiz_Answers_Q3</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+  @font-face {
+    font-family: octicons-link;
+    src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+  }
+  
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    color: #333;
+    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.6;
+    word-wrap: break-word;
+    width: 728px;
+    max-width: 99%;
+    box-sizing: border-box;
+    padding: 30px 30px 8rem 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  body a {
+    background-color: transparent;
+  }
+  
+  body a:active,
+  body a:hover {
+    outline: 0;
+  }
+  
+  body strong {
+    font-weight: bold;
+  }
+  
+  body h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+  }
+  
+  body img {
+    border: 0;
+  }
+  
+  body hr {
+    box-sizing: content-box;
+    height: 0;
+  }
+  
+  body pre {
+    overflow: auto;
+  }
+  
+  body code,
+  body kbd,
+  body pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+  }
+  
+  body input {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+  }
+  
+  body html input[disabled] {
+    cursor: default;
+  }
+  
+  body input {
+    line-height: normal;
+  }
+  
+  body input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  
+  body table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  body td,
+  body th {
+    padding: 0;
+  }
+  
+  body * {
+    box-sizing: border-box;
+  }
+  
+  body input {
+    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+  
+  body a {
+    color: #4078c0;
+    text-decoration: none;
+  }
+  
+  body a:hover,
+  body a:active {
+    text-decoration: underline;
+  }
+  
+  body hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  body hr:before {
+    display: table;
+    content: "";
+  }
+  
+  body hr:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  
+  body h1,
+  body h2,
+  body h3,
+  body h4,
+  body h5,
+  body h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+  }
+  
+  body h1 {
+    font-size: 30px;
+  }
+  
+  body h2 {
+    font-size: 21px;
+  }
+  
+  body h3 {
+    font-size: 16px;
+  }
+  
+  body h4 {
+    font-size: 14px;
+  }
+  
+  body h5 {
+    font-size: 12px;
+  }
+  
+  body h6 {
+    font-size: 11px;
+  }
+  
+  body blockquote {
+    margin: 0;
+  }
+  
+  body ul,
+  body ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  body ol ol,
+  body ul ol {
+    list-style-type: lower-roman;
+  }
+  
+  body ul ul ol,
+  body ul ol ol,
+  body ol ul ol,
+  body ol ol ol {
+    list-style-type: lower-alpha;
+  }
+  
+  body dd {
+    margin-left: 0;
+  }
+  
+  body code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+  }
+  
+  body pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  }
+  
+  body .select::-ms-expand {
+    opacity: 0;
+  }
+  
+  body .octicon {
+    font: normal normal normal 16px/1 octicons-link;
+    display: inline-block;
+    text-decoration: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  body .octicon-link:before {
+    content: '\f05c';
+  }
+  
+  body:before {
+    display: table;
+    content: "";
+  }
+  
+  body:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  
+  body>*:first-child {
+    margin-top: 0 !important;
+  }
+  
+  body>*:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  body .anchor {
+    display: inline-block;
+    padding-right: 2px;
+    margin-left: -18px;
+  }
+  
+  body .anchor:focus {
+    outline: none;
+  }
+  
+  body h1,
+  body h2,
+  body h3,
+  body h4,
+  body h5,
+  body h6 {
+    margin-top: 1em;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  
+  body h1 .octicon-link,
+  body h2 .octicon-link,
+  body h3 .octicon-link,
+  body h4 .octicon-link,
+  body h5 .octicon-link,
+  body h6 .octicon-link {
+    color: #000;
+    vertical-align: middle;
+    visibility: hidden;
+  }
+  
+  body h1:hover .anchor,
+  body h2:hover .anchor,
+  body h3:hover .anchor,
+  body h4:hover .anchor,
+  body h5:hover .anchor,
+  body h6:hover .anchor {
+    text-decoration: none;
+  }
+  
+  body h1:hover .anchor .octicon-link,
+  body h2:hover .anchor .octicon-link,
+  body h3:hover .anchor .octicon-link,
+  body h4:hover .anchor .octicon-link,
+  body h5:hover .anchor .octicon-link,
+  body h6:hover .anchor .octicon-link {
+    visibility: visible;
+  }
+  
+  body h1 {
+    padding-bottom: 0.3em;
+    font-size: 1.75em;
+    line-height: 1.2;
+  }
+  
+  body h1 .anchor {
+    line-height: 1;
+  }
+  
+  body h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    line-height: 1.225;
+  }
+  
+  body h2 .anchor {
+    line-height: 1;
+  }
+  
+  body h3 {
+    font-size: 1.25em;
+    line-height: 1.43;
+  }
+  
+  body h3 .anchor {
+    line-height: 1.2;
+  }
+  
+  body h4 {
+    font-size: 1em;
+  }
+  
+  body h4 .anchor {
+    line-height: 1.2;
+  }
+  
+  body h5 {
+    font-size: 1em;
+  }
+  
+  body h5 .anchor {
+    line-height: 1.1;
+  }
+  
+  body h6 {
+    font-size: 1em;
+    color: #777;
+  }
+  
+  body h6 .anchor {
+    line-height: 1.1;
+  }
+  
+  body p,
+  body blockquote,
+  body ul,
+  body ol,
+  body dl,
+  body table,
+  body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  
+  body hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+  }
+  
+  body ul,
+  body ol {
+    padding-left: 2em;
+  }
+  
+  body ul ul,
+  body ul ol,
+  body ol ol,
+  body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  body li>p {
+    margin-top: 16px;
+  }
+  
+  body dl {
+    padding: 0;
+  }
+  
+  body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+  }
+  
+  body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+  }
+  
+  body blockquote {
+    padding: 0 15px;
+    color: #777;
+    border-left: 4px solid #ddd;
+  }
+  
+  body blockquote>:first-child {
+    margin-top: 0;
+  }
+  
+  body blockquote>:last-child {
+    margin-bottom: 0;
+  }
+  
+  body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+  }
+  
+  body table th {
+    font-weight: bold;
+  }
+  
+  body table th,
+  body table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+  }
+  
+  body table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+  }
+  
+  body table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+  }
+  
+  body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+  }
+  
+  body code {
+    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(0,0,0,0.04);
+    border-radius: 3px;
+  }
+  
+  body code:before,
+  body code:after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+  }
+  
+  body pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+  
+  body .highlight {
+    margin-bottom: 16px;
+  }
+  
+  body .highlight pre,
+  body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+  }
+  
+  body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+  }
+  
+  body pre {
+    word-wrap: normal;
+  }
+  
+  body pre code {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+  
+  body pre code:before,
+  body pre code:after {
+    content: normal;
+  }
+  
+  body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+  }
+  
+  body .pl-c {
+    color: #969896;
+  }
+  
+  body .pl-c1,
+  body .pl-s .pl-v {
+    color: #0086b3;
+  }
+  
+  body .pl-e,
+  body .pl-en {
+    color: #795da3;
+  }
+  
+  body .pl-s .pl-s1,
+  body .pl-smi {
+    color: #333;
+  }
+  
+  body .pl-ent {
+    color: #63a35c;
+  }
+  
+  body .pl-k {
+    color: #a71d5d;
+  }
+  
+  body .pl-pds,
+  body .pl-s,
+  body .pl-s .pl-pse .pl-s1,
+  body .pl-sr,
+  body .pl-sr .pl-cce,
+  body .pl-sr .pl-sra,
+  body .pl-sr .pl-sre {
+    color: #183691;
+  }
+  
+  body .pl-v {
+    color: #ed6a43;
+  }
+  
+  body .pl-id {
+    color: #b52a1d;
+  }
+  
+  body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+  }
+  
+  body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+  }
+  
+  body .pl-ml {
+    color: #693a17;
+  }
+  
+  body .pl-mh,
+  body .pl-mh .pl-en,
+  body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+  }
+  
+  body .pl-mq {
+    color: #008080;
+  }
+  
+  body .pl-mi {
+    color: #333;
+    font-style: italic;
+  }
+  
+  body .pl-mb {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+  }
+  
+  body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+  }
+  
+  body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+  }
+  
+  body .pl-mo {
+    color: #1d3e81;
+  }
+  
+  body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+  }
+  
+  body .task-list-item {
+    list-style-type: none;
+  }
+  
+  body .task-list-item+.task-list-item {
+    margin-top: 3px;
+  }
+  
+  body .task-list-item input {
+    margin: 0 0.35em 0.25em -1.6em;
+    vertical-align: middle;
+  }
+  
+  body :checked+.radio-label {
+    z-index: 1;
+    position: relative;
+    border-color: #4078c0;
+  }
+  </style>
 </head>
-<body class='typora-export' >
-<div  id='write'  class = 'is-mac show-fences-line-number'><h1><a name='header-n0' class='md-header-anchor '></a>TCP/IP - Quiz</h1><h2><a name='header-n2' class='md-header-anchor '></a>Quiz 3</h2><p><strong>Bart, who is EPFL student, connects his PC to EPFL WiFi, which uses per user access control, authentication and encryption. Bart configures his PC to be a bridge between Ethernet and WiFi and allows Lisa, who is not allowed to access EPFL, to connect to his Ethernet port. Will Lisa be able to connect to the Internet in this way ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Yes, provided that Lisa can configure an IP address on the</p><p>same subnet as Bart</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Yes, it will work in all cases</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>No, it will not work in any case</p></li></ul><hr /><p><strong>Bart, who is EPFL student, connects his PC to EPFL WiFi, which uses per user access control, authentication and encryption. Bart configures his PC to be a NAT between Ethernet and WiFi and allows Lisa, who is not allowed to access EPFL, to connect to his Ethernet port. Will Lisa be able to connect to the Internet in this way ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Yes if Bart himself is not behind a NAT</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>Yes</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>No, it will not work in any case</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>I don’t know</p></li></ul><hr /><p><strong>Lisa’s browser sends DNS query to DNS server, over UDP. What happens if query or answer is lost ?</strong> </p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>Name resolver in browser waits for timeout, if no answer received before timeout, sends again</p></li></ul><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Messages cannot be lost because UDP assures message integrity</p></li></ul><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>UDP detects the loss and retransmits</p></li></ul><hr /><p><strong>A time <code>t1</code> the sender …</strong></p><p><strong>Window size = 4 kbytes, one packet = 1 kbytes</strong></p><p><img src='img/q14.png' alt='q14' /></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>… can send packet 4</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>… cannot send packet 4</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>It depends on whether data was consumed by application</p></li></ul><hr /><p><strong>In the absence of loss, and on a link with capacity packets persecond, the window size required for sending at the maximum possible rate is…</strong></p><p><img src='img/q15.png' alt='q15' /></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-1-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.759ex" height="2.213ex" viewBox="0 -735.2 7215.6 952.8" role="img" focusable="false" style="vertical-align: -0.505ex;"><defs><path stroke-width="1" id="E1-MJMATHI-57" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path><path stroke-width="1" id="E1-MJMATHI-6D" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E1-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E1-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="1" id="E1-MJMATHI-52" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path><path stroke-width="1" id="E1-MJMATHI-54" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path><path stroke-width="1" id="E1-MJMAIN-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path><path stroke-width="1" id="E1-MJMATHI-63" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E1-MJMATHI-57" x="0" y="0"></use><g transform="translate(944,-150)"><use transform="scale(0.707)" xlink:href="#E1-MJMATHI-6D" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E1-MJMATHI-69" x="878" y="0"></use><use transform="scale(0.707)" xlink:href="#E1-MJMATHI-6E" x="1224" y="0"></use></g><use xlink:href="#E1-MJMAIN-3D" x="2612" y="0"></use><use xlink:href="#E1-MJMATHI-52" x="3668" y="0"></use><use xlink:href="#E1-MJMATHI-54" x="4428" y="0"></use><use xlink:href="#E1-MJMATHI-54" x="5132" y="0"></use><use xlink:href="#E1-MJMAIN-2217" x="6059" y="0"></use><use xlink:href="#E1-MJMATHI-63" x="6782" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-1">W_{min} = RTT * c</script></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-2-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.918ex" height="2.914ex" viewBox="0 -778.3 5562 1254.7" role="img" focusable="false" style="vertical-align: -1.106ex;"><defs><path stroke-width="1" id="E2-MJMATHI-57" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path><path stroke-width="1" id="E2-MJMATHI-6D" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E2-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E2-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E2-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="1" id="E2-MJMATHI-63" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path><path stroke-width="1" id="E2-MJMATHI-52" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path><path stroke-width="1" id="E2-MJMATHI-54" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E2-MJMATHI-57" x="0" y="0"></use><g transform="translate(944,-150)"><use transform="scale(0.707)" xlink:href="#E2-MJMATHI-6D" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E2-MJMATHI-69" x="878" y="0"></use><use transform="scale(0.707)" xlink:href="#E2-MJMATHI-6E" x="1224" y="0"></use></g><use xlink:href="#E2-MJMAIN-3D" x="2612" y="0"></use><g transform="translate(3390,0)"><g transform="translate(397,0)"><rect stroke="none" width="1653" height="60" x="0" y="220"></rect><use transform="scale(0.707)" xlink:href="#E2-MJMATHI-63" x="952" y="565"></use><g transform="translate(60,-375)"><use transform="scale(0.707)" xlink:href="#E2-MJMATHI-52" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E2-MJMATHI-54" x="759" y="0"></use><use transform="scale(0.707)" xlink:href="#E2-MJMATHI-54" x="1464" y="0"></use></g></g></g></g></svg></span><script type="math/tex" id="MathJax-Element-2">W_{min} = \frac{c}{RTT}</script></p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p><span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-3-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.918ex" height="3.215ex" viewBox="0 -950.8 5562 1384.1" role="img" focusable="false" style="vertical-align: -1.006ex;"><defs><path stroke-width="1" id="E3-MJMATHI-57" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path><path stroke-width="1" id="E3-MJMATHI-6D" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E3-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E3-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E3-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="1" id="E3-MJMATHI-52" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path><path stroke-width="1" id="E3-MJMATHI-54" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path><path stroke-width="1" id="E3-MJMATHI-63" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E3-MJMATHI-57" x="0" y="0"></use><g transform="translate(944,-150)"><use transform="scale(0.707)" xlink:href="#E3-MJMATHI-6D" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E3-MJMATHI-69" x="878" y="0"></use><use transform="scale(0.707)" xlink:href="#E3-MJMATHI-6E" x="1224" y="0"></use></g><use xlink:href="#E3-MJMAIN-3D" x="2612" y="0"></use><g transform="translate(3390,0)"><g transform="translate(397,0)"><rect stroke="none" width="1653" height="60" x="0" y="220"></rect><g transform="translate(60,406)"><use transform="scale(0.707)" xlink:href="#E3-MJMATHI-52" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E3-MJMATHI-54" x="759" y="0"></use><use transform="scale(0.707)" xlink:href="#E3-MJMATHI-54" x="1464" y="0"></use></g><use transform="scale(0.707)" xlink:href="#E3-MJMATHI-63" x="952" y="-488"></use></g></g></g></svg></span><script type="math/tex" id="MathJax-Element-3">W_{min} = \frac{RTT}{c}</script></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None of the above</p></li></ul><hr /><p><strong>For which types of apps is the streaming service a drawback ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>an app using http/1 with one TCP connection per object transfer</p></li></ul><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>an app using http/2 with one TCP connection</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>a real time streaming application that sends one new packet every <code>msec</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A and B</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A and C</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>B and C</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>All</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li></ul><hr /><p><strong>A TCP server is, by definition …</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>… an application program that does listen( ) and accept( ) on a TCP socket</p></li></ul><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>… an application program that does receive( ) on a TCP socket</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>… an application program that does send( ) on a TCP socket</p></li></ul><hr /><p><strong>When does Fast Retransmit Fail ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Extremely rarely, it is quasioptimal</p></li></ul><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>It fails to detect the loss extremely rarely, but it may often take a long time to detect.</p></li></ul><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>When one of the last segments of an application layer block is lost, fast retransmit does not detect it.</p></li></ul><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>It may often fail due to packet packet reordering</p></li></ul><hr /><p><strong>If the ACK (3) is never sent, a server that does not implement SYN cookies will</strong>
-<strong>1)	retransmit	SYN	ACK</strong>
-<strong>2)	keep	state	information	until	timeout	occurs</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>1</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>1 &amp; 2</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li></ul><hr /><p><strong>With SYN cookies, the response time of SYN-ACK is…</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>Larger than without SYN cookies</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Smaller than without SYN cookies</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The same</p></li></ul><hr /><p><strong>A web server does <code>accept()</code> on a TCP socket bound to port 80.</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A new socket is created by <code>accept()</code>, bound to an ephemeral port allocated by the operating system.</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>A new socket is created by accept(), also bound to port 80.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>No new socket is created but the socket is bound to a second, ephemeral, port allocated by the operating system.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>No new socket is created since the server is listening to a single port (port 80).</p></li></ul><hr /><p><strong>An IPv4 host must send IGMP <code>join(m)</code>, where m is an IPv4 multicast address ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>in order to receive packets sent to m or to send packets to m.</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>before receiving packets sent to m but this is not required for sending to m.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>neither to receive packets sent to m nor to send packets to m.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>before sending packets to m but this is not required for receiving packets sent to m.</p></li></ul><hr /><p><strong>In the Internet, which layers other than the application layer may, in some cases, perform re-transmission when a packet loss occurs ?</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>The transport layer (TCP) and some instances of the MAC layer.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The transport layer (TCP) and IPv4 when fragmentation occurs.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The transport layer (TCP) and IP (v4 or v6) when fragmentation occurs.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The transport layer (TCP) and IPv6 when fragmentation occurs.</p></li></ul><hr /><p><strong>An application at A sends one block of 1900 bytes of data to B using TCP or UDP. An application at B attempts to receive the data and does a successful <code>recvfrom()</code> on a socket. Can B be sure to have received all of the 1900 bytes of the message sent by A ?</strong> </p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>no in either case.</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>yes with UDP, no with TCP.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>yes in both cases.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>no with UDP, yes with TCP.</p></li></ul><hr /><p><strong>A and B use a fixed sliding window protocol. The window size is 300 bytes. At time t0, the protocol is initialized. Say which of the choices below is allowed for A at time t1:</strong></p><p><img src='img/q16.png' alt='q16' /></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A may transmit a packet with Seq = 301:501.</p></li></ul><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>A may transmit a packet with Seq = 301:401.</p></li></ul><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A may transmit a packet with Seq = 301:601.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A may not transmit any new data.</p></li></ul><hr /><p><strong>A TCP sender A detects that the segments 101:201 and 201:301 were lost. The window size is very large and has remained the same as when the segments 101:201 and 201:301 were first sent. When A decides to retransmit these two segments:</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A must retransmit 2 segments, with sequence numbers 101:201 and 201:301.</p></li></ul><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A may retransmit 1 segment with sequence number 101:201 and must wait for the acknowledgement of this segment before retransmitting 201:301.</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>A may retransmit 2 segments, with sequence numbers 101:201 and 201:301 or retransmit one segment with sequence numbers 101:301.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A may retransmit 1 segment with sequence number 201:301 and must wait for the acknowledgement of this segment before retransmitting 101:201.</p></li></ul><hr /><p><strong>Elaine has a computer network with a NAT and a bridge; her equipment is IPv4 only. Now Elaine wants to migrate to IPv6. She does not use multicast. Which of her networking equipments does she need to upgrade ?</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>the NAT and not the bridge.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>both the NAT and the bridge.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>neither the NAT nor the bridge.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the bridge and not the NAT.</p></li></ul><hr /><p><strong>With TCP, the window size…</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>is dynamic, indicated to the receiver by the source and may differ for each side of the connection.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>is fixed and equal to 64K bytes (= 65536 bytes) by default.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>is dynamic, indicated to the client by the server and is the same for both sides of the connection.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>is dynamic with TCPv4 and static with TCPv6.</p></li></ul><hr /><p><strong>An intermediate system X, which is a bridge or a router, forwards a packet that is made of an Ethernet frame containing an IPv4 packet. In which case does X modify the MAC destination address ?</strong> </p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>When X is a router but not when X is a bridge.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Neither when X is a bridge nor when it is a router.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>When X is a bridge but not when X is a router.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>When X is a bridge and when X is a router.</p></li></ul><hr /><p><strong>An IPv6 host connected to Ethernet has to send an IPv6 packet to an IPv6 multicast destination address A. In order to determine the destination MAC address M to be used when sending this packet in an Ethernet frame, the host will…</strong> </p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>send a Neighbour Solicitation message to all nodes in the subnetwork.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>send a Neighbour Solicitation message multicast to all nodes in the subnetwork that have one IPv6 address with the same 32 low order bits as those of A.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>send a Neighbour Solicitation message to the IPv6 multicast address A using a MAC layer broadcast.</p></li></ul><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>deterministically compute M from A.</p></li></ul><hr /><p><strong>The sockets used by a TCP server to receive a SYN packet and to receive data after connection establishment …</strong> </p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>are one and the same.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>are a single socket bound to two different local ports.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>are distinct and bound to different local ports.</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>are distinct, but are bound to the same local port.</p></li></ul><hr /><p><strong>A sends one block of 2’000 bytes to B in one single socket call. B issues one single socket call in order to receive the data. This socket call is successful (i.e. the call returns and B receives some data). Can B be sure to have received all of the 2’000 bytes sent by A ?</strong> </p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Yes, regardless of whether the application uses UDP or TCP.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>No, regardless of whether the application uses UDP or TCP.</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>Yes if the application uses UDP, no if it uses TCP.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Yes if the application uses TCP, no if it uses UDP.</p></li></ul><hr /><p><strong>A sends data to B using a sliding window protocol over a link of infinite (i.e. very large) bit rate. The achieved throughput …</strong> </p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>is proportional to the window size and inversely proportional to the round trip time.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>is inversely proportional to the round trip time but does not depend on the window size.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>is proportional to the window size but does not depend on the round trip time.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>is independent of window size and round trip time.</p></li></ul><hr /><p><strong>An IPv4 host connected to Ethernet has to send an IP packet to a multicast destination address. In order to determine the MAC destination address, the host will...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>send an ARP request and the MAC destination address of the ARP request is deterministically computed from the destination IP address.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>send an ARP request and the MAC destination address of the ARP request is the MAC address of the default router.send an ARP request and the MAC destination address of the ARP request is the MAC address of the default router.</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>compute the destination MAC address deterministically from the destination IP address.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>send an ARP request and the MAC destination address of the ARP request is the MAC broadcast address.</p></li></ul><hr /><p><strong>A sends data to B using a sliding window protocol. The window size is 5’000 bytes. A has 7 packets ready to send, of size 1’000 bytes each. A sends the first 5 packets to B, then waits. Later, at time t1, A receives from B a selective acknowledgement, which acknowledges the reception of all packets except the second one. What is possible for A immediately after time t1 ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A can send neither the sixth nor the seventh packet.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A can send the seventh packet but not the sixth.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A can send the sixth and the seventh packets.</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>A can send the sixth packet but not the seventh.</p></li></ul><hr /><p><strong>Over a lossy channel with several intermediate hops, which method of retransmission (hop-by-hop versus end-to-end) provides a higher throughput ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>End-to-end.</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>Hop-by-hop.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Both provide the same throughput.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>It depends on the bandwidth-delay product.</p></li></ul><hr /><p><strong>A bridge receives an Ethernet packet on port eth0 with destination MAC address equal to <code>ff:ff:ff:ff:ff:ff</code>.</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>The bridge forwards this packet to all ports that are on the spanning tree except to eth0.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Such packets are never forwarded by bridges.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The bridge forwards this packet to all ports except to eth0.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The bridge forwards this packet to all ports that are not on the spanning tree except to eth0.</p></li></ul><hr /><p><strong>An instance of TCP declares that two consecutive segments are lost. The concatenation of the two segments is smaller than the maximum segment size. May TCP merge the two segments and retransmit them as a single segment ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>No.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Yes with IPv4, no with IPv6.</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>Yes.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>No with IPv4, yes with IPv6.</p></li></ul><hr /><p><strong>When a bridge forwards an Ethernet frame ...</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>it does not modify the MAC header.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>it decrements the TTL/HL fields both in the IP header and in the Ethernet header.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>it decrements the TTL/HL field in the Ethernet header</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>it decrements the TTL/HL field in the IP header.</p></li></ul><hr /><p><strong>A and B are in different VLANs but they are connected to the same VLAN switch. A sends a packet to B. The MAC destination address, observed at A, is ...</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>the MAC address of A’s default router.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>a MAC address algorithmically derived from the concatenation of B’s MAC address and VLAN label.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>a MAC address</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the MAC address of B.</p></li></ul><hr /><p><strong>How many successful MAC frame transmissions can take place at the same time in this network ?</strong></p><p><img src='img/q17.png' alt='q17' /></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>1</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>3</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>4</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>5</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>6</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-4-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.808ex" height="2.113ex" viewBox="0 -692 778.5 909.7" role="img" focusable="false" style="vertical-align: -0.505ex;"><defs><path stroke-width="1" id="E4-MJMAIN-2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E4-MJMAIN-2265" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-4">\ge</script> 7</p></li></ul><hr /><p><strong>M1 Sends one packet to M4 and one packet to M5. Which source MAC address do the destinations see ?</strong></p><p><img src='img/q18.png' alt='q18' /></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>Both M4 and M5 see M1 as source MAC address</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>M4 sees a MAC address ≠M1 and M5 sees M1</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>M4 and M5 both see a MAC address ≠M1</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>It depends on the type of switch (transparent or not)</p></li></ul><hr /><p><strong>Say which one is true</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>There is no TTL in Ethernet headers</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>There is a TTL in Ethernet headers, but it is used only in networks with bridges</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>There is a TTL in Ethernet headers, and it is used in networks with bridges or hubs</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>There is a TTL in Ethernet headers, but it is used only in broadcast frames</p></li></ul><hr /><p><strong>On a half-duplex Ethernet link, the protocol is ...</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>CSMA/CD</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Aloha</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Zigbee</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>There is no protocol</p></li></ul><hr /><p><strong>How does a bridge build its forwarding table ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>By means of the spanning tree protocol</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>By means of a routing protocol</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>By reading MAC source addresses</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>There is no forwarding table in a bridge</p></li></ul><hr /><p><strong>Lisa has 6 bridges and connects them with Ethernet full duplex links as illustrated. Say which is true.</strong></p><p><img src='img/q19.png' alt='q19' /></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>This bridged network does not work because it has a loop</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>This bridged network does not work because all links are full duplex</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>The spanning tree protocol will disable one of the ports of one of the bridges</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The spanning tree protocol will disable one of the bridges</p></li></ul><hr /><p><strong>An application at A sends one message to B using either UDP or TCP. An application at B attempts to receive the data sent by A by doing a receive call on a socket. The receive call succeeds and B gets one block of data. Can the application at B be sure to have received the entire message ?</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>Yes if UDP is used, no if TCP is used</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>No if UDP is used, yes if TCP is used</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Yes in either case</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>No in either case</p></li></ul><hr /><p><strong>With TCP, the window size...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Is fixed and equal to 4096 bytes (by default)</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>Is dynamic and is given to the source by the receiver</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Is dynamic, is given to the source by the receiver and can only decrease during a connection</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>I don’t know</p></li></ul><hr /><p><strong>A and B use a fixed sliding window of size 300 Bytes. At time 𝒕𝟎 , the protocol is initialized. At time 𝒕𝟏 ...</strong></p><p><img src='img/q20.png' alt='q20' /></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A can send a packet with Seq =401:501 but not more</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A can send a packet with Seq =401:601 but not more</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A can send a packet with Seq =401:701 but not more</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>A cannot send any of the above</p></li></ul><hr /><p><strong>A and B use TCP, the window size is 300 Bytes. At time 𝒕𝟎 , the protocol is initialized. At time 𝒕𝟏 , A decides to retransmit the missing data. Say what A is 𝑡 Seq =201:301 Seq =301:401 𝑡+ A Seq=1:101 B Seq =101:201 allowed to do.</strong> </p><ol start='' ><li><strong>A may send a packet with Seq =101:201, followed by a packet with Seq =201:301, and a packet with Seq =301:401</strong> </li><li><strong>A may send a single packet with Seq =101:401</strong> </li></ol><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>1 is allowed but not 2</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2 is allowed but not 1</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>1 and 2 are allowed</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None of these is allowed</p></li></ul><hr /><p><strong>When a NAT receives a packet from the WAN interface (= from the public internet), it modifies ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The IP source address</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>The IP destination address</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Both</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li></ul><hr /><p><strong>An IPv6 router receives an IPv6 packetwith <code>Hop Limit = 255</code> ...</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>The originator of the IPv6 packet must be on-link with this router</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The originator of the IPv6 packet must be at most 254 hops away from this router</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The originator of the IPv6 packet must be at most 255 hops away from this router</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The originator of the IPv6 packet must be at most 256 hops away from this router</p></li></ul><hr /><p><strong>Say what is true</strong> </p><ol start='' ><li>A bridge is an intermediatesystem of the MAC layer</li><li>A repeater is an intermediatesystem of the Physical layer</li></ol><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>1</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>1and2</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li></ul><hr /><p><strong>How many frames can be transmitted in parallel in this network ?</strong></p><p><img src='img/q21.png' alt='q21' /></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>1</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>2</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>8</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>9</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>≥10</p></li></ul><hr /><p><strong>On a full duplex-Ethernet cable, the protocol is ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>CSMA/CD</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>CSMA/CA</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Aloha</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>None of the above</p></li></ul><hr /><p><strong>When a bridge receives a MAC frame with destination address <code>ff:ff:ff:ff:ff:ff</code> ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>This is an incorrect destination address, the bridge discards the frame</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The bridge forwards the frame on all of its ports</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>The bridge forwards the frame on all of its ports that are on the spanning tree</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The bridge does not forward the frame because broadcast frames are never forwarded</p></li></ul><hr /><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>In the Ethernet header, the hop limit field is called TTL and its maximum value is 255</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>In the Ethernet header, the hop limit field is called TTL and its maximum value is 63</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>In the Ethernet header, the hop limit field is called HL</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>There is no hop limit field in Ethernet header</p></li></ul><hr /><p><strong>A bridge receives a MAC frame with destination address A (a valid unicast MAC address). The bridge does not have any entry corresponding to A in its forwarding table.</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The bridge silently drops the frame</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The bridge drops the frame and sends an ICMP message “Host unreachable” back to the source.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The bridge forwards the frame on all of its ports</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>The bridge forwards the frame on all of its ports that are on the spanning tree</p></li></ul><hr /><p><strong>We have an existing IPv4 local area network with one NAT, one Bridge and one Ethernet hub. We want to upgrade to IPv6. We don’t do multicast. We need to upgrade:</strong></p><ul class='task-list'><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>The NAT</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The bridge</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The hub</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The NAT and the bridge</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The NAT and the hub</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The bridge and the hub</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>All</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li></ul><hr /><p><strong>Bart sends one packet to Lisa. In which of the following cases is the source MAC address in the packet received by Lisa equal to M1 (i.e. to Bart’c PC MAC address) ?</strong></p><ol start='' ><li><strong>box X is a router</strong></li><li><strong>box X is a bridge</strong></li><li><strong>box X is a repeater</strong></li></ol><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>1</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>3</p></li></ul><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>1and2</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>1and3</p></li><li class='task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked></input><p>2and3</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>All cases</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li></ul><hr /></div>
+<body>
+<h1 id="tcpip---quiz">TCP/IP - Quiz</h1>
+<h2 id="quiz-3">Quiz 3</h2>
+<p><strong>Bart, who is EPFL student, connects his PC to EPFL WiFi, which uses per user access control, authentication and encryption. Bart configures his PC to be a bridge between Ethernet and WiFi and allows Lisa, who is not allowed to access EPFL, to connect to his Ethernet port. Will Lisa be able to connect to the Internet in this way ?</strong></p>
+<ul>
+<li><p>[ ] Yes, provided that Lisa can configure an IP address on the</p>
+<pre><code>same subnet as Bart</code></pre></li>
+<li><p>[ ] Yes, it will work in all cases</p></li>
+<li><p>[x] No, it will not work in any case</p></li>
+</ul>
+<hr />
+<p><strong>Bart, who is EPFL student, connects his PC to EPFL WiFi, which uses per user access control, authentication and encryption. Bart configures his PC to be a NAT between Ethernet and WiFi and allows Lisa, who is not allowed to access EPFL, to connect to his Ethernet port. Will Lisa be able to connect to the Internet in this way ?</strong></p>
+<ul>
+<li>[ ] Yes if Bart himself is not behind a NAT</li>
+<li>[x] Yes</li>
+<li>[ ] No, it will not work in any case</li>
+<li>[ ] I don’t know</li>
+</ul>
+<hr />
+<p><strong>Lisa’s browser sends DNS query to DNS server, over UDP. What happens if query or answer is lost ?</strong></p>
+<ul>
+<li><p>[x] Name resolver in browser waits for timeout, if no answer received before timeout, sends again</p></li>
+<li><p>[ ] Messages cannot be lost because UDP assures message integrity</p></li>
+<li><p>[ ] UDP detects the loss and retransmits</p></li>
+</ul>
+<hr />
+<p><strong>A time <code>t1</code> the sender …</strong></p>
+<p><strong>Window size = 4 kbytes, one packet = 1 kbytes</strong></p>
+<figure>
+<img src="img/q14.png" alt="q14" /><figcaption>q14</figcaption>
+</figure>
+<ul>
+<li>[ ] … can send packet 4</li>
+<li>[x] … cannot send packet 4</li>
+<li>[ ] It depends on whether data was consumed by application</li>
+</ul>
+<hr />
+<p><strong>In the absence of loss, and on a link with capacity packets persecond, the window size required for sending at the maximum possible rate is…</strong></p>
+<figure>
+<img src="img/q15.png" alt="q15" /><figcaption>q15</figcaption>
+</figure>
+<ul>
+<li>[ ] <span class="math inline">\(W_{min} = RTT * c\)</span></li>
+<li>[ ] <span class="math inline">\(W_{min} = \frac{c}{RTT}\)</span></li>
+<li>[x] <span class="math inline">\(W_{min} = \frac{RTT}{c}\)</span></li>
+<li>[ ] None of the above</li>
+</ul>
+<hr />
+<p><strong>For which types of apps is the streaming service a drawback ?</strong></p>
+<ul>
+<li><p>[ ] an app using http/1 with one TCP connection per object transfer</p></li>
+<li>[ ] an app using http/2 with one TCP connection</li>
+<li>[ ] a real time streaming application that sends one new packet every <code>msec</code></li>
+<li>[ ] A and B</li>
+<li>[ ] A and C</li>
+<li>[x] B and C</li>
+<li>[ ] All</li>
+<li><p>[ ] None</p></li>
+</ul>
+<hr />
+<p><strong>A TCP server is, by definition …</strong></p>
+<ul>
+<li><p>[x] … an application program that does listen( ) and accept( ) on a TCP socket</p></li>
+<li>[ ] … an application program that does receive( ) on a TCP socket</li>
+<li><p>[ ] … an application program that does send( ) on a TCP socket</p></li>
+</ul>
+<hr />
+<p><strong>When does Fast Retransmit Fail ?</strong></p>
+<ul>
+<li><p>[ ] Extremely rarely, it is quasioptimal</p></li>
+<li><p>[ ] It fails to detect the loss extremely rarely, but it may often take a long time to detect.</p></li>
+<li><p>[x] When one of the last segments of an application layer block is lost, fast retransmit does not detect it.</p></li>
+<li><p>[ ] It may often fail due to packet packet reordering</p></li>
+</ul>
+<hr />
+<p><strong>If the ACK (3) is never sent, a server that does not implement SYN cookies will</strong> <strong>1) retransmit SYN ACK</strong> <strong>2) keep state information until timeout occurs</strong></p>
+<ul>
+<li>[ ] 1</li>
+<li>[ ] 2</li>
+<li>[x] 1 &amp; 2</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>With SYN cookies, the response time of SYN-ACK is…</strong></p>
+<ul>
+<li>[x] Larger than without SYN cookies</li>
+<li>[ ] Smaller than without SYN cookies</li>
+<li>[ ] The same</li>
+</ul>
+<hr />
+<p><strong>A web server does <code>accept()</code> on a TCP socket bound to port 80.</strong></p>
+<ul>
+<li>[ ] A new socket is created by <code>accept()</code>, bound to an ephemeral port allocated by the operating system.</li>
+<li>[x] A new socket is created by accept(), also bound to port 80.</li>
+<li>[ ] No new socket is created but the socket is bound to a second, ephemeral, port allocated by the operating system.</li>
+<li>[ ] No new socket is created since the server is listening to a single port (port 80).</li>
+</ul>
+<hr />
+<p><strong>An IPv4 host must send IGMP <code>join(m)</code>, where m is an IPv4 multicast address …</strong></p>
+<ul>
+<li>[ ] in order to receive packets sent to m or to send packets to m.</li>
+<li>[x] before receiving packets sent to m but this is not required for sending to m.</li>
+<li>[ ] neither to receive packets sent to m nor to send packets to m.</li>
+<li>[ ] before sending packets to m but this is not required for receiving packets sent to m.</li>
+</ul>
+<hr />
+<p><strong>In the Internet, which layers other than the application layer may, in some cases, perform re-transmission when a packet loss occurs ?</strong></p>
+<ul>
+<li>[x] The transport layer (TCP) and some instances of the MAC layer.</li>
+<li>[ ] The transport layer (TCP) and IPv4 when fragmentation occurs.</li>
+<li>[ ] The transport layer (TCP) and IP (v4 or v6) when fragmentation occurs.</li>
+<li>[ ] The transport layer (TCP) and IPv6 when fragmentation occurs.</li>
+</ul>
+<hr />
+<p><strong>An application at A sends one block of 1900 bytes of data to B using TCP or UDP. An application at B attempts to receive the data and does a successful <code>recvfrom()</code> on a socket. Can B be sure to have received all of the 1900 bytes of the message sent by A ?</strong></p>
+<ul>
+<li>[ ] no in either case.</li>
+<li>[x] yes with UDP, no with TCP.</li>
+<li>[ ] yes in both cases.</li>
+<li>[ ] no with UDP, yes with TCP.</li>
+</ul>
+<hr />
+<p><strong>A and B use a fixed sliding window protocol. The window size is 300 bytes. At time t0, the protocol is initialized. Say which of the choices below is allowed for A at time t1:</strong></p>
+<figure>
+<img src="img/q16.png" alt="q16" /><figcaption>q16</figcaption>
+</figure>
+<ul>
+<li><p>[ ] A may transmit a packet with Seq = 301:501.</p></li>
+<li><p>[x] A may transmit a packet with Seq = 301:401.</p></li>
+<li>[ ] A may transmit a packet with Seq = 301:601.</li>
+<li><p>[ ] A may not transmit any new data.</p></li>
+</ul>
+<hr />
+<p><strong>A TCP sender A detects that the segments 101:201 and 201:301 were lost. The window size is very large and has remained the same as when the segments 101:201 and 201:301 were first sent. When A decides to retransmit these two segments:</strong></p>
+<ul>
+<li><p>[ ] A must retransmit 2 segments, with sequence numbers 101:201 and 201:301.</p></li>
+<li>[ ] A may retransmit 1 segment with sequence number 101:201 and must wait for the acknowledgement of this segment before retransmitting 201:301.</li>
+<li>[x] A may retransmit 2 segments, with sequence numbers 101:201 and 201:301 or retransmit one segment with sequence numbers 101:301.</li>
+<li><p>[ ] A may retransmit 1 segment with sequence number 201:301 and must wait for the acknowledgement of this segment before retransmitting 101:201.</p></li>
+</ul>
+<hr />
+<p><strong>Elaine has a computer network with a NAT and a bridge; her equipment is IPv4 only. Now Elaine wants to migrate to IPv6. She does not use multicast. Which of her networking equipments does she need to upgrade ?</strong></p>
+<ul>
+<li>[x] the NAT and not the bridge.</li>
+<li>[ ] both the NAT and the bridge.</li>
+<li>[ ] neither the NAT nor the bridge.</li>
+<li>[ ] the bridge and not the NAT.</li>
+</ul>
+<hr />
+<p><strong>With TCP, the window size…</strong></p>
+<ul>
+<li>[x] is dynamic, indicated to the receiver by the source and may differ for each side of the connection.</li>
+<li>[ ] is fixed and equal to 64K bytes (= 65536 bytes) by default.</li>
+<li>[ ] is dynamic, indicated to the client by the server and is the same for both sides of the connection.</li>
+<li>[ ] is dynamic with TCPv4 and static with TCPv6.</li>
+</ul>
+<hr />
+<p><strong>An intermediate system X, which is a bridge or a router, forwards a packet that is made of an Ethernet frame containing an IPv4 packet. In which case does X modify the MAC destination address ?</strong></p>
+<ul>
+<li>[x] When X is a router but not when X is a bridge.</li>
+<li>[ ] Neither when X is a bridge nor when it is a router.</li>
+<li>[ ] When X is a bridge but not when X is a router.</li>
+<li>[ ] When X is a bridge and when X is a router.</li>
+</ul>
+<hr />
+<p><strong>An IPv6 host connected to Ethernet has to send an IPv6 packet to an IPv6 multicast destination address A. In order to determine the destination MAC address M to be used when sending this packet in an Ethernet frame, the host will…</strong></p>
+<ul>
+<li>[ ] send a Neighbour Solicitation message to all nodes in the subnetwork.</li>
+<li>[ ] send a Neighbour Solicitation message multicast to all nodes in the subnetwork that have one IPv6 address with the same 32 low order bits as those of A.</li>
+<li><p>[ ] send a Neighbour Solicitation message to the IPv6 multicast address A using a MAC layer broadcast.</p></li>
+<li><p>[x] deterministically compute M from A.</p></li>
+</ul>
+<hr />
+<p><strong>The sockets used by a TCP server to receive a SYN packet and to receive data after connection establishment …</strong></p>
+<ul>
+<li>[ ] are one and the same.</li>
+<li>[ ] are a single socket bound to two different local ports.</li>
+<li>[ ] are distinct and bound to different local ports.</li>
+<li>[x] are distinct, but are bound to the same local port.</li>
+</ul>
+<hr />
+<p><strong>A sends one block of 2’000 bytes to B in one single socket call. B issues one single socket call in order to receive the data. This socket call is successful (i.e. the call returns and B receives some data). Can B be sure to have received all of the 2’000 bytes sent by A ?</strong></p>
+<ul>
+<li>[ ] Yes, regardless of whether the application uses UDP or TCP.</li>
+<li>[ ] No, regardless of whether the application uses UDP or TCP.</li>
+<li>[x] Yes if the application uses UDP, no if it uses TCP.</li>
+<li>[ ] Yes if the application uses TCP, no if it uses UDP.</li>
+</ul>
+<hr />
+<p><strong>A sends data to B using a sliding window protocol over a link of infinite (i.e. very large) bit rate. The achieved throughput …</strong></p>
+<ul>
+<li>[x] is proportional to the window size and inversely proportional to the round trip time.</li>
+<li>[ ] is inversely proportional to the round trip time but does not depend on the window size.</li>
+<li>[ ] is proportional to the window size but does not depend on the round trip time.</li>
+<li>[ ] is independent of window size and round trip time.</li>
+</ul>
+<hr />
+<p><strong>An IPv4 host connected to Ethernet has to send an IP packet to a multicast destination address. In order to determine the MAC destination address, the host will…</strong></p>
+<ul>
+<li>[ ] send an ARP request and the MAC destination address of the ARP request is deterministically computed from the destination IP address.</li>
+<li>[ ] send an ARP request and the MAC destination address of the ARP request is the MAC address of the default router.send an ARP request and the MAC destination address of the ARP request is the MAC address of the default router.</li>
+<li>[x] compute the destination MAC address deterministically from the destination IP address.</li>
+<li>[ ] send an ARP request and the MAC destination address of the ARP request is the MAC broadcast address.</li>
+</ul>
+<hr />
+<p><strong>A sends data to B using a sliding window protocol. The window size is 5’000 bytes. A has 7 packets ready to send, of size 1’000 bytes each. A sends the first 5 packets to B, then waits. Later, at time t1, A receives from B a selective acknowledgement, which acknowledges the reception of all packets except the second one. What is possible for A immediately after time t1 ?</strong></p>
+<ul>
+<li>[ ] A can send neither the sixth nor the seventh packet.</li>
+<li>[ ] A can send the seventh packet but not the sixth.</li>
+<li>[ ] A can send the sixth and the seventh packets.</li>
+<li>[x] A can send the sixth packet but not the seventh.</li>
+</ul>
+<hr />
+<p><strong>Over a lossy channel with several intermediate hops, which method of retransmission (hop-by-hop versus end-to-end) provides a higher throughput ?</strong></p>
+<ul>
+<li>[ ] End-to-end.</li>
+<li>[x] Hop-by-hop.</li>
+<li>[ ] Both provide the same throughput.</li>
+<li>[ ] It depends on the bandwidth-delay product.</li>
+</ul>
+<hr />
+<p><strong>A bridge receives an Ethernet packet on port eth0 with destination MAC address equal to <code>ff:ff:ff:ff:ff:ff</code>.</strong></p>
+<ul>
+<li>[x] The bridge forwards this packet to all ports that are on the spanning tree except to eth0.</li>
+<li>[ ] Such packets are never forwarded by bridges.</li>
+<li>[ ] The bridge forwards this packet to all ports except to eth0.</li>
+<li>[ ] The bridge forwards this packet to all ports that are not on the spanning tree except to eth0.</li>
+</ul>
+<hr />
+<p><strong>An instance of TCP declares that two consecutive segments are lost. The concatenation of the two segments is smaller than the maximum segment size. May TCP merge the two segments and retransmit them as a single segment ?</strong></p>
+<ul>
+<li>[ ] No.</li>
+<li>[ ] Yes with IPv4, no with IPv6.</li>
+<li>[x] Yes.</li>
+<li>[ ] No with IPv4, yes with IPv6.</li>
+</ul>
+<hr />
+<p><strong>When a bridge forwards an Ethernet frame …</strong></p>
+<ul>
+<li>[x] it does not modify the MAC header.</li>
+<li>[ ] it decrements the TTL/HL fields both in the IP header and in the Ethernet header.</li>
+<li>[ ] it decrements the TTL/HL field in the Ethernet header</li>
+<li>[ ] it decrements the TTL/HL field in the IP header.</li>
+</ul>
+<hr />
+<p><strong>A and B are in different VLANs but they are connected to the same VLAN switch. A sends a packet to B. The MAC destination address, observed at A, is …</strong></p>
+<ul>
+<li>[x] the MAC address of A’s default router.</li>
+<li>[ ] a MAC address algorithmically derived from the concatenation of B’s MAC address and VLAN label.</li>
+<li>[ ] a MAC address</li>
+<li>[ ] the MAC address of B.</li>
+</ul>
+<hr />
+<p><strong>How many successful MAC frame transmissions can take place at the same time in this network ?</strong></p>
+<figure>
+<img src="img/q17.png" alt="q17" /><figcaption>q17</figcaption>
+</figure>
+<ul>
+<li>[x] 1</li>
+<li>[ ] 2</li>
+<li>[ ] 3</li>
+<li>[ ] 4</li>
+<li>[ ] 5</li>
+<li>[ ] 6</li>
+<li>[ ] <span class="math inline">\(\ge\)</span> 7</li>
+</ul>
+<hr />
+<p><strong>M1 Sends one packet to M4 and one packet to M5. Which source MAC address do the destinations see ?</strong></p>
+<figure>
+<img src="img/q18.png" alt="q18" /><figcaption>q18</figcaption>
+</figure>
+<ul>
+<li>[x] Both M4 and M5 see M1 as source MAC address</li>
+<li>[ ] M4 sees a MAC address ≠M1 and M5 sees M1</li>
+<li>[ ] M4 and M5 both see a MAC address ≠M1</li>
+<li>[ ] It depends on the type of switch (transparent or not)</li>
+</ul>
+<hr />
+<p><strong>Say which one is true</strong></p>
+<ul>
+<li>[x] There is no TTL in Ethernet headers</li>
+<li>[ ] There is a TTL in Ethernet headers, but it is used only in networks with bridges</li>
+<li>[ ] There is a TTL in Ethernet headers, and it is used in networks with bridges or hubs</li>
+<li>[ ] There is a TTL in Ethernet headers, but it is used only in broadcast frames</li>
+</ul>
+<hr />
+<p><strong>On a half-duplex Ethernet link, the protocol is …</strong></p>
+<ul>
+<li>[x] CSMA/CD</li>
+<li>[ ] Aloha</li>
+<li>[ ] Zigbee</li>
+<li>[ ] There is no protocol</li>
+</ul>
+<hr />
+<p><strong>How does a bridge build its forwarding table ?</strong></p>
+<ul>
+<li>[ ] By means of the spanning tree protocol</li>
+<li>[ ] By means of a routing protocol</li>
+<li>[x] By reading MAC source addresses</li>
+<li>[ ] There is no forwarding table in a bridge</li>
+</ul>
+<hr />
+<p><strong>Lisa has 6 bridges and connects them with Ethernet full duplex links as illustrated. Say which is true.</strong></p>
+<figure>
+<img src="img/q19.png" alt="q19" /><figcaption>q19</figcaption>
+</figure>
+<ul>
+<li>[ ] This bridged network does not work because it has a loop</li>
+<li>[ ] This bridged network does not work because all links are full duplex</li>
+<li>[x] The spanning tree protocol will disable one of the ports of one of the bridges</li>
+<li>[ ] The spanning tree protocol will disable one of the bridges</li>
+</ul>
+<hr />
+<p><strong>An application at A sends one message to B using either UDP or TCP. An application at B attempts to receive the data sent by A by doing a receive call on a socket. The receive call succeeds and B gets one block of data. Can the application at B be sure to have received the entire message ?</strong></p>
+<ul>
+<li>[x] Yes if UDP is used, no if TCP is used</li>
+<li>[ ] No if UDP is used, yes if TCP is used</li>
+<li>[ ] Yes in either case</li>
+<li>[ ] No in either case</li>
+</ul>
+<hr />
+<p><strong>With TCP, the window size…</strong></p>
+<ul>
+<li>[ ] Is fixed and equal to 4096 bytes (by default)</li>
+<li>[x] Is dynamic and is given to the source by the receiver</li>
+<li>[ ] Is dynamic, is given to the source by the receiver and can only decrease during a connection</li>
+<li>[ ] I don’t know</li>
+</ul>
+<hr />
+<p><strong>A and B use a fixed sliding window of size 300 Bytes. At time 𝒕𝟎 , the protocol is initialized. At time 𝒕𝟏 …</strong></p>
+<figure>
+<img src="img/q20.png" alt="q20" /><figcaption>q20</figcaption>
+</figure>
+<ul>
+<li>[ ] A can send a packet with Seq =401:501 but not more</li>
+<li>[ ] A can send a packet with Seq =401:601 but not more</li>
+<li>[ ] A can send a packet with Seq =401:701 but not more</li>
+<li>[x] A cannot send any of the above</li>
+</ul>
+<hr />
+<p><strong>A and B use TCP, the window size is 300 Bytes. At time 𝒕𝟎 , the protocol is initialized. At time 𝒕𝟏 , A decides to retransmit the missing data. Say what A is 𝑡 Seq =201:301 Seq =301:401 𝑡+ A Seq=1:101 B Seq =101:201 allowed to do.</strong></p>
+<ol type="1">
+<li><strong>A may send a packet with Seq =101:201, followed by a packet with Seq =201:301, and a packet with Seq =301:401</strong></li>
+<li><strong>A may send a single packet with Seq =101:401</strong></li>
+</ol>
+<ul>
+<li>[ ] 1 is allowed but not 2</li>
+<li>[ ] 2 is allowed but not 1</li>
+<li>[x] 1 and 2 are allowed</li>
+<li>[ ] None of these is allowed</li>
+</ul>
+<hr />
+<p><strong>When a NAT receives a packet from the WAN interface (= from the public internet), it modifies …</strong></p>
+<ul>
+<li>[ ] The IP source address</li>
+<li>[x] The IP destination address</li>
+<li>[ ] Both</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>An IPv6 router receives an IPv6 packetwith <code>Hop Limit = 255</code> …</strong></p>
+<ul>
+<li>[x] The originator of the IPv6 packet must be on-link with this router</li>
+<li>[ ] The originator of the IPv6 packet must be at most 254 hops away from this router</li>
+<li>[ ] The originator of the IPv6 packet must be at most 255 hops away from this router</li>
+<li>[ ] The originator of the IPv6 packet must be at most 256 hops away from this router</li>
+</ul>
+<hr />
+<p><strong>Say what is true</strong></p>
+<ol type="1">
+<li>A bridge is an intermediatesystem of the MAC layer</li>
+<li>A repeater is an intermediatesystem of the Physical layer</li>
+</ol>
+<ul>
+<li>[ ] 1</li>
+<li>[ ] 2</li>
+<li>[x] 1and2</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>How many frames can be transmitted in parallel in this network ?</strong></p>
+<figure>
+<img src="img/q21.png" alt="q21" /><figcaption>q21</figcaption>
+</figure>
+<ul>
+<li>[ ] 1</li>
+<li>[x] 2</li>
+<li>[ ] 8</li>
+<li>[ ] 9</li>
+<li>[ ] ≥10</li>
+</ul>
+<hr />
+<p><strong>On a full duplex-Ethernet cable, the protocol is …</strong></p>
+<ul>
+<li>[ ] CSMA/CD</li>
+<li>[ ] CSMA/CA</li>
+<li>[ ] Aloha</li>
+<li>[x] None of the above</li>
+</ul>
+<hr />
+<p><strong>When a bridge receives a MAC frame with destination address <code>ff:ff:ff:ff:ff:ff</code> …</strong></p>
+<ul>
+<li>[ ] This is an incorrect destination address, the bridge discards the frame</li>
+<li>[ ] The bridge forwards the frame on all of its ports</li>
+<li>[x] The bridge forwards the frame on all of its ports that are on the spanning tree</li>
+<li>[ ] The bridge does not forward the frame because broadcast frames are never forwarded</li>
+</ul>
+<hr />
+<ul>
+<li>[ ] In the Ethernet header, the hop limit field is called TTL and its maximum value is 255</li>
+<li>[ ] In the Ethernet header, the hop limit field is called TTL and its maximum value is 63</li>
+<li>[ ] In the Ethernet header, the hop limit field is called HL</li>
+<li>[x] There is no hop limit field in Ethernet header</li>
+</ul>
+<hr />
+<p><strong>A bridge receives a MAC frame with destination address A (a valid unicast MAC address). The bridge does not have any entry corresponding to A in its forwarding table.</strong></p>
+<ul>
+<li>[ ] The bridge silently drops the frame</li>
+<li>[ ] The bridge drops the frame and sends an ICMP message “Host unreachable” back to the source.</li>
+<li>[ ] The bridge forwards the frame on all of its ports</li>
+<li>[x] The bridge forwards the frame on all of its ports that are on the spanning tree</li>
+</ul>
+<hr />
+<p><strong>We have an existing IPv4 local area network with one NAT, one Bridge and one Ethernet hub. We want to upgrade to IPv6. We don’t do multicast. We need to upgrade:</strong></p>
+<ul>
+<li>[x] The NAT</li>
+<li>[ ] The bridge</li>
+<li>[ ] The hub</li>
+<li>[ ] The NAT and the bridge</li>
+<li>[ ] The NAT and the hub</li>
+<li>[ ] The bridge and the hub</li>
+<li>[ ] All</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>Bart sends one packet to Lisa. In which of the following cases is the source MAC address in the packet received by Lisa equal to M1 (i.e. to Bart’c PC MAC address) ?</strong></p>
+<ol type="1">
+<li><strong>box X is a router</strong></li>
+<li><strong>box X is a bridge</strong></li>
+<li><strong>box X is a repeater</strong></li>
+</ol>
+<ul>
+<li>[ ] 1</li>
+<li>[ ] 2</li>
+<li><p>[ ] 3</p></li>
+<li>[ ] 1and2</li>
+<li>[ ] 1and3</li>
+<li>[x] 2and3</li>
+<li>[ ] All cases</li>
+<li><p>[ ] None</p></li>
+</ul>
+<hr />
 </body>
 </html>

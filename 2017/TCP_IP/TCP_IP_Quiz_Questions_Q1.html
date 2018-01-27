@@ -1,636 +1,1045 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>TCP_IP_Quiz_Questions_Q1.md</title><link href='http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='http://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:  #ffffff; --text-color:  #333333; --code-block-bg-color: inherit; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { background-color: rgb(181, 214, 252); text-shadow: none; background-position: initial initial; background-repeat: initial initial; }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-@media screen and (max-width: 500px) { 
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
-}
-.typora-export #write { margin: 0px auto; }
-#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
-#write li > table:first-child { margin-top: -20px; }
-img { max-width: 100%; vertical-align: middle; }
-input, button, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-::before, ::after, * { box-sizing: border-box; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
-.typora-export p { white-space: normal; }
-.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
-tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 80px; }
-.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-pre { white-space: pre-wrap; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
-.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
-.md-fences.mock-cm { white-space: pre-wrap; }
-.show-fences-line-number .md-fences { padding-left: 0px; }
-.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
-.footnotes + .footnotes { margin-top: -1em; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background-color: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; background-position: initial initial; background-repeat: initial initial; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li p, li .mathjax-block { margin: 0.5rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
-@media print { 
-  html, body { border: 1px solid transparent; height: 99%; break-after: avoid-page; break-before: avoid-page; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
-  p { orphans: 4; }
-  html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid-page; }
-  .typora-export #write::after { height: 0px; }
-  @page { margin: 20mm 0mm; }
-}
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
-p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
-p + .mathjax-block { margin-top: -1.143rem; }
-.mathjax-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
-.task-list { list-style-type: none; }
-.task-list-item { position: relative; padding-left: 1em; }
-.task-list-item input { position: absolute; top: 0px; left: 0px; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc::after, .md-toc-content::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) { 
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
-}
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-.md-tag { opacity: 0.5; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: monospace; }
-code { text-align: left; }
-h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
-a.md-print-anchor { border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background-color: transparent !important; text-shadow: initial !important; background-position: initial initial !important; background-repeat: initial initial !important; }
-.md-inline-math .MathJax_SVG .noError { display: none !important; }
-.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
-.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
-.MathJax_SVG .MJX-monospace { font-family: monospace; }
-.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
-
-
-@include-when-export url(http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
-@include-when-export url(http://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext);
-
-:root {
-	--control-text-color: #777;
-}
-
-/**
- * forked from pixyll.com
- * MIT license
- */
-
-@charset "UTF-8";
-@font-face {
-	font-family: 'Merriweather';
-	font-style: normal;
-	font-weight: 300;
-	src: local('Merriweather Light'), local('Merriweather-Light'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-Light.ttf);
-}
-@font-face {
-	font-family: 'Merriweather';
-	font-style: normal;
-	font-weight: 900;
-	src: local('Merriweather Heavy'), local('Merriweather-Heavy'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-Bold.ttf);
-}
-@font-face {
-	font-family: 'Merriweather';
-	font-style: italic;
-	font-weight: 300;
-	src: local('Merriweather Light Italic'), local('Merriweather-LightItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-LightItalic.ttf);
-}
-@font-face {
-	font-family: 'Merriweather';
-	font-style: italic;
-	font-weight: 900;
-	src: local('Merriweather Heavy Italic'), local('Merriweather-HeavyItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-BoldItalic.ttf);
-}
-
-@font-face {
-	font-family: 'Lato';
-	font-style: normal;
-	font-weight: 300;
-	src: local('Lato Light'), local('Lato-Light'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Light.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: normal;
-	font-weight: 900;
-	src: local('Lato Black'), local('Lato-Blcak'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Black.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: normal;
-	font-weight: bold;
-	src: local('Lato Black'), local('Lato-Blcak'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Black.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: italic;
-	font-weight: 900;
-	src: local('Lato BlackItalic'), local('Lato-BlackItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-BlackItalic.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: italic;
-	font-weight: bold;
-	src: local('Lato BlackItalic'), local('Lato-BlackItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-BlackItalic.ttf);
-}
-
-h1,
-.h1,
-.f1 {
-	font-size: 2rem;
-	line-height: 2.5rem;
-}
-h2,
-.h2,
-.f2 {
-	font-size: 1.5rem;
-	line-height: 2rem;
-}
-h3,
-.h3,
-.f3 {
-	font-size: 1.25rem;
-	line-height: 1.5rem;
-}
-p,
-.p,
-.f4,
-h4,
-h5,
-h6,
-dl,
-ol,
-ul,
-pre[cid],
-div[cid],
-#typora-source {
-	font-size: 1.125rem;
-	line-height: 1.5rem;
-}
-
-h4 {
-	font-size: 1.13rem;
-}
-/*
- Pixyll
- A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
- Best served with BASSCSS (http://jxnblk.github.io/basscss)
- Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
-
-*/
-
-body {
-	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", Serif;
-	line-height: 1.5rem;
-	font-weight: 400;
-}
-
-#write {
-	max-width: 914px;
-	color: #333;
-}
-
-img {
-	width: auto;
-	max-width: 100%;
-}
-body {
-	font-size: 1.5rem;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-}
-
-.md-table-edit {
-	background: #ededed;
-    padding-top: 4px;
-}
-
-table {
-	width: 100%;
-	font-size: 1.125rem;
-}
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td,
-table > tfoot > tr > th,
-table > tfoot > tr > td {
-	padding: 12px;
-	line-height: 1.2;
-	vertical-align: top;
-	border-top: 1px solid #333;
-}
-table > thead > tr > th {
-	vertical-align: bottom;
-	border-bottom: 2px solid #333;
-}
-table > caption + thead > tr:first-child > th,
-table > caption + thead > tr:first-child > td,
-table > colgroup + thead > tr:first-child > th,
-table > colgroup + thead > tr:first-child > td,
-table > thead:first-child > tr:first-child > th,
-table > thead:first-child > tr:first-child > td {
-	border-top: 0;
-}
-table > tbody + tbody {
-	border-top: 2px solid #333;
-}
-p {
-	font-weight: 300;
-	line-height: 1.5;
-}
-abbr {
-	border-bottom: 1px black dotted;
-	cursor: help;
-}
-pre,
-code {
-	font-family: Menlo, Monaco, "Courier New", monospace;
-}
-
-code,
-.md-fences  {
-	color: #7a7a7a;
-}
-
-.md-fences .CodeMirror.CodeMirror-wrap {
-	top: -1.5em;
-    margin-bottom: -1.5em;
-}
-
-.md-fences {
-	padding: 1.125em;
-	margin-bottom: 0.88em;
-	font-size: 1rem;
-	border: 1px solid #7a7a7a;
-}
-
-blockquote {
-	padding: 1.33em;
-	font-style: italic;
-	border-left: 5px solid #7a7a7a;
-	color: #555;
-}
-blockquote em {
-	color: #000;
-}
-blockquote footer {
-	font-size: .85rem;
-	font-style: normal;
-	background-color: #fff;
-	color: #7a7a7a;
-	border-color: transparent;
-}
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
-	font-weight: 900;
-	line-height: 1.2;
-	margin: 1em 0 0.5em;
-}
-@media screen and (min-width: 48em) {
-	.h1,
-	h1 {
-		font-size: 3.250rem;
-	}
-	.h2,
-	h2 {
-		font-size: 2.298rem;
-	}
-	.h3,
-	h3 {
-		font-size: 1.625rem;
-	}
-	.h4,
-	h4 {
-		font-size: 1.3rem;
-	}
-	#write>h4.md-focus:before,
-	#write>h5.md-focus:before,
-	#write>h6.md-focus:before{
-		top: 1px;
-	}
-	.p,
-	p,
-	li {
-		font-size: 1.25rem;
-		line-height: 1.8;
-	}
-	table {
-		font-size: 1.25rem;
-	}
-}
-@media (max-width: 48em) {
-	blockquote {
-		margin-left: 1rem;
-		margin-right: 0;
-		padding: 0.5em;
-	}
-	.h1,
-	h1 {
-		font-size: 2.827rem;
-	}
-	.h2,
-	h2 {
-		font-size: 1.999rem;
-	}
-	.h3,
-	h3 {
-		font-size: 1.413rem;
-	}
-	.h4,
-	h4 {
-		font-size: 1.3rem;
-	}
-}
-@media screen and (min-width: 64em) {
-	.h1,
-	h1 {
-		font-size: 4.498rem;
-	}
-	.h2,
-	h2 {
-		font-size: 2.29rem;
-	}
-	.h3,
-	h3 {
-		font-size: 1.9rem;
-	}
-	.h4,
-	h4 {
-		font-size: 1.591rem;
-	}
-	#write>h4.md-focus:before{
-		top:4px;
-	}
-}
-a {
-	color: #463F5C;
-	text-decoration: underline;
-}
-
-#write {
-	padding-top: 2rem;
-}
-
-#write pre.md-meta-block {
-	min-height: 35px;
-	padding: 0.5em 1em;
-	white-space: pre;
-	border: 0px;
-
-	border-left: 30px #f8f8f8 solid;
-	border-right: 30px #f8f8f8 solid;
-	width: 100vw;
-	max-width: calc(100% + 60px);
-
-	margin-left: -30px;
-	margin-bottom: 2em;
-	margin-top: -2010px;
-	padding-top: 2000px;
-	padding-bottom: 10px;
-	line-height: 1.5em;
-	color: #7a7a7a;
-	background-color: #fafafa;
-	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
-	font-weight: 300;
-	clear: both;
-	padding-left: 0;
-	font-size:1.125rem;
-}
-.md-image>.md-meta {
-	color: #463F5C
-}
-.footnotes {
-	font-size:1.1rem;
-}
-.md-tag {
-	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
-}
-.code-tooltip {
-	background: white;
-}
-.code-tooltip-content {
-	font-size: 1.1rem;
-}
-
-.task-list{
-	padding-left: 0;
-}
-
-.task-list-item {
-	padding-left:34px;
-}
-
-.task-list-item input{
-	width: 1.25rem;
-	height: 1.25rem;
-	display: block;
-	-webkit-appearance: initial;
-	top: -2px;
-}
-
-.task-list-item input:focus{
-	outline: none;
-	box-shadow: none;
-}
-
-.task-list-item input:before{
-	border: 1px solid #555;
-	border-radius: 1.5rem;
-	width: 1.5rem;
-	height: 1.5rem;
-	background: #fff;
-	content: ' ';
-	transition: background-color 200ms ease-in-out;
-	display: block;
-}
-
-.task-list-item input:checked:before,
-.task-list-item input[checked]:before{
-	background: #333;
-	border-width: 2px;
-	display:inline-block;
-	transition: background-color 200ms ease-in-out;
-}
-
-.task-list-item input:checked:after,
-.task-list-item input[checked]:after {
-	opacity: 1;
-}
-
-.task-list-item input:after {
-	opacity: 1;
-	-webkit-transition: opacity 0.05s ease-in-out;
-	-moz-transition: opacity 0.05s ease-in-out;
-	transition: opacity 0.05s ease-in-out;
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	position: absolute;
-	top: 0.4375rem;
-	left: 0.28125rem;
-	width: 0.9375rem;
-	height: 0.5rem;
-	border: 3px solid #fff;
-	border-top: 0;
-	border-right: 0;
-	content: ' ';
-	opacity: 0;
-}
-
-.md-tag {
-	color:inherit;
-}
-
-.md-toc:focus .md-toc-content{
-	margin-top: 19px;
-}
-
-#typora-sidebar {
-	font-size:1rem !important;
-}
-
-.html-for-mac #typora-sidebar {
-	background-color:white;
-}
-
-.outline-content li, .outline-content ul {
-	font-size:1rem !important;
-}
-
-.outline-title {
-	line-height: inherit;
-	margin-top: 10px;
-}
-
-.outline-expander {
-	width: 18px;
-}
-
-.outline-expander:before {
- 	content: "+";
-	font-family: inherit;
-	color: rgb(108, 108, 108); 
-  	font-size: 1.5rem;
- 	top: 0.1rem;
-}
-
-.outline-expander:hover:before {
-	content: "+";
-}
-
-.outline-item-open>.outline-item>.outline-expander:before{
-	content: "-";
-}
-
-/** source code mode */
-#typora-source {
-	font-family: Courier, monospace;
-    color: #6A6A6A;
-}
-
-.os-windows #typora-source {
-	font-family: inherit;
-}
-
-.cm-s-typora-default .cm-header, 
-.cm-s-typora-default .cm-property,
-.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
-	color: #428bca;
-}
-
-.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
-	color: #777777;
-}
-
-.preference-item-hint {
-	margin-top: 16px;
-}
-
-.md-diagram-panel {
-	margin-top: 24px;
-	margin-left: -1.2em;
-}
-
-
-</style>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>TCP_IP_Quiz_Questions_Q1</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+  @font-face {
+    font-family: octicons-link;
+    src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+  }
+  
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    color: #333;
+    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.6;
+    word-wrap: break-word;
+    width: 728px;
+    max-width: 99%;
+    box-sizing: border-box;
+    padding: 30px 30px 8rem 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  body a {
+    background-color: transparent;
+  }
+  
+  body a:active,
+  body a:hover {
+    outline: 0;
+  }
+  
+  body strong {
+    font-weight: bold;
+  }
+  
+  body h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+  }
+  
+  body img {
+    border: 0;
+  }
+  
+  body hr {
+    box-sizing: content-box;
+    height: 0;
+  }
+  
+  body pre {
+    overflow: auto;
+  }
+  
+  body code,
+  body kbd,
+  body pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+  }
+  
+  body input {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+  }
+  
+  body html input[disabled] {
+    cursor: default;
+  }
+  
+  body input {
+    line-height: normal;
+  }
+  
+  body input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  
+  body table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  body td,
+  body th {
+    padding: 0;
+  }
+  
+  body * {
+    box-sizing: border-box;
+  }
+  
+  body input {
+    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+  
+  body a {
+    color: #4078c0;
+    text-decoration: none;
+  }
+  
+  body a:hover,
+  body a:active {
+    text-decoration: underline;
+  }
+  
+  body hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  body hr:before {
+    display: table;
+    content: "";
+  }
+  
+  body hr:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  
+  body h1,
+  body h2,
+  body h3,
+  body h4,
+  body h5,
+  body h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+  }
+  
+  body h1 {
+    font-size: 30px;
+  }
+  
+  body h2 {
+    font-size: 21px;
+  }
+  
+  body h3 {
+    font-size: 16px;
+  }
+  
+  body h4 {
+    font-size: 14px;
+  }
+  
+  body h5 {
+    font-size: 12px;
+  }
+  
+  body h6 {
+    font-size: 11px;
+  }
+  
+  body blockquote {
+    margin: 0;
+  }
+  
+  body ul,
+  body ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  body ol ol,
+  body ul ol {
+    list-style-type: lower-roman;
+  }
+  
+  body ul ul ol,
+  body ul ol ol,
+  body ol ul ol,
+  body ol ol ol {
+    list-style-type: lower-alpha;
+  }
+  
+  body dd {
+    margin-left: 0;
+  }
+  
+  body code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+  }
+  
+  body pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  }
+  
+  body .select::-ms-expand {
+    opacity: 0;
+  }
+  
+  body .octicon {
+    font: normal normal normal 16px/1 octicons-link;
+    display: inline-block;
+    text-decoration: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  body .octicon-link:before {
+    content: '\f05c';
+  }
+  
+  body:before {
+    display: table;
+    content: "";
+  }
+  
+  body:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  
+  body>*:first-child {
+    margin-top: 0 !important;
+  }
+  
+  body>*:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  body .anchor {
+    display: inline-block;
+    padding-right: 2px;
+    margin-left: -18px;
+  }
+  
+  body .anchor:focus {
+    outline: none;
+  }
+  
+  body h1,
+  body h2,
+  body h3,
+  body h4,
+  body h5,
+  body h6 {
+    margin-top: 1em;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  
+  body h1 .octicon-link,
+  body h2 .octicon-link,
+  body h3 .octicon-link,
+  body h4 .octicon-link,
+  body h5 .octicon-link,
+  body h6 .octicon-link {
+    color: #000;
+    vertical-align: middle;
+    visibility: hidden;
+  }
+  
+  body h1:hover .anchor,
+  body h2:hover .anchor,
+  body h3:hover .anchor,
+  body h4:hover .anchor,
+  body h5:hover .anchor,
+  body h6:hover .anchor {
+    text-decoration: none;
+  }
+  
+  body h1:hover .anchor .octicon-link,
+  body h2:hover .anchor .octicon-link,
+  body h3:hover .anchor .octicon-link,
+  body h4:hover .anchor .octicon-link,
+  body h5:hover .anchor .octicon-link,
+  body h6:hover .anchor .octicon-link {
+    visibility: visible;
+  }
+  
+  body h1 {
+    padding-bottom: 0.3em;
+    font-size: 1.75em;
+    line-height: 1.2;
+  }
+  
+  body h1 .anchor {
+    line-height: 1;
+  }
+  
+  body h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    line-height: 1.225;
+  }
+  
+  body h2 .anchor {
+    line-height: 1;
+  }
+  
+  body h3 {
+    font-size: 1.25em;
+    line-height: 1.43;
+  }
+  
+  body h3 .anchor {
+    line-height: 1.2;
+  }
+  
+  body h4 {
+    font-size: 1em;
+  }
+  
+  body h4 .anchor {
+    line-height: 1.2;
+  }
+  
+  body h5 {
+    font-size: 1em;
+  }
+  
+  body h5 .anchor {
+    line-height: 1.1;
+  }
+  
+  body h6 {
+    font-size: 1em;
+    color: #777;
+  }
+  
+  body h6 .anchor {
+    line-height: 1.1;
+  }
+  
+  body p,
+  body blockquote,
+  body ul,
+  body ol,
+  body dl,
+  body table,
+  body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  
+  body hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+  }
+  
+  body ul,
+  body ol {
+    padding-left: 2em;
+  }
+  
+  body ul ul,
+  body ul ol,
+  body ol ol,
+  body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  body li>p {
+    margin-top: 16px;
+  }
+  
+  body dl {
+    padding: 0;
+  }
+  
+  body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+  }
+  
+  body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+  }
+  
+  body blockquote {
+    padding: 0 15px;
+    color: #777;
+    border-left: 4px solid #ddd;
+  }
+  
+  body blockquote>:first-child {
+    margin-top: 0;
+  }
+  
+  body blockquote>:last-child {
+    margin-bottom: 0;
+  }
+  
+  body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+  }
+  
+  body table th {
+    font-weight: bold;
+  }
+  
+  body table th,
+  body table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+  }
+  
+  body table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+  }
+  
+  body table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+  }
+  
+  body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+  }
+  
+  body code {
+    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(0,0,0,0.04);
+    border-radius: 3px;
+  }
+  
+  body code:before,
+  body code:after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+  }
+  
+  body pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+  
+  body .highlight {
+    margin-bottom: 16px;
+  }
+  
+  body .highlight pre,
+  body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+  }
+  
+  body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+  }
+  
+  body pre {
+    word-wrap: normal;
+  }
+  
+  body pre code {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+  
+  body pre code:before,
+  body pre code:after {
+    content: normal;
+  }
+  
+  body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+  }
+  
+  body .pl-c {
+    color: #969896;
+  }
+  
+  body .pl-c1,
+  body .pl-s .pl-v {
+    color: #0086b3;
+  }
+  
+  body .pl-e,
+  body .pl-en {
+    color: #795da3;
+  }
+  
+  body .pl-s .pl-s1,
+  body .pl-smi {
+    color: #333;
+  }
+  
+  body .pl-ent {
+    color: #63a35c;
+  }
+  
+  body .pl-k {
+    color: #a71d5d;
+  }
+  
+  body .pl-pds,
+  body .pl-s,
+  body .pl-s .pl-pse .pl-s1,
+  body .pl-sr,
+  body .pl-sr .pl-cce,
+  body .pl-sr .pl-sra,
+  body .pl-sr .pl-sre {
+    color: #183691;
+  }
+  
+  body .pl-v {
+    color: #ed6a43;
+  }
+  
+  body .pl-id {
+    color: #b52a1d;
+  }
+  
+  body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+  }
+  
+  body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+  }
+  
+  body .pl-ml {
+    color: #693a17;
+  }
+  
+  body .pl-mh,
+  body .pl-mh .pl-en,
+  body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+  }
+  
+  body .pl-mq {
+    color: #008080;
+  }
+  
+  body .pl-mi {
+    color: #333;
+    font-style: italic;
+  }
+  
+  body .pl-mb {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+  }
+  
+  body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+  }
+  
+  body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+  }
+  
+  body .pl-mo {
+    color: #1d3e81;
+  }
+  
+  body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+  }
+  
+  body .task-list-item {
+    list-style-type: none;
+  }
+  
+  body .task-list-item+.task-list-item {
+    margin-top: 3px;
+  }
+  
+  body .task-list-item input {
+    margin: 0 0.35em 0.25em -1.6em;
+    vertical-align: middle;
+  }
+  
+  body :checked+.radio-label {
+    z-index: 1;
+    position: relative;
+    border-color: #4078c0;
+  }
+  </style>
 </head>
-<body class='typora-export' >
-<div  id='write'  class = 'is-mac show-fences-line-number'><h1><a name='header-n0' class='md-header-anchor '></a>TCP/IP - Quiz</h1><h2><a name='header-n2' class='md-header-anchor '></a>Quiz 1</h2><p><strong>Why packet switching ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Reduces buffer required in routers</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Reduces bit error rates</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Increases capacity</p></li></ul><hr /><p><strong>time to send 1 MB at 10 kb/s ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>800 s</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>100 s</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>12.5 s</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>1 s</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>12.5 ms</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>1 ms</p></li></ul><hr /><p><strong>Propagation time around the Earth ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>200 s</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>100 s</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>200 ms</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>100 ms</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2 ms</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>1 ms</p></li></ul><hr /><p><strong>The dotted decimal notation for <code>80c1:ffff</code></strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>128.193.255.255</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>228.393.255.255</p></li></ul><hr /><p><strong>The hex notation <code>2001::bad:babe</code> denotes a string of </strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>32 bits</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>44 bits</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>48 bits</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>64 bits</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>128 bits</p></li></ul><hr /><p><strong>When a NAT has a packet to forward and an association exists in the NAT table...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The NAT looks for a longest prefix match</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The NAT looks for an exact match</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li></ul><hr /><p><strong>From WAN to LAN the NAT may modify</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The source port </p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The destination port</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li></ul><hr /><p><strong>Can Host A have this address ? Masks are all <code>255.255.255.0</code></strong></p><p><img src='img/q44.png' alt='q44' /></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Yes</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>No</p></li></ul><hr /><p><strong>The IPv4 Subnet Mask at ETHZ is …</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>255.255.255.0</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>255.255.255.1</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>255.255.255.2</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>255.255.255.192</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>255.255.255.198</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>ffff:ffff:ffff:ffff::</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>ffff:ffff:ffff:ffff:c000::</code></p></li></ul><hr /><p><strong>The IPv4 Subnet Mask at ETHZ is …</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>255.255.255.0</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>255.255.255.1</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>255.255.255.2</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>255.255.255.192</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>255.255.255.198</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>/48</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>ffff:ffff:ffff:ffff::</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>ffff:ffff:ffff:ffff:c000::</code></p></li></ul><hr /><p><strong>What is the subnet broadcast address for subnet <code>129.132.100.0/26</code> ?</strong> </p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>129.132.100.0</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>129.132.100.15</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>129.132.100.63</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>129.132.100.192</code></p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p><code>129.132.100.255</code></p></li></ul><hr /><p><strong>Lisa’s PC, at home behind a NAT, sends an IP packet to a server in theUS. The IP source address in the packet, seen at the US server, is ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the IP address allocated to Lisa’s NAT by her ISP.</p></li></ul><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the home-network-IP-address of Lisa’s nexthop router.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>There is no IP address since Lisa is not on the LAN of the US server.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>home-network-IP-address of Lisa’s PC.</p></li></ul><hr /><p><strong>An application program sends data to a destination using either TCP or UDP. One of the packets is lost. Is it true that the application program must detect theloss and retransmit the packet ?</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>no in either case. </p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>yes with TCP, no with UDP.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>yes with UDP, no with TCP. </p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>yes in both cases.</p></li></ul><hr /><p><strong>Say what is true for forwarding packets:</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A router uses longest-prefix match, a bridge uses exact match.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A bridge uses longest-prefix match, a router uses exact match.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Routers and bridges use longest-prefix match.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Routers and bridges use exact match.</p></li></ul><hr /><p><strong>Lisa’s PC, at EPFL, receives an IP packet from a server in the US. TheMAC source address in the packet (seen at Lisa’s PC) is the MAC address of ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Lisa’s DNS server.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the server in the US.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>There is no MAC address since the packet is coming from another LAN.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Lisa’s next hop router.</p></li></ul><hr /><p><strong>The stop and go protocol for retransmissions is efficient whenever</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the transmission rate is large.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the bandwidth-delay product is large.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the transmission rate is small.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the bandwidth-delay product is small.</p></li></ul><hr /><p><strong>Which are valid IPv4 addresses ?</strong></p><ol start='' ><li><code>128.178.129.179</code></li><li><code>228.278.229.279</code></li></ol><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>1</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Both</p></li></ul><hr /><p><strong>We multiply the bit rate of a line by a factor of 10. Say what is true.</strong></p><ol><li><strong>The propagation time is divided by 10</strong></li><li><strong>The transmission time is divided by 10</strong></li></ol><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Only 1. </p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Both</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Only 2.</p></li></ul><hr /><p><strong>Which are valid IPv6 addresses ?</strong></p><ol><li><code>2001:baba::bebe</code></li><li><code>2001::baba:bebe</code></li></ol><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Only 1. </p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Only 2.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Both</p></li></ul><hr /><p><strong>Inside the IP header we can read:</strong></p><ol><li>The IP address of the source;</li><li>The DNS name of the destination.</li></ol><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Only 2. </p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Both</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Only 1.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None</p></li></ul><hr /><p><strong>Bart’s smartphone, at EPFL, receives an IP packet from a server in theUS. The IP source address in the packet (seen at Bart’s smartphone) is the IP addressof ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the server in the US.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>There is no IP address since Bart is not on the LAN of the US server.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Bart’s DNS server.</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Bart’s next hop router.</p></li></ul><hr /><p><strong>A difference between TCP and UDP is...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>TCP does not repair packet losses, UDP does</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>TCP repairs packet losses, UDP does not</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>TCP is only in end-systems, UDP is also in routers</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>TCP is also in routers, UDP is only in end-systems</p></li></ul><hr /><p><strong>Which of these hosts have the same network part ?</strong></p><ul><li>Host A: IP address 10.1.1.1 mask 255.255.0.0</li><li>Host B: IP address 10.1.2.1 mask 255.255.0.0</li><li>Host C: IP address 10.2.2.1 mask 255.255.0.0</li></ul><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None, all hosts are indifferent subnets</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>All hosts are in the samesubnet</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>B and C are in the same subnet, A is not</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A and C are in the same subnet, B is not</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A and B are in the same subnet, C is not</p></li></ul><hr /><p><strong>I use my laptop to communicate over WiFi when I am at EPFL and when I am at ETHZ (I don’t use a VPN). The MAC address used assource address inthe frames sent by my laptop are...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the same whether my laptop is atEPFL or ETHZ</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>different when my laptop is at EPFLor ETHZ</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>it depends whether I use IPv4 orIPv6 (assuming I use only one ofthese two)</p></li></ul><hr /><p><strong>Say which one is a MAC Layer PDU ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A bit</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>An Ethernet frame</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>An IP packet</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A TCP segment</p></li></ul><hr /><p><strong>In an IP packet header there is ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the DNS names of the source and ofthe destination of the IP packet</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the DNS name of the destination only</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>the DNS name of the source only</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None of the above</p></li></ul><hr /><p><strong>The uncompressed versionof the IPv6 address <code>2001:510:bad::babe</code> is...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2001:0510:0bad:0000:babe</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2001:0510:0bad:0000:0000:babe</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2001:0510:0bad:0000:0000:0000:babe</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2001:0510:0bad:0000:0000:0000:0000:babe</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None of the above</p></li></ul><hr /><p><strong>Web server sends a packet to Elaine. We observe the packet at (1) (there is no NAT). What is the destination MAC address ?</strong></p><p><img src='img/q45.png' alt='q45' /></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>M1</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>M2</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>M3</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>M4</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>There is no MAC address on Ethernet</p></li></ul><hr /><p><strong>Web server sends a packet to Elaine. We observe the packet at (1)(there is no NAT).What is the IP destination address ?</strong></p><p><img src='img/q46.png' alt='q46' /></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>10.1.1.99</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>10.1.1.1</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>10.2.2.1</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>10.2.2.33</p></li></ul><hr /><p><strong>The function of the Address Resolution Protocol (ARP) is to...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Obtain the IPv4 address of the next hop when we know theIPv4 address of the final destination</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Obtain the IPv4 address of a system when we know its MACaddress</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Obtain the MAC address of a system when we know its IPv4address</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Obtain the IPv4 address of a system when we know its DNSname</p></li></ul><hr /><p><strong>The address <code>128:178::151::1</code> is...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>An IPv4 address</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>An IPv6 address</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>A MAC address</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Both an IPv4 and IPv6 address</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None of the above</p></li></ul><hr /><p><strong>The Internet uses packet switching rather than store and forward because ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>It decreases the error probability</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>It reduces buffers required inrouters</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>It increases the end-to-endthroughput</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>It makes the transport layer simpler</p></li></ul><hr /><p><strong>When a web browser connects to a web server, the DNS name of the webserver</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>... is contained in the IP packet headersof the packets sent by the web browserto the web server</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>... is contained in the IP packet headersof the packets sent by the web server tothe web browser</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Both of the above</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None of the above</p></li></ul><hr /><p><strong>Say what is true.</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>TCP adds reliability to theunderlying network layer</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>UDP adds reliability to theunderlying network layer</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Both of the above</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None of the above</p></li></ul><hr /><p><strong>When a web server sends a file to a web browser using TCP...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>TCP is active in the end-systems(browser and web server) but not inrouters along the path</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>TCP is active in the end-systems(browser and web server) and in allrouters along the path</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>TCP is active in the end-systems(browser and web server) and insome routers along the path</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>TCP is active neither in the end-systems (browser and web server)nor in routers along the path</p></li></ul><hr /><p><strong>A webserver sends a file to Elaine. The IPd estination address of the packet captured at the server ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Is the IP address of Elaine’s device</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Is the IP address of Elaine’s device orof the next router on the path</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Is the IP address of the web server</p></li></ul><hr /><p><strong>Elaine receives a packet from a webserver. The MAC source address...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Is always the MAC address of the webserver</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>May in some cases be the MACaddress of Elaine’s device</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Is never the MAC address of Elaine’sdevice</p></li></ul><hr /><p><strong>Give the best answer</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>128.178.201.2 is an IPv4 address</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>2001:4860:4860::8888 is an IPv6address</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Both of the above are true</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>None of the above is true</p></li></ul><hr /><p><strong>traceroute (or tracert) is a program used to...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Find the IP addresses of allneighboring routers</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Find the IP addresses of all routersinside a local area network</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Find the IP addresses of all routersinside an enterprise network</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Find the IP addresses of intermediaterouters along the path to adestination</p></li></ul><hr /><p> <strong>We double the length of acommunication cable. Give the best answer.</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The transmission time is doubled</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>The propagation time is doubled</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Both transmission and propagationtimes are doubled</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Neither transmission nor propagationtime is affected</p></li></ul><hr /><p><strong>The throughput of the stop and go protocol ...</strong></p><ul class='task-list'><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Increases when the propagation timeincreases</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Decreases when the propagation timeincreases</p></li><li class='task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' ></input><p>Is not affected by the propagation time</p></li></ul></div>
+<body>
+<h1 id="tcpip---quiz">TCP/IP - Quiz</h1>
+<h2 id="quiz-1">Quiz 1</h2>
+<p><strong>Why packet switching ?</strong></p>
+<ul>
+<li>[ ] Reduces buffer required in routers</li>
+<li>[ ] Reduces bit error rates</li>
+<li>[ ] Increases capacity</li>
+</ul>
+<hr />
+<p><strong>time to send 1 MB at 10 kb/s ?</strong></p>
+<ul>
+<li>[ ] 800 s</li>
+<li>[ ] 100 s</li>
+<li>[ ] 12.5 s</li>
+<li>[ ] 1 s</li>
+<li>[ ] 12.5 ms</li>
+<li>[ ] 1 ms</li>
+</ul>
+<hr />
+<p><strong>Propagation time around the Earth ?</strong></p>
+<ul>
+<li>[ ] 200 s</li>
+<li>[ ] 100 s</li>
+<li>[ ] 200 ms</li>
+<li>[ ] 100 ms</li>
+<li>[ ] 2 ms</li>
+<li>[ ] 1 ms</li>
+</ul>
+<hr />
+<p><strong>The dotted decimal notation for <code>80c1:ffff</code></strong></p>
+<ul>
+<li>[ ] 128.193.255.255</li>
+<li>[ ] 228.393.255.255</li>
+</ul>
+<hr />
+<p><strong>The hex notation <code>2001::bad:babe</code> denotes a string of </strong></p>
+<ul>
+<li>[ ] 32 bits</li>
+<li>[ ] 44 bits</li>
+<li>[ ] 48 bits</li>
+<li>[ ] 64 bits</li>
+<li>[ ] 128 bits</li>
+</ul>
+<hr />
+<p><strong>When a NAT has a packet to forward and an association exists in the NAT table…</strong></p>
+<ul>
+<li>[ ] The NAT looks for a longest prefix match</li>
+<li>[ ] The NAT looks for an exact match</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>From WAN to LAN the NAT may modify</strong></p>
+<ul>
+<li>[ ] The source port</li>
+<li>[ ] The destination port</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>Can Host A have this address ? Masks are all <code>255.255.255.0</code></strong></p>
+<figure>
+<img src="img/q44.png" alt="q44" /><figcaption>q44</figcaption>
+</figure>
+<ul>
+<li>[ ] Yes</li>
+<li>[ ] No</li>
+</ul>
+<hr />
+<p><strong>The IPv4 Subnet Mask at ETHZ is …</strong></p>
+<ul>
+<li>[ ] <code>255.255.255.0</code></li>
+<li>[ ] <code>255.255.255.1</code></li>
+<li>[ ] <code>255.255.255.2</code></li>
+<li>[ ] <code>255.255.255.192</code></li>
+<li>[ ] <code>255.255.255.198</code></li>
+<li>[ ] <code>ffff:ffff:ffff:ffff::</code></li>
+<li>[ ] <code>ffff:ffff:ffff:ffff:c000::</code></li>
+</ul>
+<hr />
+<p><strong>The IPv4 Subnet Mask at ETHZ is …</strong></p>
+<ul>
+<li>[ ] <code>255.255.255.0</code></li>
+<li>[ ] <code>255.255.255.1</code></li>
+<li>[ ] <code>255.255.255.2</code></li>
+<li>[ ] <code>255.255.255.192</code></li>
+<li>[ ] <code>255.255.255.198</code></li>
+<li>[ ] <code>/48</code></li>
+<li>[ ] <code>ffff:ffff:ffff:ffff::</code></li>
+<li>[ ] <code>ffff:ffff:ffff:ffff:c000::</code></li>
+</ul>
+<hr />
+<p><strong>What is the subnet broadcast address for subnet <code>129.132.100.0/26</code> ?</strong></p>
+<ul>
+<li>[ ] <code>129.132.100.0</code></li>
+<li>[ ] <code>129.132.100.15</code></li>
+<li>[ ] <code>129.132.100.63</code></li>
+<li>[ ] <code>129.132.100.192</code></li>
+<li>[ ] <code>129.132.100.255</code></li>
+</ul>
+<hr />
+<p><strong>Lisa’s PC, at home behind a NAT, sends an IP packet to a server in theUS. The IP source address in the packet, seen at the US server, is …</strong></p>
+<ul>
+<li><p>[ ] the IP address allocated to Lisa’s NAT by her ISP.</p></li>
+<li>[ ] the home-network-IP-address of Lisa’s nexthop router.</li>
+<li>[ ] There is no IP address since Lisa is not on the LAN of the US server.</li>
+<li><p>[ ] home-network-IP-address of Lisa’s PC.</p></li>
+</ul>
+<hr />
+<p><strong>An application program sends data to a destination using either TCP or UDP. One of the packets is lost. Is it true that the application program must detect theloss and retransmit the packet ?</strong></p>
+<ul>
+<li>[ ] no in either case.</li>
+<li>[ ] yes with TCP, no with UDP.</li>
+<li>[ ] yes with UDP, no with TCP.</li>
+<li>[ ] yes in both cases.</li>
+</ul>
+<hr />
+<p><strong>Say what is true for forwarding packets:</strong></p>
+<ul>
+<li>[ ] A router uses longest-prefix match, a bridge uses exact match.</li>
+<li>[ ] A bridge uses longest-prefix match, a router uses exact match.</li>
+<li>[ ] Routers and bridges use longest-prefix match.</li>
+<li>[ ] Routers and bridges use exact match.</li>
+</ul>
+<hr />
+<p><strong>Lisa’s PC, at EPFL, receives an IP packet from a server in the US. TheMAC source address in the packet (seen at Lisa’s PC) is the MAC address of …</strong></p>
+<ul>
+<li>[ ] Lisa’s DNS server.</li>
+<li>[ ] the server in the US.</li>
+<li>[ ] There is no MAC address since the packet is coming from another LAN.</li>
+<li>[ ] Lisa’s next hop router.</li>
+</ul>
+<hr />
+<p><strong>The stop and go protocol for retransmissions is efficient whenever</strong></p>
+<ul>
+<li>[ ] the transmission rate is large.</li>
+<li>[ ] the bandwidth-delay product is large.</li>
+<li>[ ] the transmission rate is small.</li>
+<li>[ ] the bandwidth-delay product is small.</li>
+</ul>
+<hr />
+<p><strong>Which are valid IPv4 addresses ?</strong></p>
+<ol type="1">
+<li><code>128.178.129.179</code></li>
+<li><code>228.278.229.279</code></li>
+</ol>
+<ul>
+<li>[ ] 1</li>
+<li>[ ] None</li>
+<li>[ ] 2</li>
+<li>[ ] Both</li>
+</ul>
+<hr />
+<p><strong>We multiply the bit rate of a line by a factor of 10. Say what is true.</strong></p>
+<ol type="1">
+<li><strong>The propagation time is divided by 10</strong></li>
+<li><strong>The transmission time is divided by 10</strong></li>
+</ol>
+<ul>
+<li>[ ] Only 1.</li>
+<li>[ ] None</li>
+<li>[ ] Both</li>
+<li>[ ] Only 2.</li>
+</ul>
+<hr />
+<p><strong>Which are valid IPv6 addresses ?</strong></p>
+<ol type="1">
+<li><code>2001:baba::bebe</code></li>
+<li><code>2001::baba:bebe</code></li>
+</ol>
+<ul>
+<li>[ ] Only 1.</li>
+<li>[ ] Only 2.</li>
+<li>[ ] None</li>
+<li>[ ] Both</li>
+</ul>
+<hr />
+<p><strong>Inside the IP header we can read:</strong></p>
+<ol type="1">
+<li>The IP address of the source;</li>
+<li>The DNS name of the destination.</li>
+</ol>
+<ul>
+<li>[ ] Only 2.</li>
+<li>[ ] Both</li>
+<li>[ ] Only 1.</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>Bart’s smartphone, at EPFL, receives an IP packet from a server in theUS. The IP source address in the packet (seen at Bart’s smartphone) is the IP addressof …</strong></p>
+<ul>
+<li>[ ] the server in the US.</li>
+<li>[ ] There is no IP address since Bart is not on the LAN of the US server.</li>
+<li>[ ] Bart’s DNS server.</li>
+<li>[ ] Bart’s next hop router.</li>
+</ul>
+<hr />
+<p><strong>A difference between TCP and UDP is…</strong></p>
+<ul>
+<li>[ ] TCP does not repair packet losses, UDP does</li>
+<li>[ ] TCP repairs packet losses, UDP does not</li>
+<li>[ ] TCP is only in end-systems, UDP is also in routers</li>
+<li>[ ] TCP is also in routers, UDP is only in end-systems</li>
+</ul>
+<hr />
+<p><strong>Which of these hosts have the same network part ?</strong></p>
+<ul>
+<li>Host A: IP address 10.1.1.1 mask 255.255.0.0</li>
+<li>Host B: IP address 10.1.2.1 mask 255.255.0.0</li>
+<li><p>Host C: IP address 10.2.2.1 mask 255.255.0.0</p></li>
+<li>[ ] None, all hosts are indifferent subnets</li>
+<li>[ ] All hosts are in the samesubnet</li>
+<li>[ ] B and C are in the same subnet, A is not</li>
+<li>[ ] A and C are in the same subnet, B is not</li>
+<li><p>[ ] A and B are in the same subnet, C is not</p></li>
+</ul>
+<hr />
+<p><strong>I use my laptop to communicate over WiFi when I am at EPFL and when I am at ETHZ (I don’t use a VPN). The MAC address used assource address inthe frames sent by my laptop are…</strong></p>
+<ul>
+<li>[ ] the same whether my laptop is atEPFL or ETHZ</li>
+<li>[ ] different when my laptop is at EPFLor ETHZ</li>
+<li>[ ] it depends whether I use IPv4 orIPv6 (assuming I use only one ofthese two)</li>
+</ul>
+<hr />
+<p><strong>Say which one is a MAC Layer PDU …</strong></p>
+<ul>
+<li>[ ] A bit</li>
+<li>[ ] An Ethernet frame</li>
+<li>[ ] An IP packet</li>
+<li>[ ] A TCP segment</li>
+</ul>
+<hr />
+<p><strong>In an IP packet header there is …</strong></p>
+<ul>
+<li>[ ] the DNS names of the source and ofthe destination of the IP packet</li>
+<li>[ ] the DNS name of the destination only</li>
+<li>[ ] the DNS name of the source only</li>
+<li>[ ] None of the above</li>
+</ul>
+<hr />
+<p><strong>The uncompressed versionof the IPv6 address <code>2001:510:bad::babe</code> is…</strong></p>
+<ul>
+<li>[ ] 2001:0510:0bad:0000:babe</li>
+<li>[ ] 2001:0510:0bad:0000:0000:babe</li>
+<li>[ ] 2001:0510:0bad:0000:0000:0000:babe</li>
+<li>[ ] 2001:0510:0bad:0000:0000:0000:0000:babe</li>
+<li>[ ] None of the above</li>
+</ul>
+<hr />
+<p><strong>Web server sends a packet to Elaine. We observe the packet at (1) (there is no NAT). What is the destination MAC address ?</strong></p>
+<figure>
+<img src="img/q45.png" alt="q45" /><figcaption>q45</figcaption>
+</figure>
+<ul>
+<li>[ ] M1</li>
+<li>[ ] M2</li>
+<li>[ ] M3</li>
+<li>[ ] M4</li>
+<li>[ ] There is no MAC address on Ethernet</li>
+</ul>
+<hr />
+<p><strong>Web server sends a packet to Elaine. We observe the packet at (1)(there is no NAT).What is the IP destination address ?</strong></p>
+<figure>
+<img src="img/q46.png" alt="q46" /><figcaption>q46</figcaption>
+</figure>
+<ul>
+<li>[ ] 10.1.1.99</li>
+<li>[ ] 10.1.1.1</li>
+<li>[ ] 10.2.2.1</li>
+<li>[ ] 10.2.2.33</li>
+</ul>
+<hr />
+<p><strong>The function of the Address Resolution Protocol (ARP) is to…</strong></p>
+<ul>
+<li>[ ] Obtain the IPv4 address of the next hop when we know theIPv4 address of the final destination</li>
+<li>[ ] Obtain the IPv4 address of a system when we know its MACaddress</li>
+<li>[ ] Obtain the MAC address of a system when we know its IPv4address</li>
+<li>[ ] Obtain the IPv4 address of a system when we know its DNSname</li>
+</ul>
+<hr />
+<p><strong>The address <code>128:178::151::1</code> is…</strong></p>
+<ul>
+<li>[ ] An IPv4 address</li>
+<li>[ ] An IPv6 address</li>
+<li>[ ] A MAC address</li>
+<li>[ ] Both an IPv4 and IPv6 address</li>
+<li>[ ] None of the above</li>
+</ul>
+<hr />
+<p><strong>The Internet uses packet switching rather than store and forward because …</strong></p>
+<ul>
+<li>[ ] It decreases the error probability</li>
+<li>[ ] It reduces buffers required inrouters</li>
+<li>[ ] It increases the end-to-endthroughput</li>
+<li>[ ] It makes the transport layer simpler</li>
+</ul>
+<hr />
+<p><strong>When a web browser connects to a web server, the DNS name of the webserver</strong></p>
+<ul>
+<li>[ ] … is contained in the IP packet headersof the packets sent by the web browserto the web server</li>
+<li>[ ] … is contained in the IP packet headersof the packets sent by the web server tothe web browser</li>
+<li>[ ] Both of the above</li>
+<li>[ ] None of the above</li>
+</ul>
+<hr />
+<p><strong>Say what is true.</strong></p>
+<ul>
+<li>[ ] TCP adds reliability to theunderlying network layer</li>
+<li>[ ] UDP adds reliability to theunderlying network layer</li>
+<li>[ ] Both of the above</li>
+<li>[ ] None of the above</li>
+</ul>
+<hr />
+<p><strong>When a web server sends a file to a web browser using TCP…</strong></p>
+<ul>
+<li>[ ] TCP is active in the end-systems(browser and web server) but not inrouters along the path</li>
+<li>[ ] TCP is active in the end-systems(browser and web server) and in allrouters along the path</li>
+<li>[ ] TCP is active in the end-systems(browser and web server) and insome routers along the path</li>
+<li>[ ] TCP is active neither in the end-systems (browser and web server)nor in routers along the path</li>
+</ul>
+<hr />
+<p><strong>A webserver sends a file to Elaine. The IPd estination address of the packet captured at the server …</strong></p>
+<ul>
+<li>[ ] Is the IP address of Elaine’s device</li>
+<li>[ ] Is the IP address of Elaine’s device orof the next router on the path</li>
+<li>[ ] Is the IP address of the web server</li>
+</ul>
+<hr />
+<p><strong>Elaine receives a packet from a webserver. The MAC source address…</strong></p>
+<ul>
+<li>[ ] Is always the MAC address of the webserver</li>
+<li>[ ] May in some cases be the MACaddress of Elaine’s device</li>
+<li>[ ] Is never the MAC address of Elaine’sdevice</li>
+</ul>
+<hr />
+<p><strong>Give the best answer</strong></p>
+<ul>
+<li>[ ] 128.178.201.2 is an IPv4 address</li>
+<li>[ ] 2001:4860:4860::8888 is an IPv6address</li>
+<li>[ ] Both of the above are true</li>
+<li>[ ] None of the above is true</li>
+</ul>
+<hr />
+<p><strong>traceroute (or tracert) is a program used to…</strong></p>
+<ul>
+<li>[ ] Find the IP addresses of allneighboring routers</li>
+<li>[ ] Find the IP addresses of all routersinside a local area network</li>
+<li>[ ] Find the IP addresses of all routersinside an enterprise network</li>
+<li>[ ] Find the IP addresses of intermediaterouters along the path to adestination</li>
+</ul>
+<hr />
+<p><strong>We double the length of acommunication cable. Give the best answer.</strong></p>
+<ul>
+<li>[ ] The transmission time is doubled</li>
+<li>[ ] The propagation time is doubled</li>
+<li>[ ] Both transmission and propagationtimes are doubled</li>
+<li>[ ] Neither transmission nor propagationtime is affected</li>
+</ul>
+<hr />
+<p><strong>The throughput of the stop and go protocol …</strong></p>
+<ul>
+<li>[ ] Increases when the propagation timeincreases</li>
+<li>[ ] Decreases when the propagation timeincreases</li>
+<li>[ ] Is not affected by the propagation time</li>
+</ul>
 </body>
 </html>

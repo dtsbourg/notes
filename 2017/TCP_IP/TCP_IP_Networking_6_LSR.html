@@ -1,636 +1,801 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>TCP_IP_Networking_6_LSR.md</title><link href='http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='http://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:  #ffffff; --text-color:  #333333; --code-block-bg-color: inherit; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { background-color: rgb(181, 214, 252); text-shadow: none; background-position: initial initial; background-repeat: initial initial; }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-@media screen and (max-width: 500px) { 
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
-}
-.typora-export #write { margin: 0px auto; }
-#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
-#write li > table:first-child { margin-top: -20px; }
-img { max-width: 100%; vertical-align: middle; }
-input, button, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-::before, ::after, * { box-sizing: border-box; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
-.typora-export p { white-space: normal; }
-.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
-tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 80px; }
-.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-pre { white-space: pre-wrap; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
-.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
-.md-fences.mock-cm { white-space: pre-wrap; }
-.show-fences-line-number .md-fences { padding-left: 0px; }
-.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
-.footnotes + .footnotes { margin-top: -1em; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background-color: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; background-position: initial initial; background-repeat: initial initial; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li p, li .mathjax-block { margin: 0.5rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
-@media print { 
-  html, body { border: 1px solid transparent; height: 99%; break-after: avoid-page; break-before: avoid-page; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
-  p { orphans: 4; }
-  html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid-page; }
-  .typora-export #write::after { height: 0px; }
-  @page { margin: 20mm 0mm; }
-}
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
-p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
-p + .mathjax-block { margin-top: -1.143rem; }
-.mathjax-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
-.task-list { list-style-type: none; }
-.task-list-item { position: relative; padding-left: 1em; }
-.task-list-item input { position: absolute; top: 0px; left: 0px; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc::after, .md-toc-content::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) { 
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
-}
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-.md-tag { opacity: 0.5; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: monospace; }
-code { text-align: left; }
-h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
-a.md-print-anchor { border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background-color: transparent !important; text-shadow: initial !important; background-position: initial initial !important; background-repeat: initial initial !important; }
-.md-inline-math .MathJax_SVG .noError { display: none !important; }
-.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
-.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
-.MathJax_SVG .MJX-monospace { font-family: monospace; }
-.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
-
-
-@include-when-export url(http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
-@include-when-export url(http://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext);
-
-:root {
-	--control-text-color: #777;
-}
-
-/**
- * forked from pixyll.com
- * MIT license
- */
-
-@charset "UTF-8";
-@font-face {
-	font-family: 'Merriweather';
-	font-style: normal;
-	font-weight: 300;
-	src: local('Merriweather Light'), local('Merriweather-Light'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-Light.ttf);
-}
-@font-face {
-	font-family: 'Merriweather';
-	font-style: normal;
-	font-weight: 900;
-	src: local('Merriweather Heavy'), local('Merriweather-Heavy'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-Bold.ttf);
-}
-@font-face {
-	font-family: 'Merriweather';
-	font-style: italic;
-	font-weight: 300;
-	src: local('Merriweather Light Italic'), local('Merriweather-LightItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-LightItalic.ttf);
-}
-@font-face {
-	font-family: 'Merriweather';
-	font-style: italic;
-	font-weight: 900;
-	src: local('Merriweather Heavy Italic'), local('Merriweather-HeavyItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Merriweather-BoldItalic.ttf);
-}
-
-@font-face {
-	font-family: 'Lato';
-	font-style: normal;
-	font-weight: 300;
-	src: local('Lato Light'), local('Lato-Light'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Light.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: normal;
-	font-weight: 900;
-	src: local('Lato Black'), local('Lato-Blcak'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Black.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: normal;
-	font-weight: bold;
-	src: local('Lato Black'), local('Lato-Blcak'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-Black.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: italic;
-	font-weight: 900;
-	src: local('Lato BlackItalic'), local('Lato-BlackItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-BlackItalic.ttf);
-}
-@font-face {
-	font-family: 'Lato';
-	font-style: italic;
-	font-weight: bold;
-	src: local('Lato BlackItalic'), local('Lato-BlackItalic'), url(file:///Users/Dylan/Library/Application%20Support/abnerworks.Typora/themes/pixyll/Lato-BlackItalic.ttf);
-}
-
-h1,
-.h1,
-.f1 {
-	font-size: 2rem;
-	line-height: 2.5rem;
-}
-h2,
-.h2,
-.f2 {
-	font-size: 1.5rem;
-	line-height: 2rem;
-}
-h3,
-.h3,
-.f3 {
-	font-size: 1.25rem;
-	line-height: 1.5rem;
-}
-p,
-.p,
-.f4,
-h4,
-h5,
-h6,
-dl,
-ol,
-ul,
-pre[cid],
-div[cid],
-#typora-source {
-	font-size: 1.125rem;
-	line-height: 1.5rem;
-}
-
-h4 {
-	font-size: 1.13rem;
-}
-/*
- Pixyll
- A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
- Best served with BASSCSS (http://jxnblk.github.io/basscss)
- Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
-
-*/
-
-body {
-	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", Serif;
-	line-height: 1.5rem;
-	font-weight: 400;
-}
-
-#write {
-	max-width: 914px;
-	color: #333;
-}
-
-img {
-	width: auto;
-	max-width: 100%;
-}
-body {
-	font-size: 1.5rem;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-}
-
-.md-table-edit {
-	background: #ededed;
-    padding-top: 4px;
-}
-
-table {
-	width: 100%;
-	font-size: 1.125rem;
-}
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td,
-table > tfoot > tr > th,
-table > tfoot > tr > td {
-	padding: 12px;
-	line-height: 1.2;
-	vertical-align: top;
-	border-top: 1px solid #333;
-}
-table > thead > tr > th {
-	vertical-align: bottom;
-	border-bottom: 2px solid #333;
-}
-table > caption + thead > tr:first-child > th,
-table > caption + thead > tr:first-child > td,
-table > colgroup + thead > tr:first-child > th,
-table > colgroup + thead > tr:first-child > td,
-table > thead:first-child > tr:first-child > th,
-table > thead:first-child > tr:first-child > td {
-	border-top: 0;
-}
-table > tbody + tbody {
-	border-top: 2px solid #333;
-}
-p {
-	font-weight: 300;
-	line-height: 1.5;
-}
-abbr {
-	border-bottom: 1px black dotted;
-	cursor: help;
-}
-pre,
-code {
-	font-family: Menlo, Monaco, "Courier New", monospace;
-}
-
-code,
-.md-fences  {
-	color: #7a7a7a;
-}
-
-.md-fences .CodeMirror.CodeMirror-wrap {
-	top: -1.5em;
-    margin-bottom: -1.5em;
-}
-
-.md-fences {
-	padding: 1.125em;
-	margin-bottom: 0.88em;
-	font-size: 1rem;
-	border: 1px solid #7a7a7a;
-}
-
-blockquote {
-	padding: 1.33em;
-	font-style: italic;
-	border-left: 5px solid #7a7a7a;
-	color: #555;
-}
-blockquote em {
-	color: #000;
-}
-blockquote footer {
-	font-size: .85rem;
-	font-style: normal;
-	background-color: #fff;
-	color: #7a7a7a;
-	border-color: transparent;
-}
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
-	font-weight: 900;
-	line-height: 1.2;
-	margin: 1em 0 0.5em;
-}
-@media screen and (min-width: 48em) {
-	.h1,
-	h1 {
-		font-size: 3.250rem;
-	}
-	.h2,
-	h2 {
-		font-size: 2.298rem;
-	}
-	.h3,
-	h3 {
-		font-size: 1.625rem;
-	}
-	.h4,
-	h4 {
-		font-size: 1.3rem;
-	}
-	#write>h4.md-focus:before,
-	#write>h5.md-focus:before,
-	#write>h6.md-focus:before{
-		top: 1px;
-	}
-	.p,
-	p,
-	li {
-		font-size: 1.25rem;
-		line-height: 1.8;
-	}
-	table {
-		font-size: 1.25rem;
-	}
-}
-@media (max-width: 48em) {
-	blockquote {
-		margin-left: 1rem;
-		margin-right: 0;
-		padding: 0.5em;
-	}
-	.h1,
-	h1 {
-		font-size: 2.827rem;
-	}
-	.h2,
-	h2 {
-		font-size: 1.999rem;
-	}
-	.h3,
-	h3 {
-		font-size: 1.413rem;
-	}
-	.h4,
-	h4 {
-		font-size: 1.3rem;
-	}
-}
-@media screen and (min-width: 64em) {
-	.h1,
-	h1 {
-		font-size: 4.498rem;
-	}
-	.h2,
-	h2 {
-		font-size: 2.29rem;
-	}
-	.h3,
-	h3 {
-		font-size: 1.9rem;
-	}
-	.h4,
-	h4 {
-		font-size: 1.591rem;
-	}
-	#write>h4.md-focus:before{
-		top:4px;
-	}
-}
-a {
-	color: #463F5C;
-	text-decoration: underline;
-}
-
-#write {
-	padding-top: 2rem;
-}
-
-#write pre.md-meta-block {
-	min-height: 35px;
-	padding: 0.5em 1em;
-	white-space: pre;
-	border: 0px;
-
-	border-left: 30px #f8f8f8 solid;
-	border-right: 30px #f8f8f8 solid;
-	width: 100vw;
-	max-width: calc(100% + 60px);
-
-	margin-left: -30px;
-	margin-bottom: 2em;
-	margin-top: -2010px;
-	padding-top: 2000px;
-	padding-bottom: 10px;
-	line-height: 1.5em;
-	color: #7a7a7a;
-	background-color: #fafafa;
-	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
-	font-weight: 300;
-	clear: both;
-	padding-left: 0;
-	font-size:1.125rem;
-}
-.md-image>.md-meta {
-	color: #463F5C
-}
-.footnotes {
-	font-size:1.1rem;
-}
-.md-tag {
-	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
-}
-.code-tooltip {
-	background: white;
-}
-.code-tooltip-content {
-	font-size: 1.1rem;
-}
-
-.task-list{
-	padding-left: 0;
-}
-
-.task-list-item {
-	padding-left:34px;
-}
-
-.task-list-item input{
-	width: 1.25rem;
-	height: 1.25rem;
-	display: block;
-	-webkit-appearance: initial;
-	top: -2px;
-}
-
-.task-list-item input:focus{
-	outline: none;
-	box-shadow: none;
-}
-
-.task-list-item input:before{
-	border: 1px solid #555;
-	border-radius: 1.5rem;
-	width: 1.5rem;
-	height: 1.5rem;
-	background: #fff;
-	content: ' ';
-	transition: background-color 200ms ease-in-out;
-	display: block;
-}
-
-.task-list-item input:checked:before,
-.task-list-item input[checked]:before{
-	background: #333;
-	border-width: 2px;
-	display:inline-block;
-	transition: background-color 200ms ease-in-out;
-}
-
-.task-list-item input:checked:after,
-.task-list-item input[checked]:after {
-	opacity: 1;
-}
-
-.task-list-item input:after {
-	opacity: 1;
-	-webkit-transition: opacity 0.05s ease-in-out;
-	-moz-transition: opacity 0.05s ease-in-out;
-	transition: opacity 0.05s ease-in-out;
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	position: absolute;
-	top: 0.4375rem;
-	left: 0.28125rem;
-	width: 0.9375rem;
-	height: 0.5rem;
-	border: 3px solid #fff;
-	border-top: 0;
-	border-right: 0;
-	content: ' ';
-	opacity: 0;
-}
-
-.md-tag {
-	color:inherit;
-}
-
-.md-toc:focus .md-toc-content{
-	margin-top: 19px;
-}
-
-#typora-sidebar {
-	font-size:1rem !important;
-}
-
-.html-for-mac #typora-sidebar {
-	background-color:white;
-}
-
-.outline-content li, .outline-content ul {
-	font-size:1rem !important;
-}
-
-.outline-title {
-	line-height: inherit;
-	margin-top: 10px;
-}
-
-.outline-expander {
-	width: 18px;
-}
-
-.outline-expander:before {
- 	content: "+";
-	font-family: inherit;
-	color: rgb(108, 108, 108); 
-  	font-size: 1.5rem;
- 	top: 0.1rem;
-}
-
-.outline-expander:hover:before {
-	content: "+";
-}
-
-.outline-item-open>.outline-item>.outline-expander:before{
-	content: "-";
-}
-
-/** source code mode */
-#typora-source {
-	font-family: Courier, monospace;
-    color: #6A6A6A;
-}
-
-.os-windows #typora-source {
-	font-family: inherit;
-}
-
-.cm-s-typora-default .cm-header, 
-.cm-s-typora-default .cm-property,
-.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
-	color: #428bca;
-}
-
-.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
-	color: #777777;
-}
-
-.preference-item-hint {
-	margin-top: 16px;
-}
-
-.md-diagram-panel {
-	margin-top: 24px;
-	margin-left: -1.2em;
-}
-
-
-</style>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>TCP_IP_Networking_6_LSR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+  @font-face {
+    font-family: octicons-link;
+    src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+  }
+  
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    color: #333;
+    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.6;
+    word-wrap: break-word;
+    width: 728px;
+    max-width: 99%;
+    box-sizing: border-box;
+    padding: 30px 30px 8rem 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  body a {
+    background-color: transparent;
+  }
+  
+  body a:active,
+  body a:hover {
+    outline: 0;
+  }
+  
+  body strong {
+    font-weight: bold;
+  }
+  
+  body h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+  }
+  
+  body img {
+    border: 0;
+  }
+  
+  body hr {
+    box-sizing: content-box;
+    height: 0;
+  }
+  
+  body pre {
+    overflow: auto;
+  }
+  
+  body code,
+  body kbd,
+  body pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+  }
+  
+  body input {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+  }
+  
+  body html input[disabled] {
+    cursor: default;
+  }
+  
+  body input {
+    line-height: normal;
+  }
+  
+  body input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  
+  body table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  body td,
+  body th {
+    padding: 0;
+  }
+  
+  body * {
+    box-sizing: border-box;
+  }
+  
+  body input {
+    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+  
+  body a {
+    color: #4078c0;
+    text-decoration: none;
+  }
+  
+  body a:hover,
+  body a:active {
+    text-decoration: underline;
+  }
+  
+  body hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  body hr:before {
+    display: table;
+    content: "";
+  }
+  
+  body hr:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  
+  body h1,
+  body h2,
+  body h3,
+  body h4,
+  body h5,
+  body h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+  }
+  
+  body h1 {
+    font-size: 30px;
+  }
+  
+  body h2 {
+    font-size: 21px;
+  }
+  
+  body h3 {
+    font-size: 16px;
+  }
+  
+  body h4 {
+    font-size: 14px;
+  }
+  
+  body h5 {
+    font-size: 12px;
+  }
+  
+  body h6 {
+    font-size: 11px;
+  }
+  
+  body blockquote {
+    margin: 0;
+  }
+  
+  body ul,
+  body ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  body ol ol,
+  body ul ol {
+    list-style-type: lower-roman;
+  }
+  
+  body ul ul ol,
+  body ul ol ol,
+  body ol ul ol,
+  body ol ol ol {
+    list-style-type: lower-alpha;
+  }
+  
+  body dd {
+    margin-left: 0;
+  }
+  
+  body code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+  }
+  
+  body pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  }
+  
+  body .select::-ms-expand {
+    opacity: 0;
+  }
+  
+  body .octicon {
+    font: normal normal normal 16px/1 octicons-link;
+    display: inline-block;
+    text-decoration: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  body .octicon-link:before {
+    content: '\f05c';
+  }
+  
+  body:before {
+    display: table;
+    content: "";
+  }
+  
+  body:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  
+  body>*:first-child {
+    margin-top: 0 !important;
+  }
+  
+  body>*:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  body .anchor {
+    display: inline-block;
+    padding-right: 2px;
+    margin-left: -18px;
+  }
+  
+  body .anchor:focus {
+    outline: none;
+  }
+  
+  body h1,
+  body h2,
+  body h3,
+  body h4,
+  body h5,
+  body h6 {
+    margin-top: 1em;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  
+  body h1 .octicon-link,
+  body h2 .octicon-link,
+  body h3 .octicon-link,
+  body h4 .octicon-link,
+  body h5 .octicon-link,
+  body h6 .octicon-link {
+    color: #000;
+    vertical-align: middle;
+    visibility: hidden;
+  }
+  
+  body h1:hover .anchor,
+  body h2:hover .anchor,
+  body h3:hover .anchor,
+  body h4:hover .anchor,
+  body h5:hover .anchor,
+  body h6:hover .anchor {
+    text-decoration: none;
+  }
+  
+  body h1:hover .anchor .octicon-link,
+  body h2:hover .anchor .octicon-link,
+  body h3:hover .anchor .octicon-link,
+  body h4:hover .anchor .octicon-link,
+  body h5:hover .anchor .octicon-link,
+  body h6:hover .anchor .octicon-link {
+    visibility: visible;
+  }
+  
+  body h1 {
+    padding-bottom: 0.3em;
+    font-size: 1.75em;
+    line-height: 1.2;
+  }
+  
+  body h1 .anchor {
+    line-height: 1;
+  }
+  
+  body h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    line-height: 1.225;
+  }
+  
+  body h2 .anchor {
+    line-height: 1;
+  }
+  
+  body h3 {
+    font-size: 1.25em;
+    line-height: 1.43;
+  }
+  
+  body h3 .anchor {
+    line-height: 1.2;
+  }
+  
+  body h4 {
+    font-size: 1em;
+  }
+  
+  body h4 .anchor {
+    line-height: 1.2;
+  }
+  
+  body h5 {
+    font-size: 1em;
+  }
+  
+  body h5 .anchor {
+    line-height: 1.1;
+  }
+  
+  body h6 {
+    font-size: 1em;
+    color: #777;
+  }
+  
+  body h6 .anchor {
+    line-height: 1.1;
+  }
+  
+  body p,
+  body blockquote,
+  body ul,
+  body ol,
+  body dl,
+  body table,
+  body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  
+  body hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+  }
+  
+  body ul,
+  body ol {
+    padding-left: 2em;
+  }
+  
+  body ul ul,
+  body ul ol,
+  body ol ol,
+  body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  body li>p {
+    margin-top: 16px;
+  }
+  
+  body dl {
+    padding: 0;
+  }
+  
+  body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+  }
+  
+  body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+  }
+  
+  body blockquote {
+    padding: 0 15px;
+    color: #777;
+    border-left: 4px solid #ddd;
+  }
+  
+  body blockquote>:first-child {
+    margin-top: 0;
+  }
+  
+  body blockquote>:last-child {
+    margin-bottom: 0;
+  }
+  
+  body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+  }
+  
+  body table th {
+    font-weight: bold;
+  }
+  
+  body table th,
+  body table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+  }
+  
+  body table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+  }
+  
+  body table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+  }
+  
+  body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+  }
+  
+  body code {
+    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(0,0,0,0.04);
+    border-radius: 3px;
+  }
+  
+  body code:before,
+  body code:after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+  }
+  
+  body pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+  
+  body .highlight {
+    margin-bottom: 16px;
+  }
+  
+  body .highlight pre,
+  body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+  }
+  
+  body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+  }
+  
+  body pre {
+    word-wrap: normal;
+  }
+  
+  body pre code {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+  
+  body pre code:before,
+  body pre code:after {
+    content: normal;
+  }
+  
+  body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+  }
+  
+  body .pl-c {
+    color: #969896;
+  }
+  
+  body .pl-c1,
+  body .pl-s .pl-v {
+    color: #0086b3;
+  }
+  
+  body .pl-e,
+  body .pl-en {
+    color: #795da3;
+  }
+  
+  body .pl-s .pl-s1,
+  body .pl-smi {
+    color: #333;
+  }
+  
+  body .pl-ent {
+    color: #63a35c;
+  }
+  
+  body .pl-k {
+    color: #a71d5d;
+  }
+  
+  body .pl-pds,
+  body .pl-s,
+  body .pl-s .pl-pse .pl-s1,
+  body .pl-sr,
+  body .pl-sr .pl-cce,
+  body .pl-sr .pl-sra,
+  body .pl-sr .pl-sre {
+    color: #183691;
+  }
+  
+  body .pl-v {
+    color: #ed6a43;
+  }
+  
+  body .pl-id {
+    color: #b52a1d;
+  }
+  
+  body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+  }
+  
+  body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+  }
+  
+  body .pl-ml {
+    color: #693a17;
+  }
+  
+  body .pl-mh,
+  body .pl-mh .pl-en,
+  body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+  }
+  
+  body .pl-mq {
+    color: #008080;
+  }
+  
+  body .pl-mi {
+    color: #333;
+    font-style: italic;
+  }
+  
+  body .pl-mb {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+  }
+  
+  body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+  }
+  
+  body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+  }
+  
+  body .pl-mo {
+    color: #1d3e81;
+  }
+  
+  body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+  }
+  
+  body .task-list-item {
+    list-style-type: none;
+  }
+  
+  body .task-list-item+.task-list-item {
+    margin-top: 3px;
+  }
+  
+  body .task-list-item input {
+    margin: 0 0.35em 0.25em -1.6em;
+    vertical-align: middle;
+  }
+  
+  body :checked+.radio-label {
+    z-index: 1;
+    position: relative;
+    border-color: #4078c0;
+  }
+  </style>
 </head>
-<body class='typora-export' >
-<div  id='write'  class = 'is-mac show-fences-line-number'><h1><a name='header-n0' class='md-header-anchor '></a>TCP/IP Networking</h1><h2><a name='header-n2' class='md-header-anchor '></a>Link State Routing</h2><h3><a name='header-n5' class='md-header-anchor '></a>1. Routing in General</h3><p>Routing = IP packet forwarding. This is done by routing tables, than can be set mantually (but error-prone) but should be done by a routing protocol which computes the routing tables in a number of routers.</p><h4><a name='header-n185' class='md-header-anchor '></a>Taxonomy</h4><ul><li><p><strong>Link State</strong> : all routers in a domain have a map of the entire domain (obtained by flooding). Every link has a cost dependant on its speed. The routes compute the next hop by computing shortest path based on the map. Used in one-domain OSPF, IS-IS and in advanced bridging methods (TRILL, SPB)</p></li><li><p><strong>Distance Vector</strong> : all routers in a domain only know their neighbors + distance to all destinations. Routers inform neighbors of their own distance vectors using interior routing (RIP, EIGRP)</p></li><li><p><strong>Path Vector</strong> : Every router knows only: its neighbours + paths to all destinations</p><p>used for exterior routing (between domains) – see BGP</p></li><li><p><strong>Source Routing (Explicit Routes)</strong> : Paths are computed by the source host and put into packet headers. Routers simply lookup the next‐hop, contained in packet header.</p></li></ul><h3><a name='header-n107' class='md-header-anchor '></a>2. Link state routing, OSPF Single Area</h3><ul><li><p>OSPF = Open Shortest Path First</p></li><li><p>Every router has</p><ul><li>an interface database (describing its physical connections, learnt by configuration)</li><li>an adjacency database (describing the neighbour states, learnt by the hello protocol)</li><li>a link state database (the network map, learnt by flooding)</li></ul></li><li><p><strong>Hello</strong> protocol is used to discover neighbouring routers – and to detect</p><p>failures.</p></li><li><p>When two routers become new neighbours they first synchronize their</p><p>link state databases (using <strong>LSA</strong>)</p></li></ul><h4><a name='header-n394' class='md-header-anchor '></a>LSA</h4><p> <strong>Link State Advertisement</strong> : describes a router&#39;s attached nets + neighbors.</p><ul><li>Every router sends one LSA describing its attached networks and neighbouring routers</li><li>LSAs are flooded to the entire area and stored by all routers in their link state database. Once the LSAs converge, all the routers have the same map of the network</li><li>LSAs contains a sequence number (prevent loops) and age (to flush invalid); only messages with new sequence number are accepted and re-flooded to all neighbours.</li><li>Ethernet LANs are treated in a special way : routers elect a designated router per LAN. Every router connected to the LAN receives the &quot;network LSA&quot; from the designated router.</li></ul><h4><a name='header-n492' class='md-header-anchor '></a>OSPF view of the topology graph</h4><p>Oriented graph with edge cost = cost given in LSA (network node to router node = 0)</p><p><img src='img/27.png' alt='' /></p><h4><a name='header-n503' class='md-header-anchor '></a>Practical aspects</h4><ul><li>OSPF packet are sent directly over IP (OSPF=protocol 89 (0x59)).</li><li>Reliable transmission is managed by OSPF with OSPF Acks and timers.</li><li>OSPFv2 supports IPv4 only</li><li>OSPFv3 supports IPv6 and dual‐stack networks</li><li>OSPF routers are identified by a 32 bit number</li><li>OSPF areas are identified by a 32 bit number</li></ul><h3><a name='header-n109' class='md-header-anchor '></a>3. Path computation using Dijkstra’s algorithm</h3><p>Router computes one or several shortest paths to every destination</p><p>from self. Paths computed at every node :</p><ul><li><p>link state database is same at all routers, but every router performs</p><p>a different computation as it computes paths from self</p></li><li><p>synchronization of databases guarantees absence of persistent</p><p>loops</p></li></ul><p><img src='img/28.png' alt='28' /></p><p>where the nodes are <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-12-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.724ex" height="1.912ex" viewBox="0 -735.2 2894.8 823.4" role="img" focusable="false" style="vertical-align: -0.205ex;"><defs><path stroke-width="1" id="E16-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="1" id="E16-MJMAIN-2026" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60ZM525 60Q525 84 542 102T585 120Q609 120 627 104T646 61Q646 36 629 18T586 0T543 17T525 60ZM972 60Q972 84 989 102T1032 120Q1056 120 1074 104T1093 61Q1093 36 1076 18T1033 0T990 17T972 60Z"></path><path stroke-width="1" id="E16-MJMATHI-4E" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E16-MJMAIN-30" x="0" y="0"></use><use xlink:href="#E16-MJMAIN-2026" x="667" y="0"></use><use xlink:href="#E16-MJMATHI-4E" x="2006" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-12">0\dots N</script>; The algorithm computes the shortest paths from node 0. <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-13-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.611ex" height="2.614ex" viewBox="0 -821.4 2415.7 1125.3" role="img" focusable="false" style="vertical-align: -0.706ex;"><defs><path stroke-width="1" id="E18-MJMATHI-63" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path><path stroke-width="1" id="E18-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="E18-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E18-MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="1" id="E18-MJMATHI-6A" d="M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"></path><path stroke-width="1" id="E18-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E18-MJMATHI-63" x="0" y="0"></use><use xlink:href="#E18-MJMAIN-28" x="433" y="0"></use><use xlink:href="#E18-MJMATHI-69" x="823" y="0"></use><use xlink:href="#E18-MJMAIN-2C" x="1168" y="0"></use><use xlink:href="#E18-MJMATHI-6A" x="1613" y="0"></use><use xlink:href="#E18-MJMAIN-29" x="2026" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-13">c(i,j)</script> is the cost from <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-15-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0.802ex" height="1.912ex" viewBox="0 -735.2 345.5 823.4" role="img" focusable="false" style="vertical-align: -0.205ex;"><defs><path stroke-width="1" id="E20-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E20-MJMATHI-69" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-15">i</script> to <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-17-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0.985ex" height="2.313ex" viewBox="-11.5 -735.2 424 995.9" role="img" focusable="false" style="vertical-align: -0.606ex; margin-left: -0.027ex;"><defs><path stroke-width="1" id="E22-MJMATHI-6A" d="M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E22-MJMATHI-6A" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-17">j</script>. <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-19-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.787ex" height="1.912ex" viewBox="0 -735.2 769.5 823.4" role="img" focusable="false" style="vertical-align: -0.205ex;"><defs><path stroke-width="1" id="E24-MJMATHI-56" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E24-MJMATHI-56" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-19">V</script> is the set of nodes visited so far. <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-29-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.219ex" height="2.614ex" viewBox="-38.5 -821.4 3108 1125.3" role="img" focusable="false" style="vertical-align: -0.706ex; margin-left: -0.089ex;"><defs><path stroke-width="1" id="E40-MJMATHI-70" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path><path stroke-width="1" id="E40-MJMATHI-72" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E40-MJMATHI-65" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path><path stroke-width="1" id="E40-MJMATHI-64" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path><path stroke-width="1" id="E40-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="E40-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E40-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E40-MJMATHI-70" x="0" y="0"></use><use xlink:href="#E40-MJMATHI-72" x="503" y="0"></use><use xlink:href="#E40-MJMATHI-65" x="955" y="0"></use><use xlink:href="#E40-MJMATHI-64" x="1421" y="0"></use><use xlink:href="#E40-MJMAIN-28" x="1945" y="0"></use><use xlink:href="#E40-MJMATHI-69" x="2334" y="0"></use><use xlink:href="#E40-MJMAIN-29" x="2680" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-29">pred(i)</script> is the estimated set of predecessors of node <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-15-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0.802ex" height="1.912ex" viewBox="0 -735.2 345.5 823.4" role="img" focusable="false" style="vertical-align: -0.205ex;"><defs><path stroke-width="1" id="E20-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E20-MJMATHI-69" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-15">i</script> along a shortest path. <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-31-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.808ex" height="2.614ex" viewBox="0 -821.4 2070 1125.3" role="img" focusable="false" style="vertical-align: -0.706ex;"><defs><path stroke-width="1" id="E43-MJMATHI-6D" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E43-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="E43-MJMATHI-6A" d="M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"></path><path stroke-width="1" id="E43-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E43-MJMATHI-6D" x="0" y="0"></use><use xlink:href="#E43-MJMAIN-28" x="878" y="0"></use><use xlink:href="#E43-MJMATHI-6A" x="1268" y="0"></use><use xlink:href="#E43-MJMAIN-29" x="1680" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-31">m(j)</script> is the estimated distance from node 0 to <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-17-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0.985ex" height="2.313ex" viewBox="-11.5 -735.2 424 995.9" role="img" focusable="false" style="vertical-align: -0.606ex; margin-left: -0.027ex;"><defs><path stroke-width="1" id="E22-MJMATHI-6A" d="M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E22-MJMATHI-6A" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-17">j</script>.</p><p>The worst‐case complexity of this version is <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-39-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.032ex" height="2.814ex" viewBox="0 -907.7 2596.9 1211.6" role="img" focusable="false" style="vertical-align: -0.706ex;"><defs><path stroke-width="1" id="E53-MJMATHI-4F" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path><path stroke-width="1" id="E53-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="E53-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E53-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="1" id="E53-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E53-MJMATHI-4F" x="0" y="0"></use><use xlink:href="#E53-MJMAIN-28" x="763" y="0"></use><g transform="translate(1153,0)"><use xlink:href="#E53-MJMATHI-6E" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E53-MJMAIN-32" x="849" y="513"></use></g><use xlink:href="#E53-MJMAIN-29" x="2207" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-39">O(n^2)</script> where <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-1-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.395ex" height="1.412ex" viewBox="0 -519.5 600.5 607.8" role="img" focusable="false" style="vertical-align: -0.205ex;"><defs><path stroke-width="1" id="E1-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E1-MJMATHI-6E" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-1">n</script> is the number of nodes. More efficient versions of the algorithm have a smaller complexity, <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-58-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="17.413ex" height="2.614ex" viewBox="0 -821.4 7497.4 1125.3" role="img" focusable="false" style="vertical-align: -0.706ex;"><defs><path stroke-width="1" id="E92-MJMATHI-4F" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path><path stroke-width="1" id="E92-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="E92-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E92-MJMAIN-22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path><path stroke-width="1" id="E92-MJMATHI-6C" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path stroke-width="1" id="E92-MJMATHI-6F" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path><path stroke-width="1" id="E92-MJMATHI-67" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path><path stroke-width="1" id="E92-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="1" id="E92-MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path stroke-width="1" id="E92-MJMATHI-45" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E92-MJMATHI-4F" x="0" y="0"></use><use xlink:href="#E92-MJMAIN-28" x="763" y="0"></use><use xlink:href="#E92-MJMATHI-6E" x="1153" y="0"></use><use xlink:href="#E92-MJMAIN-22C5" x="1975" y="0"></use><use xlink:href="#E92-MJMATHI-6C" x="2476" y="0"></use><use xlink:href="#E92-MJMATHI-6F" x="2774" y="0"></use><use xlink:href="#E92-MJMATHI-67" x="3260" y="0"></use><use xlink:href="#E92-MJMAIN-28" x="3740" y="0"></use><use xlink:href="#E92-MJMATHI-6E" x="4130" y="0"></use><use xlink:href="#E92-MJMAIN-29" x="4730" y="0"></use><use xlink:href="#E92-MJMAIN-2B" x="5342" y="0"></use><use xlink:href="#E92-MJMATHI-45" x="6343" y="0"></use><use xlink:href="#E92-MJMAIN-29" x="7107" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-58">O(n\cdot log(n)+E)</script>  where <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-59-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.776ex" height="1.912ex" viewBox="0 -735.2 764.5 823.4" role="img" focusable="false" style="vertical-align: -0.205ex;"><defs><path stroke-width="1" id="E94-MJMATHI-45" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E94-MJMATHI-45" x="0" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-59">E</script> is the number of links.</p><h4><a name='header-n662' class='md-header-anchor '></a>Routing table</h4><p>In the routing table there is the next hop and distance to every destination.</p><p><img src='img/29.png' alt='29' /></p><h3><a name='header-n111' class='md-header-anchor '></a>4. Equal Cost Multipath</h3><p>OSPF supports multiple shortest paths IP allows to have multiple next‐hops to the same destination in the routing table This is good as it allows to exploit the multiplicity of paths that exist in many networks.</p><h3><a name='header-n113' class='md-header-anchor '></a>5. Topology Changes</h3><p>e.g. when routers or links crash or are rebooted (failures are detected by OSPF&#39;s HELLO protocol or by the BFD protocol). When a router sees a change in the state of a links or a neighbouring router, it sends a new LSA to all its neighbours. All routers update their link state database and propagate the change to the entire OSPF area.</p><h3><a name='header-n115' class='md-header-anchor '></a>6. Security of OSPF</h3><p>Attacks against routing protocols</p><ul><li>send invalid routing information ⇒ disrupt network operation <em>(solution : auth)</em></li><li>send forged routing information ⇒ change network paths <em>(solution : auth)</em></li><li>denial of service attacks</li></ul><h3><a name='header-n117' class='md-header-anchor '></a>7. OSPF, multiple areas</h3><p>Link state floods all information to all routers, therefore does not scale to very large networks. OSPF uses a system of areas (i.e. a hierarchy of two routing levels) to scale to very large networks. A multi area OSPF domain has one backbone area (area 0) + several non backbone areas. All inter-area traffic goes through area 0.</p><p><img src='img/30.png' alt='30' /></p><ol><li>Inside one area, link-state is used (one LS DB per area)</li><li>Border routers belong to <em>both</em> areas (they have one for each area)</li><li>Border area routers inject aggregated distance information learnt from one area into the other area.</li></ol><p>All routers in area 0, including X3 and X5 compute their distances to networks outside the area (such as n1) using the <em>Bellman‐Ford</em>  formula :</p><p><span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-123-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="48.709ex" height="3.916ex" viewBox="0 -821.4 20972 1686" role="img" focusable="false" style="vertical-align: -2.008ex;"><defs><path stroke-width="1" id="E211-MJMATHI-64" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path><path stroke-width="1" id="E211-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="E211-MJMATHI-73" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path><path stroke-width="1" id="E211-MJMATHI-65" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path><path stroke-width="1" id="E211-MJMATHI-6C" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path stroke-width="1" id="E211-MJMATHI-66" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path><path stroke-width="1" id="E211-MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="1" id="E211-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E211-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="1" id="E211-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="1" id="E211-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="1" id="E211-MJMATHI-6D" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E211-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E211-MJMATHI-42" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path><path stroke-width="1" id="E211-MJMATHI-52" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path><path stroke-width="1" id="E211-MJMAIN-2208" d="M84 250Q84 372 166 450T360 539Q361 539 377 539T419 540T469 540H568Q583 532 583 520Q583 511 570 501L466 500Q355 499 329 494Q280 482 242 458T183 409T147 354T129 306T124 272V270H568Q583 262 583 250T568 230H124V228Q124 207 134 177T167 112T231 48T328 7Q355 1 466 0H570Q583 -10 583 -20Q583 -32 568 -40H471Q464 -40 446 -40T417 -41Q262 -41 172 45Q84 127 84 250Z"></path><path stroke-width="1" id="E211-MJMATHI-41" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path><path stroke-width="1" id="E211-MJMATHI-72" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="E211-MJMATHI-61" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path><path stroke-width="1" id="E211-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="1" id="E211-MJMAIN-7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path><path stroke-width="1" id="E211-MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path stroke-width="1" id="E211-MJMAIN-7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E211-MJMATHI-64" x="0" y="0"></use><use xlink:href="#E211-MJMAIN-28" x="523" y="0"></use><use xlink:href="#E211-MJMATHI-73" x="913" y="0"></use><use xlink:href="#E211-MJMATHI-65" x="1382" y="0"></use><use xlink:href="#E211-MJMATHI-6C" x="1849" y="0"></use><use xlink:href="#E211-MJMATHI-66" x="2147" y="0"></use><use xlink:href="#E211-MJMAIN-2C" x="2698" y="0"></use><g transform="translate(3143,0)"><use xlink:href="#E211-MJMATHI-6E" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E211-MJMAIN-31" x="849" y="-213"></use></g><use xlink:href="#E211-MJMAIN-29" x="4197" y="0"></use><use xlink:href="#E211-MJMAIN-3D" x="4864" y="0"></use><g transform="translate(5921,0)"><g transform="translate(814,0)"><use xlink:href="#E211-MJMATHI-6D" x="0" y="0"></use><use xlink:href="#E211-MJMATHI-69" x="878" y="0"></use><use xlink:href="#E211-MJMATHI-6E" x="1224" y="0"></use></g><g transform="translate(0,-686)"><use transform="scale(0.707)" xlink:href="#E211-MJMATHI-42" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E211-MJMATHI-52" x="759" y="0"></use><use transform="scale(0.707)" xlink:href="#E211-MJMAIN-2208" x="1519" y="0"></use><use transform="scale(0.707)" xlink:href="#E211-MJMATHI-41" x="2186" y="0"></use><use transform="scale(0.707)" xlink:href="#E211-MJMATHI-72" x="2937" y="0"></use><use transform="scale(0.707)" xlink:href="#E211-MJMATHI-65" x="3388" y="0"></use><use transform="scale(0.707)" xlink:href="#E211-MJMATHI-61" x="3855" y="0"></use><use transform="scale(0.707)" xlink:href="#E211-MJMAIN-30" x="4384" y="0"></use></g></g><use xlink:href="#E211-MJMAIN-7B" x="9375" y="0"></use><use xlink:href="#E211-MJMATHI-64" x="9875" y="0"></use><use xlink:href="#E211-MJMAIN-28" x="10399" y="0"></use><use xlink:href="#E211-MJMATHI-73" x="10788" y="0"></use><use xlink:href="#E211-MJMATHI-65" x="11258" y="0"></use><use xlink:href="#E211-MJMATHI-6C" x="11724" y="0"></use><use xlink:href="#E211-MJMATHI-66" x="12023" y="0"></use><use xlink:href="#E211-MJMAIN-2C" x="12573" y="0"></use><use xlink:href="#E211-MJMATHI-42" x="13019" y="0"></use><use xlink:href="#E211-MJMATHI-52" x="13778" y="0"></use><use xlink:href="#E211-MJMAIN-29" x="14538" y="0"></use><use xlink:href="#E211-MJMAIN-2B" x="15149" y="0"></use><use xlink:href="#E211-MJMATHI-64" x="16150" y="0"></use><use xlink:href="#E211-MJMAIN-28" x="16673" y="0"></use><use xlink:href="#E211-MJMATHI-42" x="17063" y="0"></use><use xlink:href="#E211-MJMATHI-52" x="17822" y="0"></use><use xlink:href="#E211-MJMAIN-2C" x="18582" y="0"></use><g transform="translate(19027,0)"><use xlink:href="#E211-MJMATHI-6E" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E211-MJMAIN-31" x="849" y="-213"></use></g><use xlink:href="#E211-MJMAIN-29" x="20082" y="0"></use><use xlink:href="#E211-MJMAIN-7D" x="20471" y="0"></use></g></svg></span><script type="math/tex" id="MathJax-Element-123">d(self, n_1) = \underset{BR\in Area 0}{min}\{d(self, BR)+d(BR, n_1)\}</script> where BR is a border router.</p><p>The process can be used to compute not only the distance, but also the path. To n1, the min is for BR=X4, therefore the shortest path to n1 is via X4 and the next hop to n1 is the next hop to X4. X3 updates its routing table and adds entries to n1 (and n2).</p><h3><a name='header-n119' class='md-header-anchor '></a>8. Other uses of Link State</h3><p>Link state routing (OSPF or IS‐IS) provides a complete view of area to every node. This can be used to provide advanced functions:</p><ul><li><em>multi-class routing</em>: compute different routes for different types of services (e.g. voice, video)</li><li><em>explicit routes</em> (source routing): an edge router computes the entire path, not just the next‐hop, and writes it in the packet header. Avoids transient loops / increases probability of delivery.</li></ul><p>Example : LS Bridging. Tunneling MAC packets in IP. Use LSR to discover which VLANs are active on their ports and put this information on in the link state database.</p><h3><a name='header-n142' class='md-header-anchor '></a>9. Software Defined Networking (SDN)</h3><p>Some networks want more control; e.g. handle mission critical traffic with high priority; ban non‐HTTP traffic; send suspicious traffic to a machine that does deep packet inspection.</p><h4><a name='header-n914' class='md-header-anchor '></a>Per-flow forwarding</h4><p>When a packet has to be forwarded, such a router does:</p><ul><li>Look for a rule match in the list of (priority‐ordered) per‐flow forwarding rules (also called flow table). if one or several matches exist, follow the rule with highest priority</li><li>If no rule matches, go to the IP forwarding table and do longest prefix match</li></ul><p>Same can be used in switches (per flow tables then complement the MAC forwarding table)</p><h4><a name='header-n949' class='md-header-anchor '></a>SDN</h4><p>Manage the flow tables in a collection of routers/switches from a central application</p><p></p><h3><a name='header-n966' class='md-header-anchor '></a>Conclusion</h3><p>OSPF (and routing protocols) automatically build connectivity and repair failures.</p><p>With link state routing:</p><ul><li>All routers compute their own link state database, replicated in all routers</li><li>All routers compute their routing tables using Dijkstra and the link state database</li><li>Convergence after failure is fast (if detection is fast)</li><li>Supports flexible cost definitions; can be used for routing specific flows in different ways</li><li>Large domains must be split into areas</li></ul><p></p><p>More control can be obtained by an outside application (SDN). SDN is used today primarily with switches, but is starting to be used also for routers.</p></div>
+<body>
+<h1 id="tcpip-networking">TCP/IP Networking</h1>
+<h2 id="link-state-routing">Link State Routing</h2>
+<h3 id="routing-in-general">1. Routing in General</h3>
+<p>Routing = IP packet forwarding. This is done by routing tables, than can be set mantually (but error-prone) but should be done by a routing protocol which computes the routing tables in a number of routers.</p>
+<h4 id="taxonomy">Taxonomy</h4>
+<ul>
+<li><p><strong>Link State</strong> : all routers in a domain have a map of the entire domain (obtained by flooding). Every link has a cost dependant on its speed. The routes compute the next hop by computing shortest path based on the map. Used in one-domain OSPF, IS-IS and in advanced bridging methods (TRILL, SPB)</p></li>
+<li><p><strong>Distance Vector</strong> : all routers in a domain only know their neighbors + distance to all destinations. Routers inform neighbors of their own distance vectors using interior routing (RIP, EIGRP)</p></li>
+<li><p><strong>Path Vector</strong> : Every router knows only: its neighbours + paths to all destinations</p>
+<p>used for exterior routing (between domains) – see BGP</p></li>
+<li><p><strong>Source Routing (Explicit Routes)</strong> : Paths are computed by the source host and put into packet headers. Routers simply lookup the next‐hop, contained in packet header.</p></li>
+</ul>
+<h3 id="link-state-routing-ospf-single-area">2. Link state routing, OSPF Single Area</h3>
+<ul>
+<li><p>OSPF = Open Shortest Path First</p></li>
+<li><p>Every router has</p>
+<ul>
+<li>an interface database (describing its physical connections, learnt by configuration)</li>
+<li>an adjacency database (describing the neighbour states, learnt by the hello protocol)</li>
+<li>a link state database (the network map, learnt by flooding)</li>
+</ul></li>
+<li><p><strong>Hello</strong> protocol is used to discover neighbouring routers – and to detect</p>
+<p>failures.</p></li>
+<li><p>When two routers become new neighbours they first synchronize their</p>
+<p>link state databases (using <strong>LSA</strong>)</p></li>
+</ul>
+<h4 id="lsa">LSA</h4>
+<p><strong>Link State Advertisement</strong> : describes a router’s attached nets + neighbors.</p>
+<ul>
+<li>Every router sends one LSA describing its attached networks and neighbouring routers</li>
+<li>LSAs are flooded to the entire area and stored by all routers in their link state database. Once the LSAs converge, all the routers have the same map of the network</li>
+<li>LSAs contains a sequence number (prevent loops) and age (to flush invalid); only messages with new sequence number are accepted and re-flooded to all neighbours.</li>
+<li>Ethernet LANs are treated in a special way : routers elect a designated router per LAN. Every router connected to the LAN receives the “network LSA” from the designated router.</li>
+</ul>
+<h4 id="ospf-view-of-the-topology-graph">OSPF view of the topology graph</h4>
+<p>Oriented graph with edge cost = cost given in LSA (network node to router node = 0)</p>
+<p><img src="img/27.png" /></p>
+<h4 id="practical-aspects">Practical aspects</h4>
+<ul>
+<li>OSPF packet are sent directly over IP (OSPF=protocol 89 (0x59)).</li>
+<li>Reliable transmission is managed by OSPF with OSPF Acks and timers.</li>
+<li>OSPFv2 supports IPv4 only</li>
+<li>OSPFv3 supports IPv6 and dual‐stack networks</li>
+<li>OSPF routers are identified by a 32 bit number</li>
+<li>OSPF areas are identified by a 32 bit number</li>
+</ul>
+<h3 id="path-computation-using-dijkstras-algorithm">3. Path computation using Dijkstra’s algorithm</h3>
+<p>Router computes one or several shortest paths to every destination</p>
+<p>from self. Paths computed at every node :</p>
+<ul>
+<li><p>link state database is same at all routers, but every router performs</p>
+<p>a different computation as it computes paths from self</p></li>
+<li><p>synchronization of databases guarantees absence of persistent</p>
+<p>loops</p></li>
+</ul>
+<figure>
+<img src="img/28.png" alt="28" /><figcaption>28</figcaption>
+</figure>
+<p>where the nodes are <span class="math inline">\(0\dots N\)</span>; The algorithm computes the shortest paths from node 0. <span class="math inline">\(c(i,j)\)</span> is the cost from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span>. <span class="math inline">\(V\)</span> is the set of nodes visited so far. <span class="math inline">\(pred(i)\)</span> is the estimated set of predecessors of node <span class="math inline">\(i\)</span> along a shortest path. <span class="math inline">\(m(j)\)</span> is the estimated distance from node 0 to <span class="math inline">\(j\)</span>.</p>
+<p>The worst‐case complexity of this version is <span class="math inline">\(O(n^2)\)</span> where <span class="math inline">\(n\)</span> is the number of nodes. More efficient versions of the algorithm have a smaller complexity, <span class="math inline">\(O(n\cdot log(n)+E)\)</span> where <span class="math inline">\(E\)</span> is the number of links.</p>
+<h4 id="routing-table">Routing table</h4>
+<p>In the routing table there is the next hop and distance to every destination.</p>
+<figure>
+<img src="img/29.png" alt="29" /><figcaption>29</figcaption>
+</figure>
+<h3 id="equal-cost-multipath">4. Equal Cost Multipath</h3>
+<p>OSPF supports multiple shortest paths IP allows to have multiple next‐hops to the same destination in the routing table This is good as it allows to exploit the multiplicity of paths that exist in many networks.</p>
+<h3 id="topology-changes">5. Topology Changes</h3>
+<p>e.g. when routers or links crash or are rebooted (failures are detected by OSPF’s HELLO protocol or by the BFD protocol). When a router sees a change in the state of a links or a neighbouring router, it sends a new LSA to all its neighbours. All routers update their link state database and propagate the change to the entire OSPF area.</p>
+<h3 id="security-of-ospf">6. Security of OSPF</h3>
+<p>Attacks against routing protocols</p>
+<ul>
+<li>send invalid routing information ⇒ disrupt network operation <em>(solution : auth)</em></li>
+<li>send forged routing information ⇒ change network paths <em>(solution : auth)</em></li>
+<li>denial of service attacks</li>
+</ul>
+<h3 id="ospf-multiple-areas">7. OSPF, multiple areas</h3>
+<p>Link state floods all information to all routers, therefore does not scale to very large networks. OSPF uses a system of areas (i.e. a hierarchy of two routing levels) to scale to very large networks. A multi area OSPF domain has one backbone area (area 0) + several non backbone areas. All inter-area traffic goes through area 0.</p>
+<figure>
+<img src="img/30.png" alt="30" /><figcaption>30</figcaption>
+</figure>
+<ol type="1">
+<li>Inside one area, link-state is used (one LS DB per area)</li>
+<li>Border routers belong to <em>both</em> areas (they have one for each area)</li>
+<li>Border area routers inject aggregated distance information learnt from one area into the other area.</li>
+</ol>
+<p>All routers in area 0, including X3 and X5 compute their distances to networks outside the area (such as n1) using the <em>Bellman‐Ford</em> formula :</p>
+<p><span class="math inline">\(d(self, n_1) = \underset{BR\in Area 0}{min}\{d(self, BR)+d(BR, n_1)\}\)</span> where BR is a border router.</p>
+<p>The process can be used to compute not only the distance, but also the path. To n1, the min is for BR=X4, therefore the shortest path to n1 is via X4 and the next hop to n1 is the next hop to X4. X3 updates its routing table and adds entries to n1 (and n2).</p>
+<h3 id="other-uses-of-link-state">8. Other uses of Link State</h3>
+<p>Link state routing (OSPF or IS‐IS) provides a complete view of area to every node. This can be used to provide advanced functions:</p>
+<ul>
+<li><em>multi-class routing</em>: compute different routes for different types of services (e.g. voice, video)</li>
+<li><em>explicit routes</em> (source routing): an edge router computes the entire path, not just the next‐hop, and writes it in the packet header. Avoids transient loops / increases probability of delivery.</li>
+</ul>
+<p>Example : LS Bridging. Tunneling MAC packets in IP. Use LSR to discover which VLANs are active on their ports and put this information on in the link state database.</p>
+<h3 id="software-defined-networking-sdn">9. Software Defined Networking (SDN)</h3>
+<p>Some networks want more control; e.g. handle mission critical traffic with high priority; ban non‐HTTP traffic; send suspicious traffic to a machine that does deep packet inspection.</p>
+<h4 id="per-flow-forwarding">Per-flow forwarding</h4>
+<p>When a packet has to be forwarded, such a router does:</p>
+<ul>
+<li>Look for a rule match in the list of (priority‐ordered) per‐flow forwarding rules (also called flow table). if one or several matches exist, follow the rule with highest priority</li>
+<li>If no rule matches, go to the IP forwarding table and do longest prefix match</li>
+</ul>
+<p>Same can be used in switches (per flow tables then complement the MAC forwarding table)</p>
+<h4 id="sdn">SDN</h4>
+<p>Manage the flow tables in a collection of routers/switches from a central application</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>OSPF (and routing protocols) automatically build connectivity and repair failures.</p>
+<p>With link state routing:</p>
+<ul>
+<li>All routers compute their own link state database, replicated in all routers</li>
+<li>All routers compute their routing tables using Dijkstra and the link state database</li>
+<li>Convergence after failure is fast (if detection is fast)</li>
+<li>Supports flexible cost definitions; can be used for routing specific flows in different ways</li>
+<li>Large domains must be split into areas</li>
+</ul>
+<p>More control can be obtained by an outside application (SDN). SDN is used today primarily with switches, but is starting to be used also for routers.</p>
 </body>
 </html>

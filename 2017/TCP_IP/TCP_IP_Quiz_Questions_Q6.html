@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>TCP_IP_Quiz_Questions_Q6</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body);
+  });</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+  @charset "UTF-8";
+  
+  /* Import ET Book styles
+     adapted from https://github.com/edwardtufte/et-book/blob/gh-pages/et-book.css */
+  
+  @font-face { font-family: "et-book";
+               src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot");
+               src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.svg#etbookromanosf") format("svg");
+               font-weight: normal;
+               font-style: normal; }
+  
+  @font-face { font-family: "et-book";
+               src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
+               src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.svg#etbookromanosf") format("svg");
+               font-weight: normal;
+               font-style: italic; }
+  
+  @font-face { font-family: "et-book";
+               src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot");
+               src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.svg#etbookromanosf") format("svg");
+               font-weight: bold;
+               font-style: normal; }
+  
+  @font-face { font-family: "et-book-roman-old-style";
+               src: url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot");
+               src: url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.woff") format("woff"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.ttf") format("truetype"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.svg#etbookromanosf") format("svg");
+               font-weight: normal;
+               font-style: normal; }
+  
+  /* Tufte CSS styles */
+  html { font-size: 15px; }
+  
+  body { width: 87.5%;
+         margin-left: auto;
+         margin-right: auto;
+         padding-left: 12.5%;
+         font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+         background-color: #fffff8;
+         color: #111;
+         max-width: 1400px;
+         counter-reset: sidenote-counter; }
+  
+  h1 { font-weight: 400;
+       margin-top: 4rem;
+       margin-bottom: 1.5rem;
+       font-size: 3.2rem;
+       line-height: 1; }
+  
+  h2 { font-style: italic;
+       font-weight: 400;
+       margin-top: 2.1rem;
+       margin-bottom: 0;
+       font-size: 2.2rem;
+       line-height: 1; }
+  
+  h3 { font-style: italic;
+       font-weight: 400;
+       font-size: 1.7rem;
+       margin-top: 2rem;
+       margin-bottom: 0;
+       line-height: 1; }
+  
+  hr { display: block;
+       height: 1px;
+       width: 55%;
+       border: 0;
+       border-top: 1px solid #ccc;
+       margin: 1em 0;
+       padding: 0; }
+  
+  p.subtitle { font-style: italic;
+               margin-top: 1rem;
+               margin-bottom: 1rem;
+               font-size: 1.8rem;
+               display: block;
+               line-height: 1; }
+  
+  .numeral { font-family: et-book-roman-old-style; }
+  
+  .danger { color: red; }
+  
+  article { position: relative;
+            padding: 5rem 0rem; }
+  
+  section { padding-top: 1rem;
+            padding-bottom: 1rem; }
+  
+  p, ol, ul { font-size: 1.4rem; }
+  
+  p { line-height: 2rem;
+      margin-top: 1.4rem;
+      margin-bottom: 1.4rem;
+      padding-right: 0;
+      vertical-align: baseline; }
+  
+  /* Chapter Epigraphs */
+  div.epigraph { margin: 5em 0; }
+  
+  div.epigraph > blockquote { margin-top: 3em;
+                              margin-bottom: 3em; }
+  
+  div.epigraph > blockquote, div.epigraph > blockquote > p { font-style: italic; }
+  
+  div.epigraph > blockquote > footer { font-style: normal; }
+  
+  div.epigraph > blockquote > footer > cite { font-style: italic; }
+  /* end chapter epigraphs styles */
+  
+  blockquote { font-size: 1.4rem; }
+  
+  blockquote p { width: 55%;
+                 margin-right: 40px; }
+  
+  blockquote footer { width: 55%;
+                      font-size: 1.1rem;
+                      text-align: right; }
+  
+  section>ol, section>ul { width: 45%;
+                           -webkit-padding-start: 5%;
+                           -webkit-padding-end: 5%; }
+  
+  li { padding: 0.5rem 0; }
+  
+  figure { padding: 0;
+           border: 0;
+           font-size: 100%;
+           font: inherit;
+           vertical-align: baseline;
+           max-width: 55%;
+           -webkit-margin-start: 0;
+           -webkit-margin-end: 0;
+           margin: 0 0 3em 0; }
+  
+  figcaption { float: right;
+               clear: right;
+               margin-top: 0;
+               margin-bottom: 0;
+               font-size: 1.1rem;
+               line-height: 1.6;
+               vertical-align: baseline;
+               position: relative;
+               max-width: 40%; }
+  
+  figure.fullwidth figcaption { margin-right: 24%; }
+  
+  /* Links: replicate underline that clears descenders */
+  a:link, a:visited { color: inherit; }
+  
+  a:link { text-decoration: none;
+           background: -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#333, #333);
+           background: linear-gradient(#fffff8, #fffff8), linear-gradient(#fffff8, #fffff8), linear-gradient(#333, #333);
+           -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+           -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+           background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+           background-repeat: no-repeat, no-repeat, repeat-x;
+           text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
+           background-position: 0% 93%, 100% 93%, 0% 93%; }
+  
+  @media screen and (-webkit-min-device-pixel-ratio: 0) { a:link { background-position-y: 87%, 87%, 87%; } }
+  
+  a:link::selection { text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe;
+                      background: #b4d5fe; }
+  
+  a:link::-moz-selection { text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe;
+                           background: #b4d5fe; }
+  
+  /* Sidenotes, margin notes, figures, captions */
+  img { max-width: 100%; }
+  
+  .sidenote, .marginnote { float: right;
+                           clear: right;
+                           margin-right: -60%;
+                           width: 50%;
+                           margin-top: 0;
+                           margin-bottom: 0;
+                           font-size: 1.1rem;
+                           line-height: 1.3;
+                           vertical-align: baseline;
+                           position: relative; }
+  
+  .sidenote-number { counter-increment: sidenote-counter; }
+  
+  .sidenote-number:after, .sidenote:before { content: counter(sidenote-counter) " ";
+                                             font-family: et-book-roman-old-style;
+                                             position: relative;
+                                             vertical-align: baseline; }
+  
+  .sidenote-number:after { content: counter(sidenote-counter);
+                           font-size: 1rem;
+                           top: -0.5rem;
+                           left: 0.1rem; }
+  
+  .sidenote:before { content: counter(sidenote-counter) " ";
+                     top: -0.5rem; }
+  
+  blockquote .sidenote, blockquote .marginnote { margin-right: -82%;
+                                                 min-width: 59%;
+                                                 text-align: left; }
+  
+  p, footer, table { width: 55%; }
+  
+  div.fullwidth, table.fullwidth { width: 100%; }
+  
+  div.table-wrapper { overflow-x: auto;
+                      font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif; }
+  
+  .sans { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+          letter-spacing: .03em; }
+  
+  code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+         font-size: 1.0rem;
+         line-height: 1.42; }
+  
+  .sans > code { font-size: 1.2rem; }
+  
+  h1 > code, h2 > code, h3 > code { font-size: 0.80em; }
+  
+  .marginnote > code, .sidenote > code { font-size: 1rem; }
+  
+  pre.code { font-size: 0.9rem;
+             width: 52.5%;
+             margin-left: 2.5%;
+             overflow-x: auto; }
+  
+  pre.code.fullwidth { width: 90%; }
+  
+  .fullwidth { max-width: 90%;
+               clear:both; }
+  
+  span.newthought { font-variant: small-caps;
+                    font-size: 1.2em; }
+  
+  input.margin-toggle { display: none; }
+  
+  label.sidenote-number { display: inline; }
+  
+  label.margin-toggle:not(.sidenote-number) { display: none; }
+  
+  .iframe-wrapper { position: relative;
+                    padding-bottom: 56.25%; /* 16:9 */
+                    padding-top: 25px;
+                    height: 0; }
+  
+  .iframe-wrapper iframe { position: absolute;
+                           top: 0;
+                           left: 0;
+                           width: 100%;
+                           height: 100%; }
+  
+  @media (max-width: 760px) { body { width: 84%;
+                                     padding-left: 8%;
+                                     padding-right: 8%; }
+                              p, footer { width: 100%; }
+                              pre.code { width: 97%; }
+                              section > ol { width: 90%; }
+                              section > ul { width: 90%; }
+                              figure { max-width: 90%; }
+                              figcaption, figure.fullwidth figcaption { margin-right: 0%;
+                                                                        max-width: none; }
+                              blockquote { margin-left: 1.5em;
+                                           margin-right: 0em; }
+                              blockquote p, blockquote footer { width: 100%; }
+                              label.margin-toggle:not(.sidenote-number) { display: inline; }
+                              .sidenote, .marginnote { display: none; }
+                              .margin-toggle:checked + .sidenote,
+                              .margin-toggle:checked + .marginnote { display: block;
+                                                                     float: left;
+                                                                     left: 1rem;
+                                                                     clear: both;
+                                                                     width: 95%;
+                                                                     margin: 1rem 2.5%;
+                                                                     vertical-align: baseline;
+                                                                     position: relative; }
+                              label { cursor: pointer; }
+                              div.table-wrapper, table { width: 85%; }
+                              img { width: 100%; } }
+  </style>
+  <style type="text/css">
+  /* For smart quotes */
+  q { quotes: "“" "”" "‘" "’"; }
+  
+  /* Override section behavior.
+   * We only want the top-level <section> to have padding.
+   * This makes it easier to work with --section-divs. */
+  section {
+    padding-top: initial;
+    padding-bottom: initial;
+  }
+  article > section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Make byline (date and/or author) small */
+  p.byline { font-size: 1.2rem; }
+  
+  
+  /* Simulate Pandoc's table output styles */
+  table {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+  }
+  th {
+    border-bottom: 1px solid black;
+  }
+  td, th {
+    font-size: 1.4rem;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Allow tables to be full width
+   * if they're wrapped in a figure.fullwidth
+   * (Easier to insert from Pandoc than manually adding table) */
+  figure.fullwidth table {
+    width: 90%;
+  }
+  
+  @media (max-width: 760px) {
+    figure.fullwidth table {
+      width: 100%;
+    }
+  }
+  
+  /* Code blocks
+   *
+   * Code blocks with a language look like div.sourceCode > pre.sourceCode
+   * Otherwise, it's just a pre (without .sourceCode) */
+  div.sourceCode,
+  pre:not(.sourceCode) {
+    padding: 1.4rem;
+    margin: -0.7rem -1.4rem;
+    width: 55%;
+    font-size: 0.9rem;
+    overflow-x: auto;
+  }
+  
+  /* But if there are line numbers, the inner pre *doesn't* get a .sourceCode
+   * class, so we want to reset it to the full width of the table container. */
+  td.sourceCode pre {
+    width: initial;
+  }
+  /* We don't want the line numbers to overflow; rather, we want the table to
+   * reflow to have enough room to show everthing without scrolling. */
+  td.lineNumbers pre {
+    overflow-x: initial;
+  }
+  
+  div.sourceCode code,
+  pre:not(.sourceCode) code {
+    font-size: 0.9rem;
+  }
+  
+  .fullwidth div.sourceCode,
+  .fullwidth pre:not(.sourceCode) {
+    width: 100%;
+  }
+  
+  /* We've handled all the margin/padding on the outer-most div.sourceCode */
+  div.sourceCode pre {
+    padding: 0;
+    margin: 0;
+  }
+  
+  @media (max-width: 760px) {
+    div.sourceCode,
+    pre:not(.sourceCode) {
+      width: 100%;
+    }
+  }
+  
+  /* Pandoc-generated line numbers need the same stylings as normal <code> */
+  .lineNumbers pre {
+    line-height: 1.42;
+    font-size: 0.9rem;
+  }
+  <style>
+  <style type="text/css">
+  div.sourceCode, pre:not(.sourceCode) { background: #FDF6E3; }
+  pre code { color: #657B83; }
+  code > span.kw { color: #859900; font-weight: normal; font-style: normal; } /* Keyword */
+  code > span.dt { color: #B58900; font-weight: normal; font-style: normal; } /* DataType */
+  code > span.dv { color: #2AA198; font-weight: normal; font-style: normal; } /* DecVal */
+  code > span.bn { color: #2AA198; font-weight: normal; font-style: normal; } /* BaseN */
+  code > span.fl { color: #2AA198; font-weight: normal; font-style: normal; } /* Float */
+  code > span.ch { color: #2AA198; font-weight: normal; font-style: normal; } /* Char */
+  code > span.st { color: #2AA198; font-weight: normal; font-style: normal; } /* String */
+  code > span.co { color: #93A1A1; font-weight: normal; font-style: italic; } /* Comment */
+  code > span.ot { color: #268BD2; font-weight: normal; font-style: normal; } /* Other */
+  code > span.al { color: #DC322F; font-weight: normal; font-style: normal; } /* Alert */
+  code > span.fu { color: #268BD2; font-weight: normal; font-style: normal; } /* Function */
+  code > span.er { color: #DC322F; font-weight: normal; font-style: normal; } /* Error */
+  code > span.wa { color: #CB4B16; font-weight: normal; font-style: italic; } /* Warning */
+  code > span.cn { color: #2AA198; font-weight: normal; font-style: normal; } /* Constant */
+  code > span.sc { color: #DC322F; font-weight: normal; font-style: normal; } /* SpecialChar */
+  code > span.vs { color: #657B83; font-weight: normal; font-style: normal; } /* VerbatimString */
+  code > span.ss { color: #DC322F; font-weight: normal; font-style: normal; } /* SpecialString */
+  code > span.im { color: #657B83; font-weight: normal; font-style: normal; } /* Import */
+  code > span.va { color: #268BD2; font-weight: normal; font-style: normal; } /* Variable */
+  code > span.cf { color: #859900; font-weight: normal; font-style: normal; } /* ControlFlow */
+  code > span.op { color: #859900; font-weight: normal; font-style: normal; } /* Operator */
+  code > span.bu { color: #657B83; font-weight: normal; font-style: normal; } /* BuiltIn */
+  code > span.ex { color: #657B83; font-weight: normal; font-style: normal; } /* Extension */
+  code > span.pp { color: #CB4B16; font-weight: normal; font-style: normal; } /* Preprocessor */
+  code > span.at { color: #657B83; font-weight: normal; font-style: normal; } /* Attribute */
+  code > span.do { color: #93A1A1; font-weight: normal; font-style: italic; } /* Documentation */
+  code > span.an { color: #93A1A1; font-weight: normal; font-style: italic; } /* Annotation */
+  code > span.cv { color: #93A1A1; font-weight: normal; font-style: italic; } /* CommentVar */
+  code > span.in { color: #93A1A1; font-weight: normal; font-style: italic; } /* Information */
+  </style>
+  <style type="text/css">
+  /* The default x-height for code is slightly too large in side notes */
+  .marginnote code, .sidenote code { font-size: 0.9rem; }
+  
+  /* https://github.com/edwardtufte/tufte-css/pull/126 */
+  h2, h3 { margin-bottom: 1.4rem; }
+  </style>
+</head>
+<body>
+<article>
+<section id="tcpip---quiz" class="level1">
+<h1>TCP/IP - Quiz</h1>
+<section id="quiz-5" class="level2">
+<h2>Quiz 5</h2>
+<p><strong>One allocation (in Mb/s) is max-min fair; which one?</strong></p>
+<figure>
+<img src="img/q24.png" alt="q24" /><figcaption>q24</figcaption>
+</figure>
+<ul>
+<li>[ ] 𝑥2 = 40, 𝑥6 = 40, 𝑥7 = 𝑥8 = 40</li>
+<li>[ ] 𝑥2 = 60, 𝑥6 = 60, 𝑥7 = 𝑥8 = 30</li>
+<li>[ ] 𝑥2 = 40, 𝑥6 = 60, 𝑥7 = 𝑥8 = 40</li>
+<li>[ ] 𝑥2 = 40, 𝑥6 = 80, 𝑥7 = 𝑥8 = 40</li>
+</ul>
+<hr />
+<p><strong>One allocation (in Mb/s) is proportionally fair; which one?</strong></p>
+<ul>
+<li>[ ] 𝑥2 = 40, 𝑥6 = 40, 𝑥7 = 𝑥8 = 40</li>
+<li>[ ] 𝑥2 = 30, 𝑥6 = 90, 𝑥7 = 𝑥8 = 45</li>
+<li>[ ] 𝑥2 = 50, 𝑥6 = 70, 𝑥7 = 𝑥8 = 35</li>
+<li>[ ] 𝑥2 = 55.2, 𝑥6 = 64.8, 𝑥7 = 𝑥8 = 32.4</li>
+</ul>
+<hr />
+<p><strong>In a network where the set of feasible rates is convex and bounded…</strong></p>
+<ul>
+<li>[ ] There is at most one proportionally fair allocation</li>
+<li>[ ] There is exactly one proportionally fair allocation</li>
+<li>[ ] There is at least one proportionally fair allocation</li>
+</ul>
+<hr />
+<p><strong>Say which statements are true (in a network where the set of feasible rates is convex and bounded):</strong></p>
+<ol type="1">
+<li><strong>Any rate allocation that maximizes the sum of the logarithms of the rates (subject to feasibility) is proportionally fair</strong></li>
+<li><strong>Any rate allocation that maximizes the minimum of the rates (subject to feasibility) is max-min fair</strong></li>
+</ol>
+<ul>
+<li>[ ] 1</li>
+<li>[ ] 2</li>
+<li>[ ] 1 + 2</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>In a network, 𝒏 sources stream data at a constant rate 𝒄 to a single sink, using UDP and without any congestion control. The network links are at 2 Mb/s for some links, 10 Mb/s for others. The sink receives data at a rate limited only by its network access speed , equal to 2 Mb/s. When 𝒏 is large, there are many losses. The rate at which the sink receives information…</strong></p>
+<ul>
+<li>[ ] can be much smaller than 2 Mb/s</li>
+<li>[ ] must be close to 2 Mb/s</li>
+<li>[ ] can be much larger than 2 Mb/s</li>
+</ul>
+<p><em>If shortest path routing is used, the traffic will flow along the shortest path tree to the sink, and the last hop (2Mbps) will indeed be filled (hence, the sink receives at ~2Mbps). However the question does not imply that shortest path routing is used!</em></p>
+<hr />
+<p><strong>Which statements are true ?</strong></p>
+<ol type="1">
+<li><strong>In slow start, the increase is additive.</strong></li>
+<li><strong>Slow start is used to accelerate the convergence of Additive Increase, Multiplicative</strong> <strong>Decrease</strong></li>
+</ol>
+<ul>
+<li>[ ] 1 and not 2.</li>
+<li>[ ] 2 and not 1.</li>
+<li>[ ] Neither 1 nor 2</li>
+<li>[ ] 1 and 2.</li>
+</ul>
+<hr />
+<p><strong>We have a network with <span class="math inline">\(n\)</span> sources and <span class="math inline">\(n\)</span> destinations. Each link has a finite capacity. Each source sends at the same rate <span class="math inline">\(\lambda\)</span>. We plot the total throughput as a function <span class="math inline">\(f(\lambda)\)</span> when <span class="math inline">\(\lambda\)</span> increases to <span class="math inline">\(\infty\)</span>.</strong></p>
+<ul>
+<li>[ ] <span class="math inline">\(f(\lambda)\)</span> is always monotonically increasing and <span class="math inline">\(lim_{\lambda \rightarrow \infty} f(\lambda) = \infty\)</span>.</li>
+<li>[ ] <span class="math inline">\(f(\lambda)\)</span> may be non-monotonic in some networks.</li>
+<li>[ ] <span class="math inline">\(f(\lambda)\)</span> is always monotonically increasing and <span class="math inline">\(lim_{\lambda \rightarrow \infty} f(\lambda)\)</span> may be finite or infinite, depending on the network.</li>
+<li>[ ] <span class="math inline">\(f(\lambda)\)</span> is always monotonically increasing but <span class="math inline">\(lim_{\lambda \rightarrow \infty} f(\lambda)\)</span> is finite, equal to the network capacity.</li>
+</ul>
+<hr />
+<p><strong>The capacities of the 2 links (shown as lines between boxes) is 12 Mb/s each. There are no other constraints than the 2 link capacities. The rates <span class="math inline">\(x_i\)</span> of the flows (shown as arrows) are allocated according to proportional fairness. What is the proportionally fair allocation in Mb/s ?</strong></p>
+<figure>
+<img src="img/q29.png" alt="q29" /><figcaption>q29</figcaption>
+</figure>
+<ul>
+<li>[ ] x1 = 4, x2 = x3 = 8.</li>
+<li>[ ] x1 = x2 = x3 = 4.</li>
+<li>[ ] x1 = x2 = x3 = 6.</li>
+<li>[ ] x1 = 8, x2 = x3 = 4.</li>
+</ul>
+<hr />
+<p><strong>The capacities of the 3 links (shown as lines between boxes) is 12 Mb/s each. There are no other constraints than the 3 link ca- pacities. The rates of the flows (shown as arrows) are allocated according to max-min fairness. What is the rate allocated to flow 1 ?</strong></p>
+<figure>
+<img src="img/q31.png" alt="q31" /><figcaption>q31</figcaption>
+</figure>
+<ul>
+<li>[ ] 6 Mb/s.</li>
+<li>[ ] 3 Mb/s.</li>
+<li>[ ] 8 Mb/s.</li>
+<li>[ ] 4 Mb/s.</li>
+</ul>
+<hr />
+<p><strong>Which statements are true ?</strong></p>
+<ol type="1">
+<li><p><strong>Additive Increase, Multiplicative Decrease tends to provide a fair and efficient allocation</strong></p></li>
+<li><p><strong>Multiplicative Increase, Additive Decrease tends to provide a fair and effcient allocation</strong></p></li>
+</ol>
+<ul>
+<li>[ ] 1 and 2.</li>
+<li>[ ] 2 and not 1.</li>
+<li>[ ] 1 and not 2.</li>
+<li>[ ] Neither 1 nor 2</li>
+</ul>
+<hr />
+<p><strong>Which statements are true, for networks where rate allocation constraints</strong> <strong>can be modelled by linear inequalities ?</strong></p>
+<ol type="1">
+<li><strong>There exists one and only one max-min fair allocation</strong></li>
+<li><strong>There exists one and only one proportionally fair allocation</strong></li>
+</ol>
+<ul>
+<li>[ ] 1 and not 2.</li>
+<li>[ ] 1 and 2.</li>
+<li>[ ] 2 and not 1.</li>
+<li>[ ] Neither 1 nor 2</li>
+</ul>
+<hr />
+<p><strong>In a connected graph with n nodes, we use centralized Bellman Ford to compute the distances from all nodes to node 1.</strong></p>
+<ul>
+<li><p>[ ] The algorithm converges to the correct values regardless of initial conditions.</p></li>
+<li><p>[ ] If the initial conditions are the true distances to node 1, the algorithm con- verges to the correct values; otherwise it may happen that it does not con- verge and counts to infinity.</p></li>
+<li><p>[ ] If the initial conditions are less than the true distances to node 1, the algorithm converges to the correct values;</p></li>
+<li><p>[ ] otherwise it still converges but in some cases not to the correct values. If the initial conditions are the true distances to node 1, the algorithm converges to the correct values; otherwise it still converges but in some cases not to the correct values.</p></li>
+</ul>
+<hr />
+<p><strong>The maximum throughput is …</strong></p>
+<figure>
+<img src="img/q32.png" alt="q32" /><figcaption>q32</figcaption>
+</figure>
+<ul>
+<li>[ ] 5 Mb/s</li>
+<li>[ ] 10 Mb/s</li>
+<li>[ ] 20 Mb/s</li>
+<li>[ ] None of the above</li>
+</ul>
+<hr />
+<p><strong>The value of <span class="math inline">\(x_0\)</span>when the maximum throughput is attained is …</strong></p>
+<ul>
+<li>[ ] 1 Mb/s</li>
+<li><p>[ ] <span class="math inline">\(10 \over 9\)</span> Mb/s</p></li>
+<li>[ ] 2 Mb/s</li>
+<li><p>[ ] None of the above</p></li>
+</ul>
+<hr />
+<p><strong>Which allocation is Pareto‐Efficient ?</strong></p>
+<ul>
+<li>[ ] <span class="math inline">\(x_o = 0\)</span>, <span class="math inline">\(x_1 = 10\)</span>, <span class="math inline">\(x_2 = 10/9\)</span></li>
+<li>[ ] <span class="math inline">\(x_o = 0.55\)</span>, <span class="math inline">\(x_1 = 9.45\)</span>, <span class="math inline">\(x_2 = 1.05\)</span></li>
+<li>[ ] <span class="math inline">\(x_o = 1\)</span>, <span class="math inline">\(x_1 = 9\)</span>, <span class="math inline">\(x_2 = 1\)</span></li>
+<li>[ ] A and B</li>
+<li>[ ] A and C</li>
+<li>[ ] B and C</li>
+<li>[ ] All</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>Which allocation is proportionally fair ?</strong></p>
+<ul>
+<li>[ ] <span class="math inline">\(x_o = 1\)</span>, <span class="math inline">\(x_1 = 9\)</span>, <span class="math inline">\(x_2 = 1\)</span></li>
+<li>[ ] <span class="math inline">\(x_o = 0.909\)</span>, <span class="math inline">\(x_1 = 9\)</span>, <span class="math inline">\(x_2 = 0.010\)</span></li>
+<li>[ ] <span class="math inline">\(x_o = 1.009\)</span>, <span class="math inline">\(x_1 = 8.991\)</span>, <span class="math inline">\(x_2 = 0.999\)</span></li>
+<li>[ ] <span class="math inline">\(x_o = 0.909\)</span>, <span class="math inline">\(x_1 = 9.091\)</span>, <span class="math inline">\(x_2 = 1.010\)</span></li>
+</ul>
+<hr />
+<p><strong>Which allocations are max-min fair ?</strong></p>
+<figure>
+<img src="img/q33.png" alt="q33" /><figcaption>q33</figcaption>
+</figure>
+<ul>
+<li>[ ] A</li>
+<li>[ ] B</li>
+<li>[ ] A + B</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<figure>
+<img src="img/q34.png" alt="q34" /><figcaption>q34</figcaption>
+</figure>
+<ul>
+<li>[ ] <span class="math inline">\(x_i = \frac{c}{2} \ \ \ \forall i\)</span></li>
+<li>[ ] <span class="math inline">\(x_0 = \frac{c}{3}, x_i = \frac{2c}{3} \ \ \ \forall i \ne 0\)</span></li>
+<li>[ ] <span class="math inline">\(x_0 = \frac{c}{4}, x_i = \frac{3c}{4} \ \ \ \forall i \ne 0\)</span></li>
+<li>[ ] <span class="math inline">\(x_0 = \frac{c}{5}, x_i = \frac{4c}{5} \ \ \ \forall i \ne 0\)</span></li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>Which allocations are proportionally fair ?</strong></p>
+<figure>
+<img src="img/q35.png" alt="q35" /><figcaption>q35</figcaption>
+</figure>
+<ul>
+<li>[ ] A</li>
+<li>[ ] B</li>
+<li>[ ] A + B</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>What is true</strong></p>
+<figure>
+<img src="img/q36.png" alt="q36" /><figcaption>q36</figcaption>
+</figure>
+<ul>
+<li>[ ] 1 = additive increase, 2 = multiplicative increase</li>
+<li>[ ] 1 = multiplicative increase, 2 = additive increase</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>One allocation (in Mb/s) is maxmin fair;</strong></p>
+<figure>
+<img src="img/q37.png" alt="q37" /><figcaption>q37</figcaption>
+</figure>
+<ul>
+<li>[ ] <span class="math inline">\(x_0 = 40\)</span>, <span class="math inline">\(x_1 = 40\)</span>, <span class="math inline">\(x_2 = 40\)</span></li>
+<li>[ ] <span class="math inline">\(x_0 = 60\)</span>, <span class="math inline">\(x_1 = 60\)</span>, <span class="math inline">\(x_2 = 20\)</span></li>
+<li>[ ] <span class="math inline">\(x_0 = 40\)</span>, <span class="math inline">\(x_1 = 80\)</span>, <span class="math inline">\(x_2 = 40\)</span></li>
+<li>[ ] <span class="math inline">\(x_0 = 60\)</span>, <span class="math inline">\(x_1 = 60\)</span>, <span class="math inline">\(x_2 = 60\)</span></li>
+</ul>
+<hr />
+<p><strong>One allocation is proportionally fair</strong></p>
+<figure>
+<img src="img/q38.png" alt="q38" /><figcaption>q38</figcaption>
+</figure>
+<ul>
+<li>[ ] <span class="math inline">\(x_0 = 10\)</span>, <span class="math inline">\(x_1 = 10\)</span>, <span class="math inline">\(x_2 = 10\)</span></li>
+<li>[ ] <span class="math inline">\(x_0 = 20\)</span>, <span class="math inline">\(x_1 = 10\)</span>, <span class="math inline">\(x_2 = 10\)</span></li>
+<li>[ ] <span class="math inline">\(x_0 = 10\)</span>, <span class="math inline">\(x_1 = 20\)</span>, <span class="math inline">\(x_2 = 20\)</span></li>
+<li>[ ] <span class="math inline">\(x_0 = 15\)</span>, <span class="math inline">\(x_1 =15\)</span>, <span class="math inline">\(x_2 =15\)</span></li>
+</ul>
+<hr />
+<p><strong>Congestion control in the Internet</strong></p>
+<ul>
+<li>[ ] Ensure that sources and destinations are not congested</li>
+<li>[ ] prevents congestion collapse</li>
+<li>[ ] Prevents a source from flooding a destination</li>
+<li>[ ] Prevents routing loops</li>
+</ul>
+<hr />
+<p><strong>In a network where the set of feasible rates is convex and bounded, say what is true :</strong></p>
+<p>A. <strong>There is always exactly one max-min fair allocation</strong></p>
+<p>B. <strong>There is always exactly one proportionally fair allocation</strong></p>
+<ul>
+<li>[ ] A</li>
+<li>[ ] B</li>
+<li>[ ] A + B</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>Say what is true</strong></p>
+<ul>
+<li><strong>AIMD = Additive Increase, Multiplicative Decrease</strong></li>
+<li><p><strong>MIMD = Multiplicative Increase, Multiplicative Decrease</strong></p></li>
+<li>[ ] MIMD is preferred over AIMD for congestion control because it has better fairness</li>
+<li>[ ] AIMD is preferred over MIMD for congestion control because it has better fairness</li>
+<li>[ ] AIMD and MIMD used for congestion control have the same fairness but MIMD is preferred because it has better efficiency</li>
+<li><p>[ ] AIMD and MIMD used for congestion control have the same fairness but AIMD is preferred because it has better efficiency</p></li>
+</ul>
+<hr />
+<p><strong>When TCP is in the slow-start phase</strong></p>
+<ul>
+<li><p>[ ] The congestion window sizes increases almost linearly over time (when ACKs are received)</p></li>
+<li><p>[ ] The congestion window sizes increases almost exponentially over time (when ACKs are received)</p></li>
+<li><p>[ ] The congestion window sizes increases additively (when ACKs are received) if ECN is used and increases multiplicatively (when ACKs are received) if ECN is not used</p></li>
+<li><p>[ ] The congestion window size does not increase during slow start</p></li>
+</ul>
+<hr />
+<p><strong>The bias of TCP against long RTTs means that …</strong></p>
+<ul>
+<li>[ ] TCP connections that have equal characteristics except for RTT receive a throughput proportional to RTT</li>
+<li>[ ] TCP connections that have equal characteristics except for RTT receive a throughput inversely proportional to RTT</li>
+<li>[ ] TCP connections that have a long RTT also see more losses</li>
+<li>[ ] TCP connections that have a long RTT tend to have a smaller maximum segment size</li>
+</ul>
+<hr />
+<p><strong>The window size in TCP is equal to …</strong></p>
+<ul>
+<li>[ ] The window field in received TCP headers</li>
+<li>[ ] The minimum of the window field in received TCP headers and of the slow start threshold</li>
+<li>[ ] The minimum of the window field in received TCP headers and of the congestion window</li>
+<li>[ ] The minimum of the congestion window and of the slow start threshold</li>
+</ul>
+<hr />
+<p><strong>The information used by Explicit Congestion Notification resides in….</strong></p>
+<ol type="1">
+<li><strong>IP headers</strong></li>
+<li><strong>TCP headers</strong></li>
+<li><strong>UDP headers</strong></li>
+</ol>
+<ul>
+<li>[ ] 1</li>
+<li>[ ] 2</li>
+<li>[ ] 3</li>
+<li>[ ] 1 2</li>
+<li>[ ] 1 3</li>
+<li>[ ] 2 3</li>
+<li>[ ] 1 2 3</li>
+<li>[ ] None</li>
+</ul>
+<hr />
+<p><strong>The goal of Explicit Congestion Notification is …</strong></p>
+<ul>
+<li>[ ] To avoid dropping packets at destination when it is slower than source</li>
+<li>[ ] To inform routers that a destination is congested</li>
+<li>[ ] To inform web servers when a source is congestion</li>
+<li>[ ] To avoid dropping packets in routers</li>
+</ul>
+<hr />
+<p><strong>A TCP connection goes into slow start…</strong></p>
+<ul>
+<li>[ ] Whenever a loss is detected</li>
+<li>[ ] Whenever a loss is detected by timeout</li>
+<li>[ ] Whenever a loss is detected by fast retransmit</li>
+</ul>
+<hr />
+<p><strong>The loss throughput formula for TCP with long lived flows is…</strong></p>
+<ul>
+<li><strong><span class="math inline">\(x\)</span> = throughput</strong></li>
+<li><strong><span class="math inline">\(T\)</span> = RTT</strong></li>
+<li><strong><span class="math inline">\(q​\)</span> = loss ratio</strong></li>
+<li><p><strong><span class="math inline">\(M\)</span> = segment size</strong></p></li>
+<li>[ ] <span class="math inline">\(x = \frac{1.22M}{q\sqrt{T}}\)</span></li>
+<li>[ ] <span class="math inline">\(x = \frac{1.22\sqrt q}{MT}\)</span></li>
+<li>[ ] <span class="math inline">\(x = \frac{1.22M}{T\sqrt{q}}\)</span></li>
+<li><p>[ ] <span class="math inline">\(x = \frac{1.22\sqrt T}{Mq}\)</span></p></li>
+</ul>
+<hr />
+<p><strong>In a hypothetical network where all flows would use TCP and have the same RTT, rates would be allocated according to…</strong></p>
+<ul>
+<li>[ ] Max-min fairness</li>
+<li>[ ] Proportional fairness</li>
+<li>[ ] Something between max-min fairness and proportional fairness</li>
+<li>[ ] A utility fairness with <span class="math inline">\(U(x) = \frac{Cx}{RTT \sqrt{q}}\)</span></li>
+</ul>
+<hr />
+<p><strong>A TCP source uses ECN in an ECN capable network. The source reduces its window when it sees a congestion signal in …</strong></p>
+<ul>
+<li>[ ] The TCP header of received packets</li>
+<li>[ ] The IP header of received packets</li>
+<li>[ ] An ICMP source quench message</li>
+</ul>
+<hr />
+<p><strong>Saying that a UDP source is “TCP-friendly” means that the UDP source …</strong></p>
+<ul>
+<li>[ ] implements priority queuing</li>
+<li>[ ] implements class based queuing</li>
+<li>[ ] controls its rate in order to approximate the TCP loss throughput formula</li>
+<li>[ ] controls its rate in order to obtain less than a TCP connection would</li>
+</ul>
+<hr />
+<p><strong>A UDP application implements congestion control by means of Multiplicative Increase, Multiplicative Decrease.</strong></p>
+<ul>
+<li>[ ] This will not prevent congestion collapse.</li>
+<li>[ ] This application is TCP-friendly.</li>
+<li>[ ] This will have roughly similar effects as AIMD.</li>
+<li>[ ] This form of congestion control has a fairness problem.</li>
+</ul>
+<hr />
+<p><strong>In a network where all TCP connections have the same RTT, TCP allocates rates according to …</strong></p>
+<ul>
+<li>[ ] max-min fairness.</li>
+<li>[ ] maximization of the sum of all rates.</li>
+<li>[ ] a utility fairness close to proportional fairness</li>
+<li>[ ] proportional fairness.</li>
+</ul>
+<hr />
+<p><strong>TCP connections 1 and 2 have same loss rate <span class="math inline">\(q = 0.01\)</span> and same MSS but different RTTs, <span class="math inline">\(T1 = 0.1 sec\)</span> and <span class="math inline">\(T2 = 0.4 sec\)</span>. The throughputs are approximately:</strong></p>
+<ul>
+<li>[ ] x1 = 122 pps, x2 = 30.5 pps.</li>
+<li>[ ] x1 = 122pps, x2 = 61 pps.</li>
+<li>[ ] x1 = 122 pps, x2 = 122 pps</li>
+<li>[ ] x1 = 61 pps, x2 = 122 pps.</li>
+</ul>
+<hr />
+<p><strong>The proportionnaly fair allocation is, in Mb/s …</strong></p>
+<figure>
+<img src="img/q39.png" alt="q39" /><figcaption>q39</figcaption>
+</figure>
+<ul>
+<li>[ ] x1 = 0.5, x2 = 0.5, x3 = 5.</li>
+<li>[ ] x1 = 0.5, x2 = 1.5, x3 = 4.</li>
+<li>[ ] x1 = 1, x2 = 1, x3 = 4.</li>
+<li>[ ] x1 = 1.5, x2 = 0.5, x3 = 4.</li>
+</ul>
+<hr />
+<p><strong>TCP connections 1 and 2 have same <span class="math inline">\(RTT = 0.1 sec\)</span> and same MSS but different loss probabilities, <span class="math inline">\(q1 = 0.01\)</span> and <span class="math inline">\(q2 = 0.04\)</span>. The throughputs are approximately:</strong></p>
+<ul>
+<li>[ ] x1 = 122 pps, x2 = 30.5 pps.</li>
+<li>[ ] x1 = 61 pps, x2 = 122 pps.</li>
+<li>[ ] x1 = 122 pps, x2 = 122 pps.</li>
+<li>[ ] x1 = 122 pps, x2 = 61 pps.</li>
+</ul>
+<hr />
+<p><strong>When a packet of a TCP connection is lost due to transmission error and not due to congestion:</strong></p>
+<ul>
+<li>[ ] the TCP connection reduces its rate if ECN is not enabled.</li>
+<li>[ ] the TCP connection reduces its rate.</li>
+<li>[ ] the TCP connection reduces its rate if ECN is enabled</li>
+<li>[ ] the TCP connection does not reduce its rate.</li>
+</ul>
+<hr />
+<p><strong>The max-min fair allocation is, in Mb/s …</strong></p>
+<figure>
+<img src="img/q39.png" alt="q39" /><figcaption>q39</figcaption>
+</figure>
+<ul>
+<li>[ ] <span class="math inline">\(x_1 = 1\)</span>, <span class="math inline">\(x_2 = 1\)</span>, <span class="math inline">\(x_3 = 4\)</span>.</li>
+<li>[ ] <span class="math inline">\(x_1 = 0.5\)</span>, <span class="math inline">\(x_2 = 0.5\)</span>, <span class="math inline">\(x_3 = 5\)</span>.</li>
+<li>[ ] <span class="math inline">\(x_1 = 0.5\)</span>, <span class="math inline">\(x_2 = 1.5\)</span>, <span class="math inline">\(x_3 = 4\)</span>.</li>
+<li>[ ] <span class="math inline">\(x_1 = 1.5\)</span>, <span class="math inline">\(x_2 = 0.5\)</span>, <span class="math inline">\(x_3 = 4\)</span>.</li>
+</ul>
+<hr />
+<p><strong>When a TCP connection is in slow start:</strong></p>
+<ul>
+<li>[ ] the congestion window increases linearly as long as there is no loss.</li>
+<li>[ ] the congestion window increases logarithmically as long as there is no loss.</li>
+<li>[ ] the congestion window increases exponentially as long as there is no loss.</li>
+<li>[ ] the congestion window remains constant until there is a loss.</li>
+</ul>
+<hr />
+<p><strong>In a network where the set of feasible rates is convex and bounded, how many proportionnaly fair allocation are there ?</strong></p>
+<ul>
+<li>[ ] Exactly one.</li>
+<li>[ ] Zero or one.</li>
+<li>[ ] Exactly two.</li>
+<li>[ ] One or more.</li>
+</ul>
+<hr />
+<p><strong>In a network where the set of feasible rates is convex and bounded, how many max-min fair allocation are there ?</strong></p>
+<ul>
+<li>[ ] Exactly one.</li>
+<li>[ ] Exactly two.</li>
+<li>[ ] One or more.</li>
+<li>[ ] Zero or one.</li>
+</ul>
+<hr />
+<p><strong>A TCP-friendly application is…</strong></p>
+<ul>
+<li>[ ] A TCP application that fully exploits the congestion control features of TCP.</li>
+<li>[ ] A UDP application that sends at a rate similar to what it would obtain if it were using TCP.</li>
+<li>[ ] A TCP application that fully exploits the streaming oriented nature of TCP.</li>
+<li>[ ] A UDP application that gives priority to TCP flows.</li>
+</ul>
+<hr />
+<p><strong>When a TCP source detects by timeout that a packet is lost…</strong></p>
+<ul>
+<li>[ ] it goes into slow start.</li>
+<li>[ ] it goes into congestion avoidance.</li>
+<li>[ ] it goes into fast recovery.</li>
+<li>[ ] it divides the congestion window by 2.</li>
+</ul>
+<hr />
+<p><strong>Which of the formulas below gives the throughput <span class="math inline">\(\theta\)</span> of a non-ECN long-lived TCP connection with round trip time T and constant segment size L that experiences loss probability q (where C is some numerical constant) ?</strong></p>
+<ul>
+<li>[ ] <span class="math inline">\(\theta = \frac{CL}{T\sqrt{q}}\)</span></li>
+<li>[ ] <span class="math inline">\(\theta = \frac{CT}{L\sqrt{q}}\)</span></li>
+<li>[ ] <span class="math inline">\(\theta = \frac{C}{TL\sqrt{q}}\)</span></li>
+<li>[ ] <span class="math inline">\(\theta = \frac{C\sqrt{q}}{TL}\)</span></li>
+</ul>
+<hr />
+<p><strong>For long lived TCP connections, the rate they obtain is according to…</strong></p>
+<ul>
+<li>[ ] a concave utility function that has a bias in favour of connections with small RTT.</li>
+<li>[ ] a utility function that expresses maxmin fairness but with a bias in favour of con- nections with small RTT.</li>
+<li>[ ] a utility function that expresses maxmin fairness but with a bias in favour of con- nections with large RTT.</li>
+<li>[ ] a concave utility function that has a bias in favour of connections with large RTT.</li>
+</ul>
+<hr />
+<p><strong>How many new segments of size 100 bytes can the source send at time 20 ?</strong></p>
+<figure>
+<img src="img/q40.png" alt="q40" /><figcaption>q40</figcaption>
+</figure>
+<ul>
+<li>[ ] 1</li>
+<li>[ ] 2</li>
+<li>[ ] 3</li>
+<li>[ ] 4</li>
+<li>[ ] <span class="math inline">\(\ge\)</span> 5</li>
+<li>[ ] 0</li>
+</ul>
+<hr />
+<p><strong>Assume a TCP flow uses WiFi with high loss ratio. Assume some packets are lost in spite of WiFi retransmissions. When a packet is lost on the WiFi link…</strong></p>
+<ul>
+<li>[ ] The TCP source knows it is a loss due to channel errors and not congestion, therefore it does not reduce the window</li>
+<li>[ ] The TCP source thinks it is a congestion loss and reduces the window</li>
+<li>[ ] It depends if the MAC layer uses retransmissions</li>
+</ul>
+<hr />
+<p><strong><span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span> send to destination using one TCP connection each, RTTs are 60ms and 140ms. Bottleneck is link « router destination». Who gets more ?</strong></p>
+<figure>
+<img src="img/q41.png" alt="q41" /><figcaption>q41</figcaption>
+</figure>
+<ul>
+<li>[ ] <span class="math inline">\(S_1\)</span> gets a higher throughput</li>
+<li>[ ] <span class="math inline">\(S_2\)</span> gets a higher throughput</li>
+<li>[ ] Both the same</li>
+</ul>
+<hr />
+<p><strong>Guess the ratio between the throughputs <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span> of <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span>.</strong></p>
+<ul>
+<li>[ ] <span class="math inline">\(\theta_1 = \frac{3}{7} \theta_2\)</span></li>
+<li>[ ] <span class="math inline">\(\theta_1 = \theta_2\)</span></li>
+<li>[ ] <span class="math inline">\(\theta_1 = \frac{7}{3} \theta_2\)</span></li>
+<li>[ ] <span class="math inline">\(\theta_1 = \frac{10}{3} \theta_2\)</span></li>
+</ul>
+<hr />
+<p><strong>Put correct labels</strong></p>
+<figure>
+<img src="img/q42.png" alt="q42" /><figcaption>q42</figcaption>
+</figure>
+<ul>
+<li>[ ] 1 = CA, 2 = SS</li>
+<li>[ ] 1 = SS, 2 = MD</li>
+<li>[ ] 1 = CA, 2 = MD</li>
+</ul>
+<hr />
+<p><strong>In a network where all flows use TCP with ECN and all routers support ECN, we expect that …</strong></p>
+<ul>
+<li>[ ] there is no packet loss</li>
+<li>[ ] there is no packet loss due to congestion</li>
+<li>[ ] there is no packet loss due to congestion in routers</li>
+<li>[ ] none of the above</li>
+</ul>
+<hr />
+<p><strong>What is your preferred combination for TCP flows inside a data center ?</strong></p>
+<ul>
+<li>[ ] TCP Reno, no ECN no RED</li>
+<li>[ ] TCP Reno and ECN</li>
+<li>[ ] TCP Cubic, no ECN no RED</li>
+<li>[ ] TCP Cubic and ECN</li>
+</ul>
+<hr />
+<p><strong>In a data center: two large TCP flows compete for a bottleneck link; one uses DCTPC, the other uses Cubic/ECN. Both have same RTT.</strong></p>
+<ul>
+<li>[ ] Both get roughly the same throughput</li>
+<li>[ ] DCTCP gets much more throughput</li>
+<li>[ ] Cubic gets much more throughput</li>
+</ul>
+<hr />
+<p><strong>Which rates will PC1 and PC2 achieve ?</strong></p>
+<figure>
+<img src="img/q43.png" alt="q43" /><figcaption>q43</figcaption>
+</figure>
+<ul>
+<li>[ ] 5Mb/s each</li>
+<li>[ ] 4 Mb/s each</li>
+<li>[ ] PC1 : 5Mb/s, PC2 : 3Mb/s</li>
+</ul>
+<hr />
+</section>
+</section>
+</article>
+</body>
+</html>

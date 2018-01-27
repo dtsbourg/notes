@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="/Users/Dylan/Documents/Code/notes/typora-default-themes/themes/pixyll.css" type="text/css" />
+</head>
+<body>
+<h1 id="projet-de-semestre-notes">Projet de semestre notes</h1>
+<h2 id="project-objective">Project objective</h2>
+<blockquote>
+<p>Controlling with partial jacobians : ability to assign positions to either one or both points of a robot arm.</p>
+</blockquote>
+<h2 id="init">Init</h2>
+<p>jacobians are used to map the task-space (state <span class="math inline"><em>x</em></span>) to the joint-space (arm state <span class="math inline"><em>q</em></span>)</p>
+<p><br /><span class="math display">$$\dot{x} = J(q) \dot{} \dot{q}  \tag{1}$$</span><br /></p>
+<p>This gives a mapping from the state velocities to the joint velocities. We want the opposite : what are the desired velocities in joint-space for a given velocity in the task space :</p>
+<p><br /><span class="math display">$$\hat{\dot{q}} = J^{+} \dot{x} \text{ where } \dot{x} = K_p(\hat{x}-x)  \tag{2}$$</span><br /></p>
+<p>where <span class="math inline">$\hat{x}$</span> is the desired position in the task-space.</p>
+<p><br /><span class="math display">$$ J = {\partial(x_1,\dots,x_n) \over \partial(q_1,\dots,q_n)} = \begin{bmatrix} {\partial q_1 \over \partial x_1} &amp; {\partial q_2\over \partial x_1} &amp; \dots \\   {\partial q_1 \over \partial x_2} &amp; {\partial q_2\over \partial x_2} &amp; \dots  \\ {\partial q_1 \over \partial x_3} &amp; \dots &amp; \dots  \end{bmatrix}  \tag{3}$$</span><br /></p>
+<h2 id="single-variable-control">Single variable control</h2>
+<p>Notice that the first column of <span class="math inline"><em>J</em></span> represents the independant control of the first variable of the joint-space (in this case <span class="math inline"><em>q</em><sub>1</sub></span>).</p>
+<p>Conversely the first row represents the independant control of <span class="math inline"><em>x</em><sub>1</sub></span> by moving <span class="math inline">(<em>q</em><sub>1</sub>…<em>q</em><sub><em>n</em></sub>)</span>.</p>
+<p>This means we can have independent control in either direction. Example : we want to give a command to <span class="math inline"><em>x</em><sub>1</sub></span> but don't care about <span class="math inline"><em>x</em><sub>2</sub></span>, then we can use the partial jacobian represented by the first row.</p>
+<div class="figure">
+<img src="img/IMG_1.jpg" alt="IMG_1" />
+<p class="caption">IMG_1</p>
+</div>
+<p>Let's say we can control two parts of the robot arm : tip and elbow.</p>
+<p><br /><span class="math display">$$ \vec{x} = \begin{bmatrix} x_{tip} \\ x_{elbow} \end{bmatrix} = \begin{bmatrix} x_{tip}^1 \\ x_{tip}^2 \\ x_{elbow}^1 \\ x_{elbow}^2 \end{bmatrix} \tag{4}$$</span><br /></p>
+<div class="figure">
+<img src="img/IMG_2.jpg" alt="IMG_2" />
+<p class="caption">IMG_2</p>
+</div>
+<p>We can write the Jacobian relationship :</p>
+<p><br /><span class="math display">$$ \dot{x} = J \dot{} \dot{q}  \text{  where  } x \in \mathbb{R}^4 , q \in \mathbb{R}^2, J \in \mathbb{R}^{4\times2} \tag{5}$$</span><br /></p>
+<p>and the inverse :</p>
+<p><br /><span class="math display">$$   \dot{q} = J^+ \dot{x}   \text{  where  } J^+ \in \mathbb{R}^{2\times4} \tag{6} $$</span><br /></p>
+<p>In this case we can define the partial jacobians as follows :</p>
+<p><br /><span class="math display">$$ J = \begin{bmatrix} J_{tip} \\ J_{elbow} &amp; 0 \end{bmatrix} \tag{7}$$</span><br /></p>
+<div class="figure">
+<img src="img/IMG_3.jpg" alt="IMG_3" />
+<p class="caption">IMG_3</p>
+</div>
+<h2 id="application-to-project">Application to project</h2>
+<h3 id="v1-consider-phone-as-a-window">v1 : consider phone as a window</h3>
+<p>Tap two points on the phone, project them and consider them as objectives for the two &quot;control&quot; variables (e.g. <span class="math inline"><em>x</em><sub><em>e</em><em>l</em><em>b</em><em>o</em><em>w</em></sub></span> and <span class="math inline"><em>x</em><sub><em>t</em><em>i</em><em>p</em></sub></span>)</p>
+<div class="figure">
+<img src="img/IMG_4.jpg" alt="IMG_4" />
+<p class="caption">IMG_4</p>
+</div>
+<p><strong>Notes</strong> This considers a linear projection to approximate the <em>visual servoing</em> problem. We can use Thalès to estimate a linear scale at a constant distance (e.g. <code>2m</code>).</p>
+<h3 id="v2-consider-phone-as-a-mobile-window">v2 : consider phone as a mobile window</h3>
+<p>In this case the mobile coordinates are not aligned with <span class="math inline">(<em>x</em><sub>1</sub>; <em>x</em><sub>2</sub>)</span> anymore, so we need be weary of the projection (since we consider the phone as a place we should be able to only rotate).</p>
+<div class="figure">
+<img src="img/IMG_5.png" alt="IMG_5" />
+<p class="caption">IMG_5</p>
+</div>
+<h3 id="v3-consider-that-the-robot-can-move-around-its-base">v3 : consider that the robot can move around its base</h3>
+<p>This is called the &quot;floating-base&quot; or &quot;free-base&quot;.</p>
+<h2 id="todo-project">TODO Project</h2>
+<ul>
+<li>Implement this in <code>matlab</code>.</li>
+<li>window will have to be simulated (or scaled)</li>
+<li>use <code>demoIK5.m</code></li>
+<li>Implement in app (use the existing code for point selection)</li>
+</ul>
+</body>
+</html>

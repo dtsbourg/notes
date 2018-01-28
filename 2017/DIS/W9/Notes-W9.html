@@ -699,12 +699,6 @@
 <li>State transition probabilities</li>
 </ul></li>
 </ul>
-<h4 id="discretization-level">Discretization level</h4>
-<ol type="1">
-<li>Measureall interaction times of interest in your system, i.e. those which might influence the system performance metrics.</li>
-<li>Consider only average values(we might consider also parameter distributions in the future, the modeling methodology does not prevent to do so)</li>
-<li>For time-discrete systems: choose the <strong>time step T</strong>= GCF of all the durations measured(e.g., 3 s obstacle avoidance, 4 s object manipulation, T = 1 s) -&gt; no rounding error.</li>
-</ol>
 <h4 id="encountering-probabilities">Encountering probabilities</h4>
 <ol type="1">
 <li><p>Measure geometric probabilities of detection (<span class="math inline">\(g_i\)</span>), which can be considered as normalized detection areas.</p></li>
@@ -735,13 +729,14 @@
 <img src="res/2.png" alt="2" /><figcaption>2</figcaption>
 </figure>
 <h3 id="combined-modeling-and-machine-learning-methods">Combined modeling and machine-learning methods</h3>
-<ul>
-<li><strong>Macroscopic+ ML? </strong>Most of the time not needed since very fast + continuous; homogeneous systems mainly; standard numerical optimization techniques/systematic search can be used</li>
-<li><strong>Microscopic + ML</strong> for instance, diversity and specialization can be studied</li>
-<li><strong>Submicroscopic + ML</strong> (e.g. PSO); for instance low-level design parameters can be learned</li>
-<li><strong>Target system + ML = adaptation with HW in the loop </strong>(on-board or off-board)</li>
-</ul>
+<h4 id="rationale">Rationale</h4>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2010.34.48.png" alt="Screen Shot 2018-01-28 at 10.34.48" /><figcaption>Screen Shot 2018-01-28 at 10.34.48</figcaption>
+</figure>
 <h4 id="in-line-adaptative-learning">In-line adaptative learning</h4>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2010.35.46.png" alt="Screen Shot 2018-01-28 at 10.35.46" /><figcaption>Screen Shot 2018-01-28 at 10.35.46</figcaption>
+</figure>
 <ul>
 <li><strong>Differences with gradient descent methods:</strong>
 <ul>
@@ -766,12 +761,21 @@
 <li><p>Entropy based diversity (<span class="math inline">\(p_i\)</span> proportion of robots in cluster <span class="math inline">\(i\)</span>)</p>
 <ul>
 <li>Simple : <span class="math inline">\(H(\mathtt{R}) = - \sum{p_i log(p_i)}\)</span></li>
-<li>Social : <span class="math inline">\(D(\mathtt{R}) = \int_0^{inf} {H(\mathtt{R}, h)} dh\)</span></li>
+<li>Social : <span class="math inline">\(D(\mathtt{R}) = \int_0^{\infty} {H(\mathtt{R}, h)} dh\)</span></li>
 </ul>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2010.37.21.png" alt="Screen Shot 2018-01-28 at 10.37.21" /><figcaption>Screen Shot 2018-01-28 at 10.37.21</figcaption>
+</figure>
 <figure>
 <img src="res/3.png" alt="3" /><figcaption>3</figcaption>
 </figure>
-<p>Difference with plain euclidian distance :</p>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2010.39.03.png" alt="Screen Shot 2018-01-28 at 10.39.03" /><figcaption>Screen Shot 2018-01-28 at 10.39.03</figcaption>
+</figure>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2010.40.01.png" alt="Screen Shot 2018-01-28 at 10.40.01" /><figcaption>Screen Shot 2018-01-28 at 10.40.01</figcaption>
+</figure>
+<p>Difference with plain euclidian distance (distance of all points from any other point) :</p>
 <ul>
 <li>Underlying distance measure in the solution space might be the same (e.g. Euclidian distance)</li>
 <li>Social entropy is looking for possible clustering of the vectors (looking for possible castes) while Euclidian diversity is just looking how spread out/diverse in general are the vectors</li>
@@ -779,7 +783,7 @@
 <li>Specialisation metric
 <ul>
 <li><span class="math inline">\(S = corrcoef(D; R) \times D\)</span> where <span class="math inline">\(S\)</span> is specialization, <span class="math inline">\(D\)</span> is diversity, <span class="math inline">\(R\)</span> swarm performance.</li>
-<li>Idea: “weighting diversity with performance”</li>
+<li>Idea: “weighting diversity with performance”. useful when the number of tasks to be solved is not well-defined or it is difficult to assess the task granularity a priori.</li>
 </ul></li>
 </ul>
 <h3 id="conclusion">Conclusion</h3>
@@ -792,9 +796,11 @@
 <li>Specialization is the part of diversity that improves performance</li>
 <li>The diversity and specialization level of a heterogeneous swarm can be quantitatively measured</li>
 </ul>
-<ol type="1">
-<li></li>
-</ol>
 <hr />
+<p><strong>Stick Pulling</strong></p>
+<p><strong>Object Aggregation</strong></p>
+<p><strong>Robot aggregation and swarming</strong></p>
+<p><strong>Coverage</strong></p>
+<p><strong>General</strong></p>
 </body>
 </html>

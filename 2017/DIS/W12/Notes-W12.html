@@ -11,6 +11,7 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -709,7 +710,7 @@
 <figure>
 <img src="res/1.png" alt="1" /><figcaption>1</figcaption>
 </figure>
-<p>Communication cost &gt;&gt; computation cost</p>
+<p>Communication cost <span class="math inline">\(&gt;&gt;\)</span> computation cost</p>
 <p>Not only transmission : transceiver dominated by listening.</p>
 <h3 id="power-efficient-resource-management">Power-efficient resource management</h3>
 <h4 id="motivation-from-a-dis-perspective">Motivation from a DIS perspective</h4>
@@ -719,6 +720,9 @@
 <li>Communicate as little as possible (# of messages, communication radius)</li>
 </ul>
 <h4 id="clustering-and-pruning">Clustering and pruning</h4>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2013.47.28.png" alt="Screen Shot 2018-01-28 at 13.47.28" /><figcaption>Screen Shot 2018-01-28 at 13.47.28</figcaption>
+</figure>
 <p>Quadtree : hierarchical topology</p>
 <figure>
 <img src="res/3.png" alt="3" /><figcaption>3</figcaption>
@@ -743,7 +747,7 @@
 </ul>
 <p>Efficient monitoring by checking only edge constraints instead of individual nodes</p>
 <h4 id="constraint-chaining">Constraint chaining</h4>
-<p>Use historical data to construct a MST (the “Conch plan”).</p>
+<p>Use historical data to construct a Minimal Spanning Tree (MST) (the “Conch plan”).</p>
 <p>No significant savings for small payloads.</p>
 <h3 id="physics-based-modeling">Physics based modeling</h3>
 <ul>
@@ -773,5 +777,6 @@
 <li>Data quality is critical in these type of applications, so appropriate techniques for handling drifting, low selectivity, and mobility impact on low-cost sensors are key</li>
 <li>The OpenSenseproject gathered probably the largest dataset on urban air quality in the world and pioneered the use of public transportation for mobile sensor networks</li>
 </ul>
+<hr />
 </body>
 </html>

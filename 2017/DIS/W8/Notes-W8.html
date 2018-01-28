@@ -11,6 +11,7 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -679,6 +680,105 @@
 </head>
 <body>
 <h1 id="distributed-intelligent-systems">Distributed Intelligent Systems</h1>
+<h2 id="multi-level-modeling-methodology">Multi-Level Modeling Methodology</h2>
+<h3 id="modeling-choices">Modeling Choices</h3>
+<ul>
+<li><strong>Gray-box approach</strong>: to easily incorporate a priori information (e.g., # of agents, technological and environmental features)</li>
+<li><strong>Probabilistic</strong>: to capture noisy interactions, noisy robotic components, stochastic control policies, and enable aggregation schemes towards abstraction</li>
+<li><strong>Multi-level</strong>: to represent explicitly different design choices, trade off computational speed and faithfulness to reality, bridge mathematically tractable models and reality in an incremental way</li>
+<li><strong>Bottom-up</strong>: start from the physical reality and increase the abstraction level until the highest abstraction level</li>
+</ul>
+<h3 id="modeling-scales">Modeling scales</h3>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.01.31.png" alt="Screen Shot 2018-01-28 at 09.01.31" /><figcaption>Screen Shot 2018-01-28 at 09.01.31</figcaption>
+</figure>
+<ul>
+<li><strong>Submicroscopic</strong>: Webots</li>
+<li><strong>Microscopic</strong>: non spatial, state = behaviour, exact model in terms of quantities</li>
+<li><strong>Macroscopic</strong>: non spatial, mean field approach, ODEs, approximations, …</li>
+</ul>
+<h3 id="experimental-invariant-features-and-modeling-assumptions">Experimental Invariant Features and Modeling Assumptions</h3>
+<ul>
+<li>Short-range (typically 1 robot diameter), crude (noisy, a few discrimination levels) proximity sensing</li>
+<li>Full mobility but limited navigation (no planning, no absolute localization)</li>
+<li>Limited use of long-range communication channels available on the platforms (only as a teammate sensor)</li>
+<li>Reactive, behavior-based control, with a few internal states</li>
+<li>No overcrowded arenas</li>
+<li>Multiple runs (typically 5+) for the same experimental parameters; randomized robot poses at the beginning</li>
+</ul>
+<p><strong>Semi-Markovian assumption</strong> : The system future state is a function of the current state.</p>
+<p><strong>Spatiality assumption</strong>: use non-spatial for collective performance.</p>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.12.24.png" alt="Screen Shot 2018-01-28 at 09.12.24" /><figcaption>Screen Shot 2018-01-28 at 09.12.24</figcaption>
+</figure>
+<h3 id="theoretical-background">Theoretical Background</h3>
+<h4 id="microscopic-level">Microscopic Level</h4>
+<p>Let <span class="math inline">\(p(n,t)\)</span> = the probability of an agent to be in state <span class="math inline">\(n\)</span> at time <span class="math inline">\(t\)</span>.</p>
+<p>If <strong>Markov</strong> properties are fulfilled:</p>
+<p><span class="math display">\[\Delta p(n,t) = p(n,t+\Delta t)-p(n,t)\]</span></p>
+<p><span class="math display">\[= \underset{n&#39;}{\sum} p(n,t+\Delta t | n&#39;, t) p(n&#39;, t) - \underset{n&#39;}{\sum} p(n&#39;, t+\Delta t | n, t) p(n,t) \]</span></p>
+<p><span class="math display">\[=\text{inflow} - \text{outflow}\]</span></p>
+<p>where the inflow is the sum of possible states <span class="math inline">\(n&#39;\)</span> the agent can be in. Under Markov assumption this is the probability of a transition from <span class="math inline">\(n \rightarrow n&#39;\)</span> <span class="math inline">\(\times\)</span> the probability the agent was in a given state <span class="math inline">\(n&#39;\)</span>.</p>
+<h4 id="macroscopic-level">Macroscopic level</h4>
+<p>Average over the total number of agents and bring <span class="math inline">\(\Delta t \rightarrow 0\)</span> to get ODE.</p>
+<h5 id="time-continuous">Time continuous</h5>
+<p><span class="math display">\[\frac{d N_n (t)}{dt} = \underset{n&#39;}{\sum} W(n|n&#39;,t)N_{n&#39;}(t) - \underset{n&#39;}{\sum}W(n&#39;|n,t) N_n(t)\]</span> (rate equation)</p>
+<p>where <span class="math inline">\(N_n\)</span> is the mean number of agents in state <span class="math inline">\(n\)</span> at time <span class="math inline">\(t\)</span>, and <span class="math inline">\(W\)</span> is the transition rate:</p>
+<p><span class="math display">\[W(n|n&#39;,t) = \underset{\Delta t \rightarrow 0}{lim} \frac{p(n,t+\Delta t | n&#39;, t)}{\Delta t}\]</span></p>
+<h5 id="time-discrete">Time discrete</h5>
+<p><span class="math display">\[N_n((k+1)T) = N_n (kT) + \underset{n&#39;}{\sum} TW(n|n&#39;, kT) N_{n&#39;}(kT) - \underset{n&#39;}{\sum} TW(n&#39;|n, kT) N_{n}(kT)\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is the index, <span class="math inline">\(T\)</span> is the sampling interval/time step, <span class="math inline">\(TW\)</span> is the transition probability per stime step.</p>
+<p><strong>Discrete vs Continuous:</strong></p>
+<ul>
+<li>Assess what’s the time resolution needed for your system performance metrics (if time step chosen appropriately small, no impact on prediction accuracy in the type of experiments presented)</li>
+<li>Choose whenever possible the most computationally efficient model: time-discrete less computationally expensive than emulation of continuity (e.g., Runge-Kutta, etc.)</li>
+<li>Advantage of time-discrete models: a single common sampling rate can be defined among different modeling levels</li>
+</ul>
+<p>Choice of timestep: Measure the interactions (delay states, transition times, …). Consider average values. Choose the Greatest Common Factor as time step (e.g. <span class="math inline">\(3\)</span> s obstacle avoidance, <span class="math inline">\(4\)</span> s object manipulation, <span class="math inline">\(T = 1\)</span> s)</p>
+<h3 id="methodology">Methodology</h3>
+<ol type="1">
+<li>Target system + tasks (define the environment, the tasks)</li>
+<li>Metrics and State Space (performance metrics, state space)</li>
+<li>Submicroscopic level (faithful implementation of the design choices in e.g. Webots)</li>
+<li>Microscopic Level (aggregate local interactions and reduce intra-robot details)</li>
+<li>Macroscopic Level (aggregate nodes into one or multiple representations e.g. castes at a collective level)</li>
+<li>Parameter calibration (decreases with abstraction level, calibrate one level on the underlying one. Use ad-hoc, system ID or statistical methods)</li>
+</ol>
+<p><strong>Linear Model Example (obstacle avoidance)</strong></p>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.36.53.png" alt="Screen Shot 2018-01-28 at 09.36.53" /><figcaption>Screen Shot 2018-01-28 at 09.36.53</figcaption>
+</figure>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.37.12.png" alt="Screen Shot 2018-01-28 at 09.37.12" /><figcaption>Screen Shot 2018-01-28 at 09.37.12</figcaption>
+</figure>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.37.18.png" alt="Screen Shot 2018-01-28 at 09.37.18" /><figcaption>Screen Shot 2018-01-28 at 09.37.18</figcaption>
+</figure>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.37.33.png" alt="Screen Shot 2018-01-28 at 09.37.33" /><figcaption>Screen Shot 2018-01-28 at 09.37.33</figcaption>
+</figure>
+<p><strong>Non-linear example (stick pulling)</strong></p>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.35.01.png" alt="Screen Shot 2018-01-28 at 09.35.01" /><figcaption>Screen Shot 2018-01-28 at 09.35.01</figcaption>
+</figure>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.39.16.png" alt="Screen Shot 2018-01-28 at 09.39.16" /><figcaption>Screen Shot 2018-01-28 at 09.39.16</figcaption>
+</figure>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.39.24.png" alt="Screen Shot 2018-01-28 at 09.39.24" /><figcaption>Screen Shot 2018-01-28 at 09.39.24</figcaption>
+</figure>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.39.34.png" alt="Screen Shot 2018-01-28 at 09.39.34" /><figcaption>Screen Shot 2018-01-28 at 09.39.34</figcaption>
+</figure>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.40.04.png" alt="Screen Shot 2018-01-28 at 09.40.04" /><figcaption>Screen Shot 2018-01-28 at 09.40.04</figcaption>
+</figure>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.40.14.png" alt="Screen Shot 2018-01-28 at 09.40.14" /><figcaption>Screen Shot 2018-01-28 at 09.40.14</figcaption>
+</figure>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2009.41.05.png" alt="Screen Shot 2018-01-28 at 09.41.05" /><figcaption>Screen Shot 2018-01-28 at 09.41.05</figcaption>
+</figure>
 <hr />
 </body>
 </html>

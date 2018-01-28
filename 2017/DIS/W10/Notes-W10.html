@@ -684,29 +684,52 @@
 <h3 id="machine-learning-based-methods">Machine-learning-based methods</h3>
 <h4 id="rationale-for-embedded-systems">Rationale for embedded systems</h4>
 <h4 id="terminology">Terminology</h4>
-<p>Axis 1</p>
+<p>Classification Axis 1</p>
 <ol type="1">
-<li>Supervised learning: off-line,ateacher is available</li>
-<li>Unsupervised learning: off-line, teacher not available</li>
-<li>Reinforcement-based (or evaluative) learning: on-line, no pre-established training and evaluation data sets</li>
+<li><em>Supervised learning</em>: off-line,ateacher is available</li>
+<li><em>Unsupervised learning</em>: off-line, teacher not available</li>
+<li><em>Reinforcement-based</em> (or evaluative) learning: on-line, no pre-established training and evaluation data sets</li>
 </ol>
-<p>Axis 2</p>
+<p>Classification Axis 2</p>
 <ol type="1">
-<li>In simulation: reproduces the real scenario in simulation and applies there machine learning techniques; the learned solutions are then downloaded onto real hardware when certain criteria are met</li>
-<li>Hybrid: most of the time in simulation (e.g., 90%), last period (e.g., 10%) of the learning process on real hardware</li>
-<li>Hardware-in-the-loop: from the beginning on real hardware (no simulation). Depending on the algorithm more or less rapid</li>
+<li><em>In simulation</em>: reproduces the real scenario in simulation and applies there machine learning techniques; the learned solutions are then downloaded onto real hardware when certain criteria are met</li>
+<li><em>Hybrid</em>: most of the time in simulation (e.g., 90%), last period (e.g., 10%) of the learning process on real hardware</li>
+<li><em>Hardware-in-the-loop</em>: from the beginning on real hardware (no simulation). Depending on the algorithm more or less rapid</li>
 </ol>
-<p>Axis 3</p>
+<p>Classification Axis 3</p>
 <ol type="1">
 <li><p>On-board: machine-learning algorithm run on the system to be learned (no external unit)</p></li>
 <li><p>Off-board: the machine-learning algorithm runs off-board and the system to be learned just serves as embodied implementation of a candidate solution</p></li>
 </ol>
-<p>Axis 4</p>
+<p>Classification Axis 4</p>
 <ol type="1">
-<li>Population-based (“multi-agent”): a population of candidate solutions is maintained by the algorithm, for instance Genetic Algorithms (individuals), Particle Swarm Optimization (particles), Particle Filter (particles), Ant Colony Optimization (ants/tours); agents can represent directly the candidate solution in the search space (e.g., GA, PSO, PF) or might be the entity that through their behavior generate the candidate solution (e.g., ACO)</li>
-<li>Hill-climbing (“single-agent”): the machine-learning algorithm work on a single candidate solution and try to improve on it; for instance, (stochastic) gradient-based methods, reinforcement learning algorithms</li>
+<li><em>Population-based</em> (“multi-agent”): a population of candidate solutions is maintained by the algorithm, for instance Genetic Algorithms (individuals), Particle Swarm Optimization (particles), Particle Filter (particles), Ant Colony Optimization (ants/tours); agents can represent directly the candidate solution in the search space (e.g., GA, PSO, PF) or might be the entity that through their behavior generate the candidate solution (e.g., ACO)</li>
+<li><em>Hill-climbing</em> (“single-agent”): the machine-learning algorithm work on a single candidate solution and try to improve on it; for instance, (stochastic) gradient-based methods, reinforcement learning algorithms</li>
 </ol>
+<h4 id="examples">Examples</h4>
+<ul>
+<li>Evolutionary Computation
+<ul>
+<li>Genetic Algorithms (GA) <em>population-based</em></li>
+<li>Genetic Programming (GP) <em>population-based</em></li>
+<li>Evolutionary Strategies (ES) <em>population-based</em></li>
+</ul></li>
+<li>Swarm Intelligence
+<ul>
+<li>Ant Colony Optimization (ACO) <em>population-based</em></li>
+<li>Particle Swarm Optimization (PSO) <em>population-based</em></li>
+</ul></li>
+<li>Learning
+<ul>
+<li>In-Line Learning (variable thresholds) <em>hill-climbing</em></li>
+<li>In-Line Adaptive Learning <em>hill-climbing</em></li>
+<li>Reinforcement Learning (RL) <em>hill-climbing</em></li>
+</ul></li>
+<li>Particle Filters (PF) <em>population-based</em></li>
+</ul>
 <h3 id="particle-swarm-optimization-pso">Particle Swarm Optimization (PSO)</h3>
+<h4 id="overview">Overview</h4>
+<p>Competitive metaheuristic especially on continuous optimization problems. Appears to deliver competitive results with population sizes smaller than those of other metaheuristic methods. Well suited to distributed implementation thanks to the native concept of neighborhood. Early formal results on convergence.</p>
 <h4 id="main-principles">Main principles</h4>
 <p>Imitate, Evaluate, Compare</p>
 <h4 id="terminology-1">Terminology</h4>
@@ -720,12 +743,19 @@
 <li>Life span: number of iterations a candidate solution is present in the pool.</li>
 <li>Swarm manager: update velocities and position for each particle according to the main PSO loop.</li>
 </ul>
+<h4 id="initialisation">Initialisation</h4>
+<p>Positions and velocities</p>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2010.58.29.png" alt="Screen Shot 2018-01-28 at 10.58.29" /><figcaption>Screen Shot 2018-01-28 at 10.58.29</figcaption>
+</figure>
 <h4 id="main-loop">Main loop</h4>
 <ul>
-<li><span class="math inline">\(w\)</span> = velocity inertia (&gt;0)</li>
-<li><span class="math inline">\(c_p\)</span> : personal best coeff</li>
+<li><span class="math inline">\(w\)</span> velocity inertia (&gt;0)</li>
+<li><span class="math inline">\(c_p\)</span> personal best coeff</li>
 <li><span class="math inline">\(c_n\)</span> neighborhood best coeff</li>
 <li><span class="math inline">\(x_{ij}(t)\)</span> position of the particle i in the j-th dimension at iteration t (<span class="math inline">\(j=[1,D]\)</span>)</li>
+<li><span class="math inline">\(x_{ij}^*(t)\)</span> position of the particle i in the j-th dimension at iteration t <em>with max fitness</em> <strong>(personal best)</strong></li>
+<li><span class="math inline">\(x_{i&#39;j}^*(t)\)</span> position of particle <span class="math inline">\(i’\)</span> in the <span class="math inline">\(j\)</span>-th dimension having achieved the <em>maximal fitness</em> up to iteration <span class="math inline">\(t\)</span> in the neighborhood of particle <span class="math inline">\(i\)</span> <strong>(neighborhood best)</strong></li>
 <li><span class="math inline">\(v_{ij}(t)\)</span> is the velocity</li>
 </ul>
 <pre><code>for time t
@@ -733,14 +763,17 @@
         for each component j
             v_ij(t+1) = w * v_ij(t) + dv_ij  # speed update
         move
-            x_ij(t+1) = x_j(t) + v_ij(t+1)</code></pre>
+            x_ij(t+1) = x_ij(t) + v_ij(t+1)</code></pre>
 <p>where <span class="math inline">\(dv_{ij} = c_p \cdot \mathtt{rand()} \cdot (x_{ij}^* - x_{ij})+ c_n \cdot \mathtt{rand()} \cdot (x_{i&#39;j}^* - x_{ij})\)</span></p>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2011.03.08.png" alt="Screen Shot 2018-01-28 at 11.03.08" /><figcaption>Screen Shot 2018-01-28 at 11.03.08</figcaption>
+</figure>
 <h4 id="neighborhood-types">neighborhood types</h4>
 <ul>
 <li>size
 <ul>
-<li>Local: only k neighbors considered over m particles in the population (1 &lt; k &lt; m); k=1 means no information from other particles used in velocity update</li>
-<li>Global: m neighbors</li>
+<li><em>Local</em>: only k neighbors considered over m particles in the population (1 &lt; k &lt; m); k=1 means no information from other particles used in velocity update</li>
+<li><em>Global</em>: m neighbors</li>
 </ul></li>
 <li>topology
 <ul>
@@ -751,19 +784,33 @@
 <li>…</li>
 </ul></li>
 </ul>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2011.05.14.png" alt="Screen Shot 2018-01-28 at 11.05.14" /><figcaption>Screen Shot 2018-01-28 at 11.05.14</figcaption>
+</figure>
 <h3 id="genetic-algorithms">Genetic Algorithms</h3>
-<p>Basic operators</p>
+<p><em>note: PSO is not a GA !</em></p>
+<p>Originally designed for discrete optimization.</p>
+<p><strong>Basic operators</strong></p>
 <ol type="1">
-<li>Selection</li>
+<li>Selection
+<ul>
+<li>roulette wheel (selection probability determined by normalized fitness),</li>
+<li>ranked selection (selection probability determined by fitness order),</li>
+<li>elitist selection (highest fitness individuals always selected)</li>
+</ul></li>
 <li>Crossover</li>
 <li>Mutation</li>
 </ol>
-<p>Aspects of evolution:</p>
+<p><strong>Aspects of evolution:</strong></p>
 <ol type="1">
 <li>Survival of the fittest</li>
 <li>Genetic combinationin reproduction</li>
 <li>Mutation</li>
 </ol>
+<p><strong>Generation Loop</strong></p>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2011.08.15.png" alt="Screen Shot 2018-01-28 at 11.08.15" /><figcaption>Screen Shot 2018-01-28 at 11.08.15</figcaption>
+</figure>
 <h3 id="ga-vs-pso">GA vs PSO</h3>
 <p>Goal: minimization of a given f(<strong>x</strong>).Standard benchmark functions with thirty terms (n = 30) and a fixed number of iterations</p>
 <figure>
@@ -779,6 +826,14 @@
 </ul>
 <h3 id="application-to-single-robot-systems">Application to single-robot systems</h3>
 <h4 id="examples-in-control-design-and-optimization-obstacle-avoidance-homing">Examples in control design and optimization (obstacle avoidance, homing)</h4>
+<p>Fitness function for obstacle avoidance</p>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2011.11.19.png" alt="Screen Shot 2018-01-28 at 11.11.19" /><figcaption>Screen Shot 2018-01-28 at 11.11.19</figcaption>
+</figure>
+<p>Homing</p>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2011.12.44.png" alt="Screen Shot 2018-01-28 at 11.12.44" /><figcaption>Screen Shot 2018-01-28 at 11.12.44</figcaption>
+</figure>
 <h4 id="examples-in-system-design-and-optimization-locomotion">Examples in system design and optimization (locomotion)</h4>
 <h3 id="an-introduction-to-expensive-optimization-problems-and-noise-resistance">An introduction to expensive optimization problems and noise resistance</h3>
 <h4 id="dealing-with-noisy-evaluations">Dealing with Noisy Evaluations</h4>

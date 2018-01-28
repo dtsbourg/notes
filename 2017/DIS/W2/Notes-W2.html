@@ -695,7 +695,7 @@ Until End_condition /* time t = t_end */</code></pre>
 <p><span class="math display">\[ j = \begin{cases} argmax_{u \in J_i^k} \{ [\tau_{iu}(t)][\eta_{iu}]^{\beta} \}, &amp; \text{if}\ q \leqslant q_0 \\      J, &amp; \text{otherwise}    \end{cases} \tag{1} \]</span></p>
 <p>where :</p>
 <ul>
-<li><span class="math inline">\(q\)</span> $ (,,^{2}) $</li>
+<li><span class="math inline">\(q\)</span> <span class="math inline">\(\sim \mathcal{N}(\mu,\,\sigma^{2}) \in [0,1]\)</span></li>
 <li><span class="math inline">\(q_0 \in [0,1]\)</span> controlling exploration vs exploitation (in AS <span class="math inline">\(q_0 &lt; 0\)</span>)</li>
 <li><span class="math inline">\(J \in J^k_i\)</span> a randomly selected rule from the prob. update rule eq (2).</li>
 </ul>
@@ -748,7 +748,7 @@ Until End_condition /* time t = t_end */</code></pre>
 <li>Local search lacks of good starting solutions on which it can perform combinatorial optimization; these solutions are provided by artificial ants using pheromone mechanisms</li>
 <li>Depending on targeted performance metrics (wished solution quality vs. and desired computational cost) an appropriate balance between local search and constructive heuristic has to be chosen</li>
 </ul>
-<h3 id="traillayingfollowing-mechanisms-appliedto-communication-networks-ant-based-routing-algorithms">TrailLaying/Following Mechanisms appliedto Communication Networks: Ant-Based Routing Algorithms</h3>
+<h3 id="traillayingfollowing-mechanisms-applied-to-communication-networks-ant-based-routing-algorithms">TrailLaying/Following Mechanisms applied to Communication Networks: Ant-Based Routing Algorithms</h3>
 <h4 id="ant-based-control-abc-3">Ant Based Control (ABC) <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></h4>
 <p>Application to telephone networks (assumption : same level of traffic congestion between <span class="math inline">\(d\)</span> (destination) and <span class="math inline">\(s\)</span> (source) as between <span class="math inline">\(s\)</span> and <span class="math inline">\(d\)</span>). <span class="math inline">\(n\)</span> is the neighbour node from <span class="math inline">\(N\)</span> total nodes. Node <span class="math inline">\(i\)</span> has neighbouring nodes <span class="math inline">\(k_i\)</span>.</p>
 <p>The routing table for node <span class="math inline">\(i\)</span> is defined by :</p>

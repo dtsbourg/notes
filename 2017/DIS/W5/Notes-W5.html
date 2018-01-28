@@ -795,10 +795,8 @@
 <li><p>Graph : <span class="math inline">\(G = (V, E)\)</span></p></li>
 <li><p>Vertex Set : <span class="math inline">\(V = \{n_1, …, n_n\}\)</span></p></li>
 <li><p>Edge set : <span class="math inline">\(E = \{(n_i, n_j) \in V \times V | n_i \ne n_j\}\)</span></p></li>
-<li>Indicence Matrix : $(i,j) =
-<span class="math display">\[\begin{cases} -1, &amp; \text{if $e_j$ leaves $n_i$} \\ 1, &amp; \text{if $e_j$ enters $n_i$} \\ 0, &amp; \text{otherwise} \end{cases}\]</span>
-<p>$</p></li>
-<li><p>Weight Matrix : $(i,j) = \begin{cases} w_i, &amp;  i=j \ 0, &amp;  \end{cases} $</p></li>
+<li><p>Indicence Matrix : <span class="math inline">\(\mathcal{I}(i,j) = \begin{cases} -1, &amp; \text{if $e_j$ leaves $n_i$} \\ 1, &amp; \text{if $e_j$ enters $n_i$} \\ 0, &amp; \text{otherwise} \end{cases}\)</span></p></li>
+<li><p>Weight Matrix : <span class="math inline">\(\mathcal{W}(i,j) = \begin{cases} w_i, &amp; \text{if } i=j \\ 0, &amp; \text{otherwise} \end{cases}\)</span></p></li>
 <li><p>Laplacian Matrix : <span class="math inline">\(\mathcal{L} = \mathcal{I} \cdot \mathcal{W} \cdot \mathcal{I}^T\)</span></p>
 <figure>
 <img src="res/2.png" alt="2" /><figcaption>2</figcaption>
@@ -810,7 +808,7 @@
 </figure>
 <h4 id="rendez-vous-problem">Rendez-vous problem</h4>
 <p>Give each node a state <span class="math inline">\(x_i\)</span>. The goal is to have <span class="math inline">\(\underset{t \rightarrow \inf}{lim} x_i(t) = x^* \text{ , } \forall i\)</span></p>
-<p>Solving it requires using the Laplacian Matrix : $(t) =  x(t) $. We can use this to solve the rdv problem in 2D by setting the Laplacian for each dimension (x,y)</p>
+<p>Solving it requires using the Laplacian Matrix : <span class="math inline">\(\dot{x}(t) = \mathcal{L} x(t)\)</span>. We can use this to solve the rdv problem in 2D by setting the Laplacian for each dimension (x,y)</p>
 <h4 id="holonomic-robots">Holonomic robots</h4>
 <p><strong>Holonomic</strong> total number of degree of freedom = number of controllable degree of freedom. From the point of view of mobility: a mobile robot is holonomic if it can move in any direction at any point in time.</p>
 <p>If we have holonomic robots we can always go in the direction the Laplacian method gives us. If we don’t, we need to transform the direction vector from total DOFs to controllable DOFs. Examples:</p>

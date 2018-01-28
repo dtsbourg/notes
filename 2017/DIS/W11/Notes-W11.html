@@ -705,12 +705,15 @@
 <h4 id="co-adaptation-strategies">Co-adaptation strategies</h4>
 <p>Axes for co-adaptation :</p>
 <ol type="1">
-<li>Performance evaluation (individual vs group fitness)</li>
-<li>Solution sharing (private vs public policies)</li>
-<li>Team diversity (homogeneous vs heterogeneous learning)</li>
+<li>Performance evaluation (<strong>individual</strong> vs <strong>group</strong> fitness)</li>
+<li>Solution sharing (<strong>private</strong> vs <strong>public</strong> policies)</li>
+<li>Team diversity (<strong>homogeneous</strong> vs <strong>heterogeneous</strong> learning)</li>
 </ol>
 <figure>
 <img src="res/1.png" alt="1" /><figcaption>1</figcaption>
+</figure>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2013.22.22.png" alt="Screen Shot 2018-01-28 at 13.22.22" /><figcaption>Screen Shot 2018-01-28 at 13.22.22</figcaption>
 </figure>
 <h4 id="noise-resistance">Noise-resistance</h4>
 <figure>
@@ -725,13 +728,28 @@
 <h3 id="co-learning-obstacle-avoidance-communication-based-neighborhoods">Co-Learning Obstacle Avoidance – Communication-Based Neighborhoods</h3>
 <p><strong>Standard index based neighborhood</strong> : Default neighborhood: ring topology, 2 fixed indexbased neighbors for each particle. Problem for real robots: neighbors could be very far away</p>
 <p><strong>Communication-Based Neighborhoods</strong> : use 2 closest robots in the area (capacity limitation) or use all robots within a radius <span class="math inline">\(r\)</span> (range limitation).</p>
-<h3 id="ocba">OCBA</h3>
+<figure>
+<img src="res/Screen%20Shot%202018-01-28%20at%2013.25.29.png" alt="Screen Shot 2018-01-28 at 13.25.29" /><figcaption>Screen Shot 2018-01-28 at 13.25.29</figcaption>
+</figure>
+<h3 id="optimal-computing-budget-allocation-ocba">Optimal Computing Budget Allocation (OCBA)</h3>
 <h4 id="centralized-pso-ocba">Centralized PSO OCBA</h4>
 <figure>
 <img src="res/3.png" alt="3" /><figcaption>3</figcaption>
 </figure>
-<p>Intuition : More samples for candidates with higher variance + mean closer to the best.</p>
-<p>Proven that maximizes probability of correct selection of best candidate b for infinite total number of samples (evaluations) T. But “works well in practice” for finite number of samples (evaluations) T</p>
+<p>Intuition : More samples for candidates with higher variance + mean closer to the best (small <span class="math inline">\(\delta_{i,j} = \bar{X}_i -\bar{X}_j\)</span>).</p>
+<p>Proven that maximizes probability of correct selection of best candidate b for infinite total number of samples (evaluations) <span class="math inline">\(T\)</span>. But “works well in practice” for finite number of samples (evaluations) <span class="math inline">\(T\)</span> <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>Centralized version uses empirical means and stddevs as estimates for OCBA.</p>
+<ol type="1">
+<li>Sample all candidates <span class="math inline">\(n_0\)</span> times</li>
+<li>Evaluate the samples</li>
+<li>While budget remains
+<ol type="1">
+<li>Allocate <span class="math inline">\(\Delta\)</span> additional samples with OCBA</li>
+<li>Evaluate the new samples</li>
+<li>Update means and stddevs</li>
+<li>Reduce budget by <span class="math inline">\(\Delta\)</span></li>
+</ol></li>
+</ol>
 <figure>
 <img src="res/4.png" alt="4" /><figcaption>4</figcaption>
 </figure>
@@ -760,5 +778,11 @@
 <li>A series of noise-resistant techniques have been presented for dealing with noisy problems in multi-robot systems</li>
 </ul>
 <hr />
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>C. Chen, J. Lin, E. Yücesan, and S. E. Chick, “Simulation Budget Allocation for Further Enhancing the Efficiency of Ordinal Optimization”, 2000.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
 </body>
 </html>

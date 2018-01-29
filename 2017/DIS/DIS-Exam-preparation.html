@@ -686,7 +686,7 @@
 </blockquote>
 <p><strong>Problem example: given a TSP problem (weighted graph), generate a solution using the desirability only, using the pheromones only, with/without elitism, with/without local search, with/without one of the rules of ACS, etc. -&gt; you will have to crunch out a series of cities the ant(s) have gone through with their distances.</strong></p>
 <ul>
-<li>desirability = visibility (<span class="math inline">\(\eta_{ij} = 1 / d_{ij}\)</span>). To build this model use the AS algorithm but remove the pheromon dependence in the transition rule (e.g. $p_{ij}^k(t) =  $), no pheromone trail update.</li>
+<li>desirability = visibility (<span class="math inline">\(\eta_{ij} = 1 / d_{ij}\)</span>). To build this model use the AS algorithm but remove the pheromon dependence in the transition rule (e.g. <span class="math inline">\(p_{ij}^k(t) = \frac{\eta_{ij}}{\sum_l{\eta_{il}}}\)</span>), no pheromone trail update.</li>
 <li>pheromone: see notes.</li>
 <li>without elitism: AS</li>
 <li>with elitism: EAS (extra amount for the best tour), ACS (global update by best ant)</li>
@@ -695,11 +695,40 @@
 <li>local search: CS-k-Opt (takes a path and edits it in place to see if better result through local permutation). Less computational cost but lack of good starting solutions.</li>
 </ul>
 <hr />
-<p>Problem example: you get a control architecture with a certain number of parameters and you are asked to encode the problem properly using a PSO (how many particles, inertia, etc.), strategy (noise-resistant, public/private, heterogeneous/homogeneous …).</p>
+<p><strong>Problem example: you get a control architecture with a certain number of parameters and you are asked to encode the problem properly using a PSO (how many particles, inertia, etc.), strategy (noise-resistant, public/private, heterogeneous/homogeneous…).</strong></p>
+<ul>
+<li>nb particles <span class="math inline">\(&gt; D\)</span> but if too big it will take too long to converge (basic PSO <span class="math inline">\(O(n^2)\)</span>).</li>
+<li>inertia: exploration vs exploitation</li>
+<li>strategy: <em>see notes</em></li>
+</ul>
 <hr />
-<p>Problem example: you get a series of candidate solutions in a population and you are asked to calculate its diversity using the social entropy and a standard Euclidian distance, the specialization, etc.</p>
-<p>How does PSO work? You could be asked to elaborate your explanations using vectors in a 2 dimensional space, point out specific differences, etc.</p>
-<p>What are the differences between AS and ACS? How do they work? You could be asked to elaborate your explanations on a simple example graph.</p>
+<p><strong>Problem example: you get a series of candidate solutions in a population and you are asked to calculate its diversity using the social entropy and a standard Euclidian distance, the specialization, etc.</strong></p>
+<p><em>See notes</em></p>
+<hr />
+<p><strong>How does PSO work? You could be asked to elaborate your explanations using vectors in a 2 dimensional space, point out specific differences, etc.</strong></p>
+<p>In PSO, each single solution is a “bird” in the search space. We call it “particle”. All of particles have fitness values which are evaluated by the fitness function to be optimized, and have velocities which direct the flying of the particles. The particles fly through the problem space by following the current optimum particles.</p>
+<p>PSO is initialized with a group of random particles (solutions) and then searches for optima by updating generations. In every iteration, each particle is updated by following two “best” values. The first one is the best solution (fitness) it has achieved so far. (The fitness value is also stored.) This value is called pbest. Another “best” value that is tracked by the particle swarm optimizer is the best value, obtained so far by any particle in the population. This best value is a global best and called gbest. When a particle takes part of the population as its topological neighbors, the best value is a local best and is called lbest.</p>
+<pre><code>For each particle 
+    Initialize particle
+END
+
+Do
+    For each particle 
+        Calculate fitness value
+        If the fitness value is better than the best fitness value (pBest) in history
+            set current value as the new pBest
+    End
+    Choose the particle with the best fitness value of all the particles as the gBest
+
+    For each particle 
+        Calculate particle velocity
+        Update particle position
+    End 
+
+While maximum iterations or minimum error criteria is not attained</code></pre>
+<hr />
+<p><strong>What are the differences between AS and ACS? How do they work? You could be asked to elaborate your explanations on a simple example graph.</strong></p>
+<p><em>see notes</em></p>
 <hr />
 <p><strong>What are the differences between AntNet and ABC? How do they work? You could be asked to elaborate your explanations on a simple example graph.</strong></p>
 <ul>
@@ -708,41 +737,92 @@
 </ul>
 <p><em>see notes</em></p>
 <hr />
-<p>What do you need to do for dealing with noisy fitness/performance function? You could be asked to follow a specific particle path with a noise resistant and a regular algorithm or illustrate your answer with pseudocode.</p>
-<p>What is the credit assignment problem in collective systems? Can you give examples (possibly based on lecture case studies) on which this problem will arise?</p>
+<p><strong>What do you need to do for dealing with noisy fitness/performance function? You could be asked to follow a specific particle path with a noise resistant and a regular algorithm or illustrate your answer with pseudocode.</strong></p>
+<p><em>see notes</em></p>
+<hr />
+<p><strong>What is the credit assignment problem in collective systems? Can you give examples (possibly based on lecture case studies) on which this problem will arise?</strong></p>
+<p>In collective setting fitness becomes noisy because of partial perception, independant parallel actions. If communication is limited, a robot cannot distinguish between the environmental modifications caused by its own actions from those generated by others. Punishments and rewards are likely to be inconsistent.</p>
+<hr />
+<hr />
 <h2 id="part-2-coordination-and-division-of-labor">Part 2 : Coordination and Division of Labor</h2>
 <blockquote>
 <p>Keywords: stigmergy; self-organization; collective decisions; self-assembly, selfaggregation; trail-laying/following mechanisms; ant networks and bridge, experiments; Reynolds rules; graph-based distributed control; flocking and formations; threshold-based algorithms; market-based algorithms</p>
 </blockquote>
-<p>Problem example: given a group of perfectly holonomic vehicles with the position and a graph-based distributed control law based on the Laplacian of the connection graph, illustrate graphically the evolution of agents’ trajectory, calculate various properties of the resulting connection graph at various instant of time.</p>
-<p>Problem example: given a trajectory, derive the kinematic equations <span class="math inline">\(ξ_I(t)\)</span> of the movement of a differential wheeled robot moving on this trajectory. Now consider a group of robots that need to keep a given formation in which the leader follows this trajectory. What information would the follower robots need in order to be able to keep the formation? Give a minimalistic set of sensors that would be able to provide this information. Justify your choice.</p>
-<p>Problem example: consider a group of robots that need to reach a collective decision. Given a (set of) steady state(s) towards which the system should converge, how would you have to program the behavior of the robots to reach it? How would you need to modify you strategy to reach a different given outcome of the system?</p>
-<p>Problem example: given a task allocation scenario, decide whether a market-based or a threshold-based strategy would be more suitable. Justify your choice and encode the problem for the chosen strategy (what is the stimulus, threshold, local/global objective functions etc.)</p>
-<p>Problem example: given a series of tasks (with precise locations in a 2D space) to solve and a set of robots (with also precise location in a 2D space), derive the resulting robot-to-task allocation under specific conditions (e.g., different series for presenting tasks, bundles) and algorithms class (threshold-based or market-based).</p>
-<p>Problem example: consider a group of virtual or real ants, a multi-path bridge with specific lengths, a food source, and a nest (or multiple food sources in an open space with specific distances and a nest); what will be the final chosen route according to specific ant behavior (deterministic, probabilistic, specific values)? How much time it will take (probabilistic estimation)?</p>
-<p>Problem example: given a system of ODE representing the evolution of worker allocation to given given task(s) as well as the demand evolution associated to the task(s), carry out a steady state analysis and analyze the stationary agent allocation and demand level.</p>
-<p>Problem example: caste a given scenario (multi-tasks, multi-agents) into a marketbased solution; define utility functions; calculate the resulting allocation on a simple numerical example.</p>
-<p>What are the differences between formation and flocking? Do you know a simple algorithm able to maintain the formation of a group of robots? (formulate with pseudo-code). Do you know a simple algorithm able to maintain a flock of robots? (formulate your answer with pseudo-code). What sensing/communication/computation capabilities do you need for running them? Which one will be more expensive in terms of sensing/communication/computation?</p>
-<p>What are the key ingredients of self-organization? Identify the key ingredients of self-organization in a given experiment we saw in the course and give supporting rationale.</p>
+<p><strong>Problem example: given a group of perfectly holonomic vehicles with the position and a graph-based distributed control law based on the Laplacian of the connection graph, illustrate graphically the evolution of agents’ trajectory, calculate various properties of the resulting connection graph at various instant of time.</strong></p>
+<p><em>see notes</em></p>
+<hr />
+<p><strong>Problem example: given a trajectory, derive the kinematic equations <span class="math inline">\(ξ_I(t)\)</span> of the movement of a differential wheeled robot moving on this trajectory. Now consider a group of robots that need to keep a given formation in which the leader follows this trajectory. What information would the follower robots need in order to be able to keep the formation? Give a minimalistic set of sensors that would be able to provide this information. Justify your choice.</strong></p>
+<ul>
+<li>kinematic equations: <em>see notes</em></li>
+<li>​</li>
+</ul>
+<hr />
+<p><strong>Problem example: consider a group of robots that need to reach a collective decision. Given a (set of) steady state(s) towards which the system should converge, how would you have to program the behavior of the robots to reach it? How would you need to modify you strategy to reach a different given outcome of the system?</strong></p>
+<ul>
+<li>Laplacian ?</li>
+<li>Simple controller ? Depends if swarm behavior necessary</li>
+</ul>
+<hr />
+<p><strong>Problem example: given a task allocation scenario, decide whether a market-based or a threshold-based strategy would be more suitable. Justify your choice and encode the problem for the chosen strategy (what is the stimulus, threshold, local/global objective functions etc.)</strong></p>
+<p><em>see notes</em></p>
+<hr />
+<p><strong>Problem example: given a series of tasks (with precise locations in a 2D space) to solve and a set of robots (with also precise location in a 2D space), derive the resulting robot-to-task allocation under specific conditions (e.g., different series for presenting tasks, bundles) and algorithms class (threshold-based or market-based).</strong></p>
+<p><em>see notes</em></p>
+<hr />
+<p><strong>Problem example: consider a group of virtual or real ants, a multi-path bridge with specific lengths, a food source, and a nest (or multiple food sources in an open space with specific distances and a nest); what will be the final chosen route according to specific ant behavior (deterministic, probabilistic, specific values)? How much time it will take (probabilistic estimation)?</strong></p>
+<p>?</p>
+<hr />
+<p><strong>Problem example: given a system of ODE representing the evolution of worker allocation to given task(s) as well as the demand evolution associated to the task(s), carry out a steady state analysis and analyze the stationary agent allocation and demand level.</strong></p>
+<p><em>see notes</em></p>
+<hr />
+<p><strong>Problem example: caste a given scenario (multi-tasks, multi-agents) into a marketbased solution; define utility functions; calculate the resulting allocation on a simple numerical example.</strong></p>
+<p><em>see notes</em></p>
+<hr />
+<p><strong>What are the differences between formation and flocking? Do you know a simple algorithm able to maintain the formation of a group of robots? (formulate with pseudo-code). Do you know a simple algorithm able to maintain a flock of robots? (formulate your answer with pseudo-code). What sensing/communication/computation capabilities do you need for running them? Which one will be more expensive in terms of sensing/communication/computation?</strong></p>
+<ul>
+<li>formation: interrobot distance / organisation matters, whereas in flocking only the general motion and average interrobot distance matters.</li>
+<li>flocking: Reynolds</li>
+<li>formation: Laplacian</li>
+</ul>
+<hr />
+<p><strong>What are the key ingredients of self-organization? Identify the key ingredients of self-organization in a given experiment we saw in the course and give supporting rationale.</strong></p>
+<ul>
+<li><p>self organisation = A set of dynamical mechanisms whereby structure appears <strong>at the global level </strong>as the result of <strong>interactions among lower-level component</strong>.</p>
+<p>Rules executed by the system’s units on the basis of <strong>purely local information</strong>, without reference to the global pattern, which is an <strong>emergent property of the system</strong> rather than a property imposed upon the system by an external ordering influence.</p></li>
+<li><p>Ant colonies</p></li>
+</ul>
+<hr />
+<hr />
 <h2 id="part-3-multi-level-modeling">Part 3 : Multi-Level Modeling</h2>
 <blockquote>
 <p>Keywords: submicroscopic models (e.g. Webots), microscopic models (e.g. multiagent); macroscopic models (e.g., mean field); modeling assumptions; differences between modeling levels; linear and nonlinear models; parameter calibration; steady state analysis</p>
 </blockquote>
-<p>Problem example: given an arena of a certain area, a certain number of robots, a certain number of behaviors, formulate a macroscopic model for capturing the system dynamics; carry out a steady state analysis for specific parameters</p>
-<p>Problem example: given an arena of a certain area, a certain number of robots, a certain number of behaviors, formulate a PFSM and illustrate in details with rationale your choices for modeling at the various levels (explicit parameters represented, spatiality handling, etc.).</p>
-<p>Problem example: simplified models of obstacle avoidance, object aggregation, stick-pulling from the papers as a start; we will change various details and ask you to reformulate the equations at macroscopic level, carry out a steady state analysis, and compare results with the original model.</p>
-<p>Clarify various sources of errors in going up with abstraction (physical -&gt; submicroscopic -&gt; microscopic-&gt; macroscopic) with the typical implementation we saw in the course (real miniature robots -&gt; Webots -&gt; multi-agent non spatial -&gt; meanfield ODE).</p>
+<p><strong>Problem example: given an arena of a certain area, a certain number of robots, a certain number of behaviors, formulate a macroscopic model for capturing the system dynamics; carry out a steady state analysis for specific parameters.</strong></p>
+<hr />
+<p><strong>Problem example: given an arena of a certain area, a certain number of robots, a certain number of behaviors, formulate a PFSM and illustrate in details with rationale your choices for modeling at the various levels (explicit parameters represented, spatiality handling, etc.).</strong></p>
+<hr />
+<p><strong>Problem example: simplified models of obstacle avoidance, object aggregation, stick-pulling from the papers as a start; we will change various details and ask you to reformulate the equations at macroscopic level, carry out a steady state analysis, and compare results with the original model.</strong></p>
+<hr />
+<p><strong>Clarify various sources of errors in going up with abstraction (physical <span class="math inline">\(\rightarrow\)</span> submicroscopic <span class="math inline">\(\rightarrow\)</span> microscopic <span class="math inline">\(\rightarrow\)</span> macroscopic) with the typical implementation we saw in the course (real miniature robots <span class="math inline">\(\rightarrow\)</span> Webots <span class="math inline">\(\rightarrow\)</span> multi-agent non spatial <span class="math inline">\(\rightarrow\)</span> meanfield ODE).</strong></p>
 <h2 id="part-4-platforms-localization-and-distributed-sensing">Part 4 : Platforms, Localization and Distributed Sensing</h2>
 <blockquote>
 <p>Keywords: sensors and actuators; controller classes (e.g., proximal, distal); control architectures (e.g., Braitenberg, ANN, behavior-based such as motor-schemas); odometry; feature-based localization; sensor networks principles and applications; mobile and robotic sensor networks; energy management and power consumption in sensor networks;</p>
 </blockquote>
-<p>Problem example: given time series of speed on both wheels, calculate where the robot will be using odometry (without slip, with slip, with some parameter having special values, etc. ); knowing the initial state, compute the covariance matrix that reflects the positioning uncertainty after a specific set of movements; combine odometry with a distance sensor measurement and explain graphically localization accuracy.</p>
-<p>Problem example: given a robotic platform with a certain perception-actuation configuration, a given task to solve, formulate a proximal (e.g., Braitenberg architecture) and a distal (e.g., behavior-based) control solution; outline number of parameters to be found and propose solutions for reducing the overhead for finding the parameters for each architecture type (reducing their number, other techniques).</p>
-<p>Problem example: given a mission for a robotic platform, propose a control architecture based on the motor-schema framework with specific control laws for each motor-schema and appropriate sensory suites.</p>
-<p>Problem example: calculate energy budget for communication, computation, sensing in a sensor network given a specific sensing task.</p>
-<p>Problem example: propose energy-saving control laws for a specific simple example of field; illustrate the dynamic of message sending at specific events/instances of the field.</p>
-<p>Problem example: given a certain field to sense, propose a concrete deployment strategy for a sensor network (number of nodes, node locations) given specific limitations of the sensor node in sensing, communication, and computation.</p>
-<p>Problem example: given a certain static/mobile/robotic sensor network deployment with some assumptions on it sampling strategy determine its state after a given number of time steps; calculate its performance; calculate the network’s temporal and/or spatial resolution.</p>
+<p><strong>Problem example: given time series of speed on both wheels, calculate where the robot will be using odometry (without slip, with slip, with some parameter having special values, etc. ); knowing the initial state, compute the covariance matrix that reflects the positioning uncertainty after a specific set of movements; combine odometry with a distance sensor measurement and explain graphically localization accuracy.</strong></p>
+<p><em>see notes</em></p>
+<hr />
+<p><strong>Problem example: given a robotic platform with a certain perception-actuation configuration, a given task to solve, formulate a proximal (e.g., Braitenberg architecture) and a distal (e.g., behavior-based) control solution; outline number of parameters to be found and propose solutions for reducing the overhead for finding the parameters for each architecture type (reducing their number, other techniques).</strong></p>
+<p><em>see notes</em></p>
+<hr />
+<p><strong>Problem example: given a mission for a robotic platform, propose a control architecture based on the motor-schema framework with specific control laws for each motor-schema and appropriate sensory suites.</strong></p>
+<hr />
+<p><strong>Problem example: calculate energy budget for communication, computation, sensing in a sensor network given a specific sensing task.</strong></p>
+<hr />
+<p><strong>Problem example: propose energy-saving control laws for a specific simple example of field; illustrate the dynamic of message sending at specific events/instances of the field.</strong></p>
+<hr />
+<p><strong>Problem example: given a certain field to sense, propose a concrete deployment strategy for a sensor network (number of nodes, node locations) given specific limitations of the sensor node in sensing, communication, and computation.</strong></p>
+<hr />
+<p><strong>Problem example: given a certain static/mobile/robotic sensor network deployment with some assumptions on it sampling strategy determine its state after a given number of time steps; calculate its performance; calculate the network’s temporal and/or spatial resolution.</strong></p>
 <hr />
 <p><strong>Classify a list of sensors into the appropriate bin (exteroceptive/proprioceptive, active/passive) and add rationale for your choice.</strong></p>
 <p><em>see notes</em></p>
@@ -753,6 +833,11 @@
 <p><strong>Analyze the response of a specific sensor: resolution, bandwidth, range, linearity, accuracy, precision, etc.</strong></p>
 <p><em>see notes</em></p>
 <hr />
-<p>What are the main research issues/challenges in sensor networks? What are the main application domains so far? What are the typical problems encountered in the deployment of WSN in the field?</p>
+<p><strong>What are the main research issues/challenges in sensor networks? What are the main application domains so far? What are the typical problems encountered in the deployment of WSN in the field?</strong></p>
+<ul>
+<li>Challenges:</li>
+<li>Application domains: environment, large scale simulations, etc</li>
+<li>Weather, power,</li>
+</ul>
 </body>
 </html>
